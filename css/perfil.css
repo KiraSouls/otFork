@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+.logo{
+    margin-top: 20px;
+}
+.bannerclub{
+    background: url("../img/bannerclub.png") no-repeat 50% 50%;
+    height:450px;
+    width: 100%;
+    display: table;
+    margin-top: 50px;
+    background-size: cover;
+}
+.perfils{
+    margin-top: 30px;
+    height: 600px;
+    width: 100%;
+    margin-left: 10%;
+    flex-wrap: wrap;
+
+
+
+}
+.perfil{
+
+    height: 100%;
+    width: 40%;
+    float: left;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border: solid black 7px;
+    min-width: 240px;
+
+}
+.beneficios{
+    font-family: Raleway, sans-serif;
+    margin-left: 5px;
+    min-height: 600px;
+    width: 40%;
+    float: left;
+    border-radius: 30px;
+    border-radius:  30px;
+    -moz-border-radius:  30px;
+    -o-border-radius:  30px;
+    -ms-border-radius:  30px;
+    border: solid black 7px;
+    min-width: 240px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.hello{
+    color: black;
+    font-family: Raleway, sans-serif;
+    margin-top: 200px;
+    font-size: 250%;
+    text-align: center;
+}
+.cerrar{
+    font-family: Raleway, sans-serif;
+    color: black;
+}
+
+
+.item img {
+    height: 200px;
+    width: 200px;
+    display: block;
+    border-radius: 30px;
+    border-radius:  30px;
+    -moz-border-radius:  30px;
+    -o-border-radius:  30px;
+    -ms-border-radius:  30px;
+    margin: 5px;
+
+}
+.imgbene{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item{
+
+    cursor: pointer;
+}
+
+
+.beneficios h1{
+
+    font-family: Raleway, sans-serif;
+    margin-top: 10px;
+}
+.boton{
+    align-content: center;
+    background: black;
+    color: white;
+    font-size: 100%;
+    text-transform: uppercase;
+    border: solid black;
+    margin-top: 20px;
+    height: 40px;
+}
+
+@media (max-width: 480px) {
+    .bannerclub{
+        background: cover;
+        height: 200px;
+    }
+    .perfils{
+        margin-left: 0;
+        justify-content: center;
+    }
+    .perfil{
+        height: 300px;
+    }
+    .beneficios{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .hello{
+        margin-top: 70px;
+        font-size: 110%;
+    }
+    .boton{
+        font-size: 50%;
+    }
+
+
+}
+@media (max-width: 768px) {
+    .bannerclub{
+        background: cover;
+        height: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .perfils{
+        margin-left: 0;
+    }
+    .perfil{
+
+    }
+    .beneficios{
+
+    }
+    .bannerclub{
+        background: cover;
+        height: 200px;
+    }
+    .imgofert{
+        height: 150px;
+        width: 150px;
+    }
+
+}
+

@@ -1,0 +1,17 @@
+{
+    "name": "proyectos/ot",
+    "autoload": {
+        "psr-4": {
+            "Proyectos\\Ot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ignaciolorca",
+            "email": "lorca.ignacio@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^2.0"
+    }
+}

@@ -1,0 +1,89 @@
+<div class="email--background">
+
+		<div class="pre-header">
+      <img src="https://image.ibb.co/mFLAJT/logofikaheader.png" style="width:150px;">
+      <h1>FIKA COFFEE SHOP</h1>
+      <p>nombre: </p>.$comentario
+      <p>correo: </p>.$comentario
+			<p>Comentario: </p>.$comentario
+      <p>Fecha de visita: </p>.$comentario
+      <p>Hora de visita: </p>.$comentario
+
+		</div>
+
+		<div class="email--container">
+
+			<div class="email--inner-container">
+				<a href="http://www.fika-coffeeshop.cl/" class="cta">Ir a la web</a>
+			</div>
+
+		</div>
+	</div>
+<style media="screen">
+$light-grey: #eee;
+
+body {
+font-family: sans-serif;
+background: #fff;
+}
+
+.email {
+&--background {
+  background: $light-grey;
+  padding: 10px;
+  text-align: center;
+}
+
+&--container {
+  max-width: 500px;
+  background: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+&--inner-container {
+  padding: 0 5% 40px;
+}
+}
+
+.pre-header {
+@extend .email--container;
+background: $light-grey;
+color: $light-grey;
+font-size: 7px;
+}
+
+img {
+max-width: 100%;
+display: block;
+}
+
+p {
+font-size: 18px;
+line-height: 1.5;
+color: darken($light-grey, 30);
+margin-bottom: 30px;
+}
+
+.cta {
+display: inline-block;
+padding: 10px 20px;
+color: #fff;
+background: BLACK;
+text-decoration: none;
+letter-spacing: 2px;
+text-transform: uppercase;
+border-radius: 5px;
+font-size: 13px;
+}
+
+.footer-junk {
+padding: 20px;
+font-size: 10px;
+
+a {
+  color: darken($light-grey, 20);
+}
+}
+</style>

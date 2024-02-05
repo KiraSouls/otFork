@@ -1,0 +1,36 @@
+.logo{
+    margin-top: 20px;
+}
+
+
+
+.boton{
+    background: black;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: solid black;
+    margin-top: 20px;
+    height: 40px;
+
+}
+
+form label{
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 5px;
+
+
+}
+form input{
+    background: white;
+    border: 3px solid black;
+    width: 65%;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 600px;
+}
+.formulario{
+    margin-top: 140px;
+    text-align: center;
+}

@@ -1,0 +1,98 @@
+[11-Oct-2019 20:10:01 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[11-Oct-2019 20:10:01 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[11-Oct-2019 20:10:01 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[11-Oct-2019 20:10:01 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[11-Oct-2019 20:10:01 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[11-Oct-2019 20:10:01 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 13:46:41 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 13:46:41 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 13:46:41 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 13:46:41 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 13:46:41 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 13:46:41 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 13:48:59 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 13:48:59 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 13:48:59 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 13:48:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 13:48:59 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 13:48:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 14:34:55 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 14:34:55 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 14:34:55 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 14:34:55 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 14:34:55 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 14:34:55 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 14:34:59 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 14:34:59 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 14:34:59 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 14:34:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 14:34:59 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 14:34:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 14:35:59 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 14:35:59 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 14:35:59 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 14:35:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 14:35:59 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 14:35:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 19:00:37 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 19:00:37 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 19:00:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 19:00:37 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 19:00:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 19:00:37 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 19:02:56 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 19:02:56 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 19:02:56 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 19:02:56 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 19:02:56 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 19:02:56 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 20:05:28 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 20:05:28 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 20:05:28 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 20:05:28 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 20:05:28 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 20:05:28 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 20:50:20 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 20:50:20 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 20:50:20 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 20:50:20 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 20:50:20 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 20:50:20 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[14-Oct-2019 20:51:30 UTC] PHP Warning:  mysqli::__construct(): (08004/1040): Too many connections in /home/scinform/public_html/ot/conn/connn.php on line 2
+[14-Oct-2019 20:51:30 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/scinform/public_html/ot/conn/connn.php on line 3
+[14-Oct-2019 20:51:30 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 7
+[14-Oct-2019 20:51:30 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 11
+[14-Oct-2019 20:51:30 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/scinform/public_html/ot/extend/fetch.php on line 35
+[14-Oct-2019 20:51:30 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/scinform/public_html/ot/extend/fetch.php on line 36
+[24-Jan-2020 16:27:34 UTC] PHP Notice:  Undefined index: msj in /home/scinform/public_html/ot/extend/alerta.php on line 12
+[24-Jan-2020 16:27:34 UTC] PHP Notice:  Undefined index: c in /home/scinform/public_html/ot/extend/alerta.php on line 13
+[24-Jan-2020 16:27:34 UTC] PHP Notice:  Undefined index: p in /home/scinform/public_html/ot/extend/alerta.php on line 14
+[24-Jan-2020 16:27:34 UTC] PHP Notice:  Undefined index: t in /home/scinform/public_html/ot/extend/alerta.php on line 15
+[24-Jan-2020 16:27:34 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[24-Jan-2020 16:27:34 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[07-Jan-2021 14:07:33 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[07-Jan-2021 14:07:36 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[04-Feb-2021 03:56:26 UTC] PHP Notice:  Undefined index: c in /home/scinform/public_html/ot/extend/alerta.php on line 13
+[04-Feb-2021 03:56:26 UTC] PHP Notice:  Undefined index: p in /home/scinform/public_html/ot/extend/alerta.php on line 14
+[04-Feb-2021 03:56:26 UTC] PHP Notice:  Undefined index: t in /home/scinform/public_html/ot/extend/alerta.php on line 15
+[04-Feb-2021 03:56:26 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[04-Feb-2021 03:56:26 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[04-Feb-2021 03:56:28 UTC] PHP Notice:  Undefined index: c in /home/scinform/public_html/ot/extend/alerta.php on line 13
+[04-Feb-2021 03:56:28 UTC] PHP Notice:  Undefined index: p in /home/scinform/public_html/ot/extend/alerta.php on line 14
+[04-Feb-2021 03:56:28 UTC] PHP Notice:  Undefined index: t in /home/scinform/public_html/ot/extend/alerta.php on line 15
+[04-Feb-2021 03:56:28 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[04-Feb-2021 03:56:28 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[08-Feb-2021 23:44:01 UTC] PHP Notice:  Undefined index: c in /home/scinform/public_html/ot/extend/alerta.php on line 13
+[08-Feb-2021 23:44:01 UTC] PHP Notice:  Undefined index: p in /home/scinform/public_html/ot/extend/alerta.php on line 14
+[08-Feb-2021 23:44:01 UTC] PHP Notice:  Undefined index: t in /home/scinform/public_html/ot/extend/alerta.php on line 15
+[08-Feb-2021 23:44:01 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[08-Feb-2021 23:44:01 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[08-Feb-2021 23:44:02 UTC] PHP Notice:  Undefined index: c in /home/scinform/public_html/ot/extend/alerta.php on line 13
+[08-Feb-2021 23:44:02 UTC] PHP Notice:  Undefined index: p in /home/scinform/public_html/ot/extend/alerta.php on line 14
+[08-Feb-2021 23:44:02 UTC] PHP Notice:  Undefined index: t in /home/scinform/public_html/ot/extend/alerta.php on line 15
+[08-Feb-2021 23:44:02 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[08-Feb-2021 23:44:02 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 198
+[27-Aug-2021 19:43:21 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 210
+[27-Aug-2021 19:43:22 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 210
+[02-Apr-2022 13:43:27 UTC] PHP Notice:  Undefined variable: carpeta in /home/scinform/public_html/ot/extend/alerta.php on line 210
+[02-Apr-2022 13:43:28 UTC] PHP Notice:  Undefined variable: pagina in /home/scinform/public_html/ot/extend/alerta.php on line 210
