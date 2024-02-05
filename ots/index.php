@@ -42,42 +42,9 @@ $row = mysqli_num_rows($sel);
                         <th class="borrar">Eliminar</th>
 
                     </thead>
-                    <?php while ($f = $sel->fetch_assoc()) { ?>
-                        <tr>
-                            <td><?php echo $f['number'] ?></td>
-                            <td><?php echo $f['name'] ?></td>
-                            <td><?php echo $f['location'] ?></td>
-                            <td><?php echo $f['service_name'] ?></td>
-                            <td><?php echo $f['leader'] ?></td>
+                    <tbody>
 
-                            <td>
-                                <?php if ($f['status'] == 'iniciada') { ?>
-                                    <span class='task-cat green'><?php echo $f['status'] ?></span> <?php }
-                                                                                                if ($f['status'] == 'finalizada') {
-                                                                                                    ?>
-                                    <span class='task-cat grey'><?php echo $f['status'] ?></span>
-                                <?php  }
-                                                                                                if ($f['status'] == 'pendiente') { ?>
-                                    <span class='task-cat yellow'><?php echo $f['status'] ?></span>
-                                <?php } ?>
-                            </td>
-
-                            <td><?php echo $f['created_at'] ?></td>
-                            <?php if ($f['status'] == "iniciada") { ?>
-                                <td><a href="detail_ot.php?id=<?php echo $f['id'] ?>" class="btn-floating green"><i class="material-icons">remove_red_eye</i></a></td>
-                            <?php
-                            }
-                            if ($f['status'] == "pendiente") { ?>
-                                <td><a href="detail_ot.php?id=<?php echo $f['id'] ?>" class="btn-floating yellow"><i class="material-icons">remove_red_eye</i></a></td>
-                            <?php  }
-                            if ($f['status'] === "finalizada") { ?>
-                                <td><a href="detail_ot.php?id=<?php echo $f['id'] ?>" class="btn-floating grey"><i class="material-icons">remove_red_eye</i></a></td><?php } ?>
-                            <td><a href="update_ot.php?id=<?php echo $f['id'] ?>" class="btn-floating light-blue darken-2"><i class="material-icons">settings_applications</i></a></td>
-
-                            <td class="borrar"><a href="#" class="btn-floating red" onclick="swal({ title:'Esta seguro que desea eliminar esta orden?',text: 'Se perderan los datos!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminar'}).then(function (isConfirm) {
-                         if(isConfirm.value){  location.href='delete_ot.php?id=<?php echo     $f['id'] ?>'; } else { location.href='index.php';} })"><i class="material-icons">clear</i></a></td>
-                        </tr>
-                    <?php } ?>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -102,7 +69,67 @@ $row = mysqli_num_rows($sel);
     $(document).ready(function() {
         $('#ot_tabledata').DataTable({
 
+
+            /* --datatable-- */
+            "ajax": {
+                "url": "datos_tabla_ot.php",
+                "dataSrc": ""
+
+            },
+            "columns": [{
+                    "data": "number",
+                }, {
+                    "data": "name",
+                }, {
+                    "data": "location",
+                }, {
+                    "data": "service_name",
+                }, {
+                    "data": "leader",
+                }, {
+                    "data": "status",
+                    "render": function(data, type, row) {
+                        var statusHtml = '';
+
+                        if (row.status === 'iniciada') {
+                            statusHtml = '<span class="task-cat green">' + row.status + '</span>';
+                        } else if (row.status === 'finalizada') {
+                            statusHtml = '<span class="task-cat grey">' + row.status + '</span>';
+                        } else if (row.status === 'pendiente') {
+                            statusHtml = '<span class="task-cat yellow">' + row.status + '</span>';
+                        }
+
+                        return statusHtml;
+                    }
+                }, {
+                    "data": "created_at",
+                }, {
+                    // Botón "Ver"
+                    "data": null,
+                    "render": function(data, type, row) {
+                        return '<a href="detail_ot.php?id=' + row.id + '" class="btn-floating grey"><i class="material-icons">remove_red_eye</i></a>';
+                    }
+                },
+                {
+                    // Botón "Editar"
+                    "data": null,
+                    "render": function(data, type, row) {
+                        return '<a href="update_ot.php?id=' + row.id + '" class="btn-floating light-blue darken-2"><i class="material-icons">settings_applications</i></a>';
+                    }
+                },
+                {
+                    // Botón "Eliminar"
+                    "data": null,
+                    "render": function(data, type, row) {
+                        return '<a href="#" class="btn-floating red" onclick="confirmarEliminar(' + row.id + ')"><i class="material-icons">clear</i></a>';
+                    }
+                }
+            ],
+
+            /* ---- */
+
             responsive: true,
+
             order: [
                 [0, 'desc']
             ],
