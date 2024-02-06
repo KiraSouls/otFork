@@ -1,6 +1,11 @@
 <?php
 $sel = $con->query("SELECT * FROM notifications WHERE status=1 ORDER BY id DESC LIMIT 5");
 $row = mysqli_num_rows($sel);
+
+if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
+  header("Location: ../");
+  exit;
+} else
 ?>
 
 
