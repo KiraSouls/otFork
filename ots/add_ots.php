@@ -114,6 +114,35 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                </div>
                <input id="e_count" name="e_count" value="" type="text" hidden>
 
+               <div id="det" class="col s12">
+                  <fieldset>
+                     <legend>¿El Equipo Posee Detalles?:</legend>
+                     <div>
+                        <input type="radio" id="detsi" name="det" value="si" onclick="detalles('Y');" />
+                        <label for="detsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="detno" name="det" value="no" onclick="detalles('N');" />
+                        <label for="detno">No</label>
+                     </div>
+                  </fieldset>
+               </div>
+
+               <div id="acc" class="col s12">
+                  <fieldset>
+                     <legend>¿El Equipo Posee Accesorios:</legend>
+                     <div>
+                        <input type="radio" id="accsi" name="acc" value="si" onclick="accesorios('Y');" />
+                        <label for="accsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="accno" name="acc" value="no" onclick="accesorios('N');" />
+                        <label for="accno">No</label>
+                     </div>
+                  </fieldset>
+               </div>
+
+
                <div id="rayones" class="col s12 hide">
                   <fieldset>
                      <legend>¿El Equipo Posee Rayones?:</legend>
@@ -132,15 +161,16 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   </fieldset>
                </div>
 
+
                <div id="rupturas" class="col s12 hide">
                   <fieldset>
                      <legend>¿El Equipo Posee Rupturas?:</legend>
                      <div>
-                        <input type="radio" id="rupsi" name="carga" value="si" onclick="hideShowJacks2('Y');" />
+                        <input type="radio" id="rupsi" name="rupturas" value="si" onclick="hideShowJacks2('Y');" />
                         <label for="rupsi">Si</label>
                      </div>
                      <div>
-                        <input type="radio" id="rupno" name="carga" value="no" onclick="hideShowJacks2('N');" />
+                        <input type="radio" id="rupno" name="rupturas" value="no" onclick="hideShowJacks2('N');" />
                         <label for="rupno">No</label>
                      </div>
                      <div>
@@ -155,11 +185,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   <fieldset>
                      <legend>¿El Equipo Posee Todos Los Tornillos De Su Carcasa?:</legend>
                      <div>
-                        <input type="radio" id="torsi" name="carga" value="si" onclick="hideShowJacks3('Y');" />
+                        <input type="radio" id="torsi" name="tornillos" value="si" onclick="hideShowJacks3('Y');" />
                         <label for="torsi">Si</label>
                      </div>
                      <div>
-                        <input type="radio" id="torno" name="carga" value="no" onclick="hideShowJacks3('N');" />
+                        <input type="radio" id="torno" name="tornillos" value="no" onclick="hideShowJacks3('N');" />
                         <label for="torno">No</label>
                      </div>
                      <div>
@@ -187,99 +217,114 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   </fieldset>
                </div>
 
-
-
-
-               <!-- <div id="cargador" class="col s12 hide">
+               <div id="cargador" class="col s12 hide">
                   <fieldset>
-                     <legend>¿Posee Cargador?:</legend>
+                     <legend>¿El Equipo Posee Cargador?:</legend>
                      <div>
-                        <input type="radio" id="ssi" name="carga" value="si" onclick="hideShowJacks2('Y');" />
-                        <label for="ssi">Si</label>
+                        <input type="radio" id="carsi" name="carga" value="si" onclick="hideShowJacks5('Y');" />
+                        <label for="carsi">Si</label>
                      </div>
                      <div>
-                        <input type="radio" id="nno" name="carga" value="no" onclick="hideShowJacks2('N');" />
-                        <label for="nno">No</label>
+                        <input type="radio" id="carno" name="carga" value="no" onclick="hideShowJacks5('N');" />
+                        <label for="carno">No</label>
                      </div>
                      <div>
                         <div>
-                           <textarea id="area2"></textarea>
+                           <textarea id="area5"></textarea>
+                        </div>
+                  </fieldset>
+               </div>
+
+               <div id="cable" class="col s12 hide">
+                  <fieldset>
+                     <legend>¿El Equipo Posee Cable de Poder?:</legend>
+                     <div>
+                        <input type="radio" id="podersi" name="poder" value="si" onclick="hideShowJacks6('Y');" />
+                        <label for="podersi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="poderno" name="poder" value="no" onclick="hideShowJacks6('N');" />
+                        <label for="poderno">No</label>
+                     </div>
+                     <div>
+                        <div>
+                           <textarea id="area6"></textarea>
+                        </div>
+                  </fieldset>
+               </div>
+
+               <div id="adaptador" class="col s12 hide">
+                  <fieldset>
+                     <legend>¿El Equipo Posee Adaptador de Poder?:</legend>
+                     <div>
+                        <input type="radio" id="adasi" name="adapt" value="si" onclick="hideShowJacks7('Y');" />
+                        <label for="adasi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="adano" name="adapt" value="no" onclick="hideShowJacks7('N');" />
+                        <label for="adano">No</label>
+                     </div>
+                     <div>
+                        <div>
+                           <textarea id="area7"></textarea>
                         </div>
                   </fieldset>
                </div>
 
                <div id="bateria" class="col s12 hide">
                   <fieldset>
-                     <legend>¿Posee Batería?:</legend>
+                     <legend>¿El Equipo Posee Batería?:</legend>
                      <div>
-                        <input type="radio" id="sssi" name="bat" value="si" onclick="hideShowJacks3('Y');" />
-                        <label for="sssi">Si</label>
+                        <input type="radio" id="batsi" name="bat" value="si" onclick="hideShowJacks8('Y');" />
+                        <label for="batsi">Si</label>
                      </div>
                      <div>
-                        <input type="radio" id="nnno" name="bat" value="no" onclick="hideShowJacks3('N');" />
-                        <label for="nnno">No</label>
+                        <input type="radio" id="batno" name="bat" value="no" onclick="hideShowJacks8('N');" />
+                        <label for="batno">No</label>
                      </div>
                      <div>
                         <div>
-                           <textarea id="area3"></textarea>
+                           <textarea id="area8"></textarea>
                         </div>
                   </fieldset>
-               </div> -->
+               </div>
 
-               <!-- 
-               Permite esconder el text area -->
+               <div id="pantalla" class="col s12 hide">
+                  <fieldset>
+                     <legend>¿El Equipo Posee Pantalla En Buen Estado?:</legend>
+                     <div>
+                        <input type="radio" id="pansi" name="pant" value="si" onclick="hideShowJacks9('Y');" />
+                        <label for="pansi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="panno" name="pant" value="no" onclick="hideShowJacks9('N');" />
+                        <label for="panno">No</label>
+                     </div>
+                     <div>
+                        <div>
+                           <textarea id="area9"></textarea>
+                        </div>
+                  </fieldset>
+               </div>
 
-               <style>
-                  #area {
-                     display: none;
-                  }
+               <div id="teclado" class="col s12 hide">
+                  <fieldset>
+                     <legend>¿El Equipo Posee Teclado en Buen Estado?:</legend>
+                     <div>
+                        <input type="radio" id=tecsi" name="teclado" value="si" onclick="hideShowJacks10('Y');" />
+                        <label for="tecsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="tecno" name="teclado" value="no" onclick="hideShowJacks10('N');" />
+                        <label for="tecno">No</label>
+                     </div>
+                     <div>
+                        <div>
+                           <textarea id="area10"></textarea>
+                        </div>
+                  </fieldset>
+               </div>
 
-                  #area2 {
-                     display: none;
-                  }
-
-                  #area3 {
-                     display: none;
-                  }
-
-                  #area4 {
-                     display: none;
-                  }
-               </style>
-               <!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
-               <script>
-                  function hideShowJacks(val) {
-                     if (val == "Y") {
-                        $("#area").show();
-                     } else {
-                        $("#area").hide();
-                     }
-                  }
-
-                  function hideShowJacks2(val) {
-                     if (val == "Y") {
-                        $("#area2").show();
-                     } else {
-                        $("#area2").hide();
-                     }
-                  }
-
-                  function hideShowJacks3(val) {
-                     if (val == "Y") {
-                        $("#area3").show();
-                     } else {
-                        $("#area3").hide();
-                     }
-                  }
-
-                  function hideShowJacks4(val) {
-                     if (val == "Y") {
-                        $("#area4").show();
-                     } else {
-                        $("#area4").hide();
-                     }
-                  }
-               </script>
 
                <div class="row">
                   <div class="input-field col s12">
@@ -356,6 +401,243 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
    </div>
 </div>
 <?php include '../extend/scripts.php'; ?>
+<style>
+   #area {
+      display: none;
+   }
+
+   #area2 {
+      display: none;
+   }
+
+   #area3 {
+      display: none;
+   }
+
+   #area4 {
+      display: none;
+   }
+
+   #area5 {
+      display: none;
+   }
+
+   #area6 {
+      display: none;
+   }
+
+   #area7 {
+      display: none;
+   }
+
+   #area8 {
+      display: none;
+   }
+
+   #area9 {
+      display: none;
+   }
+
+   #area10 {
+      display: none;
+   }
+</style>
+
+<!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
+<script>
+   function hideShowJacks(val) {
+      if (val == "Y") {
+         $("#area").show();
+      } else {
+         $("#area").hide();
+      }
+   }
+
+   function hideShowJacks2(val) {
+      if (val == "Y") {
+         $("#area2").show();
+      } else {
+         $("#area2").hide();
+      }
+   }
+
+   function hideShowJacks3(val) {
+      if (val == "Y") {
+         $("#area3").show();
+      } else {
+         $("#area3").hide();
+      }
+   }
+
+   function hideShowJacks4(val) {
+      if (val == "Y") {
+         $("#area4").show();
+      } else {
+         $("#area4").hide();
+      }
+   }
+
+   function hideShowJacks5(val) {
+      if (val == "Y") {
+         $("#area5").show();
+      } else {
+         $("#area5").hide();
+      }
+   }
+
+   function hideShowJacks6(val) {
+      if (val == "Y") {
+         $("#area6").show();
+      } else {
+         $("#area6").hide();
+      }
+   }
+
+   function hideShowJacks7(val) {
+      if (val == "Y") {
+         $("#area7").show();
+      } else {
+         $("#area7").hide();
+      }
+   }
+
+   function hideShowJacks8(val) {
+      if (val == "Y") {
+         $("#area8").show();
+      } else {
+         $("#area8").hide();
+      }
+   }
+
+   function hideShowJacks9(val) {
+      if (val == "Y") {
+         $("#area9").show();
+      } else {
+         $("#area9").hide();
+      }
+   }
+
+   function hideShowJacks10(val) {
+      if (val == "Y") {
+         $("#area10").show();
+      } else {
+         $("#area10").hide();
+      }
+   }
+
+
+
+
+   function detalles(val) {
+
+      if (val == "Y") {
+
+         var element = document.getElementById("rayones");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("rupturas");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("tornillos");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("gomas");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("estado");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("obs");
+         element.classList.remove("hide");
+
+
+         var element2 = document.getElementById("add");
+         element2.classList.remove("hide");
+      } else {
+         var element = document.getElementById("sublinea");
+         element.classList.add("hide");
+
+         var element = document.getElementById("equipo");
+         element.classList.add("hide");
+
+         var element = document.getElementById("tarea");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("rayones");
+         element.classList.add("hide");
+
+         var element = document.getElementById("rupturas");
+         element.classList.add("hide");
+
+         var element = document.getElementById("tornillos");
+         element.classList.add("hide");
+
+         var element = document.getElementById("gomas");
+         element.classList.add("hide");
+
+         var element = document.getElementById("estado");
+         element.classList.add("hide");
+
+         var element = document.getElementById("obs");
+         element.classList.add("hide");
+
+         var element3 = document.getElementById("add");
+         element3.classList.add("hide");
+      }
+   };
+
+   function accesorios(val) {
+
+      if (val == "Y") {
+
+         var element = document.getElementById("cargador");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("cable");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("adaptador");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("bateria");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("pantalla");
+         element.classList.remove("hide");
+
+         var element = document.getElementById("teclado");
+         element.classList.remove("hide");
+
+         var element2 = document.getElementById("add");
+         element2.classList.remove("hide");
+
+      } else {
+
+         var element = document.getElementById("cargador");
+         element.classList.add("hide");
+
+         var element = document.getElementById("cable");
+         element.classList.add("hide");
+
+         var element = document.getElementById("adaptador");
+         element.classList.add("hide");
+
+         var element = document.getElementById("bateria");
+         element.classList.add("hide");
+
+         var element = document.getElementById("pantalla");
+         element.classList.add("hide");
+
+         var element = document.getElementById("teclado");
+         element.classList.add("hide");
+
+         var element3 = document.getElementById("add");
+         element3.classList.add("hide");
+      }
+   };
+</script>
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 <script>
    $(document).ready(function() {
@@ -582,6 +864,10 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
 
 
+
+
+
+
             $.post("data_line.php", {
                id_service: id_service,
                id_branch: id_branch
@@ -683,10 +969,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             '" > </select> </div> </td><td> <div id="equipo" class="col s12 equipo" > <label for="equipment' + i + '">Equipo</label> <select style="width:300px;" class="browser-default" name="equipment' + i + '" id="equipment' + i +
             '"> </select> </div> </td> <td> <div class = "col s12 right"> <label for="task">Tarea</label> <select style="height:150px;width:300px;" class="browser-default" name="task' + i + '[]" id="task' + i +
             '" multiple> </select> </div> </td> <td> <div class = "col s6 right"> <a name="remove" id="' + i + '" class="btn-floating btn-large waves-effect waves-light light-blue darken-2 right btn_remove"><i class="material-icons">remove</i></a> </div> </td> </tr>'
-
-
-
-
          );
       });
 
