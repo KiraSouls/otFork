@@ -1,6 +1,11 @@
 <?php
 $sel = $con->query("SELECT * FROM notifications WHERE status=1 ORDER BY id DESC LIMIT 5");
 $row = mysqli_num_rows($sel);
+
+if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
+  header("Location: ../");
+  exit;
+} else
 ?>
 
 
@@ -17,7 +22,7 @@ $row = mysqli_num_rows($sel);
           <div class="notBtn" href="#">
             <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
             <div class="number"></div>
-            <i style="colo:white;margin-left:99px;" class="fas fa-bell right awhite"></i>
+            <i style="color:white;margin-left:99px;" class="fas fa-bell right awhite"></i>
             <div class="box">
               <div class="display">
                 <div class="nothing">
