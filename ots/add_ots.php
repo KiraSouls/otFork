@@ -797,32 +797,15 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   var element = document.getElementById("tarea");
                   element.classList.remove("hide");
 
-                  var element = document.getElementById("rayones");
+                  var element = document.getElementById("det");
                   element.classList.remove("hide");
 
-                  var element = document.getElementById("rupturas");
+                  var element = document.getElementById("acc");
                   element.classList.remove("hide");
-
-                  var element = document.getElementById("tornillos");
-                  element.classList.remove("hide");
-
-                  var element = document.getElementById("gomas");
-                  element.classList.remove("hide");
-
-                  var element = document.getElementById("estado");
-                  element.classList.remove("hide");
-
-                  var element = document.getElementById("obs");
-                  element.classList.remove("hide");
-
-                  // var element = document.getElementById("bateria");
-                  // element.classList.remove("hide");
-
-                  // var element = document.getElementById("cargador");
-                  // element.classList.remove("hide");
 
                   var element2 = document.getElementById("add");
                   element2.classList.remove("hide");
+
                } else {
                   var element = document.getElementById("sublinea");
                   element.classList.add("hide");
@@ -830,32 +813,12 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   var element = document.getElementById("equipo");
                   element.classList.add("hide");
 
-                  var element = document.getElementById("tarea");
-                  element.classList.remove("hide");
-
-                  var element = document.getElementById("rayones");
+                  var element = document.getElementById("det");
                   element.classList.add("hide");
 
-                  var element = document.getElementById("rupturas");
+                  var element = document.getElementById("acc");
                   element.classList.add("hide");
 
-                  var element = document.getElementById("tornillos");
-                  element.classList.add("hide");
-
-                  var element = document.getElementById("gomas");
-                  element.classList.add("hide");
-
-                  var element = document.getElementById("estado");
-                  element.classList.add("hide");
-
-                  var element = document.getElementById("obs");
-                  element.classList.add("hide");
-
-                  // var element = document.getElementById("bateria");
-                  // element.classList.add("hide");
-
-                  // var element = document.getElementById("cargador");
-                  // element.classList.add("hide");
 
                   var element3 = document.getElementById("add");
                   element3.classList.add("hide");
