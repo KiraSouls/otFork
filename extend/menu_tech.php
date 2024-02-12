@@ -22,7 +22,7 @@ if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
           <div class="notBtn" href="#">
             <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
             <div class="number"></div>
-            <i style="colo:white;margin-left:99px;" class="fas fa-bell right awhite"></i>
+            <i style="color:white;margin-left:99px;" class="fas fa-bell right awhite"></i>
             <div class="box">
               <div class="display">
                 <div class="nothing">
