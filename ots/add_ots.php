@@ -131,19 +131,21 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
                   </div>
                </div>
+               <div class="row">
+                  <div class="col s6">
+                     <label for="priority">Prioridad</label>
+                     <select class="browser-default" name="priority">
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                     </select>
 
-               <div class="col s6">
-                  <label for="task">Prioridad</label>
-                  <select class="" name="priority">
-                     <option value="alta">Alta</option>
-                     <option value="media">Media</option>
-                     <option value="baja">Baja</option>
-                  </select>
-
+                  </div>
                </div>
 
                <div class="row">
                   <div class=" col s12">
+                     <label for="type">Tipo</label>
                      <p>
                         <input id="interna" type="radio" name="type" value="Laboratorio" checked />
                         <label for="interna">Laboratorio</label>

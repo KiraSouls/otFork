@@ -109,6 +109,14 @@ while ($p = $sel_location->fetch_assoc()) {
 
             <?php  } ?>
 
+            <label for="hour_price">Tipo</label>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {  ?>
+              <input disabled type="text" name="name_client" value="<?php echo $f['type'] ?>" required>
+
+            <?php  } ?>
+
             <label for="hour_price">Prioridad</label>
             <?php
             $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
