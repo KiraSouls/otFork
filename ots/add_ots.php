@@ -115,7 +115,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                <input id="e_count" name="e_count" value="" type="text" hidden>
 
                <div id="det" class="row" style="border:1px solid #cfcfcf">
-                  <div class="col s2">
+                  <div class="col s6">
                      <div>
                         <legend>¿El Equipo Posee Detalles?:</legend>
                         <div>
@@ -219,7 +219,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                </div>
 
                <div id="acc" class="row " style="border: 1px solid #cfcfcf">
-                  <div class="col s2">
+                  <div class="col s6">
                      <div>
                         <legend>¿El Equipo Posee Accesorios:</legend>
                         <div>
@@ -244,7 +244,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="carno">No</label>
                            </div>
                            <div>
-                              <textarea id="area5"></textarea>
+                              <textarea id="area5" placeholder="N° de serie del accesorio"></textarea>
                            </div>
                         </div>
                      </div>
@@ -261,7 +261,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="poderno">No</label>
                            </div>
                            <div>
-                              <textarea id="area6"></textarea>
+                              <textarea id="area6" placeholder="N° de serie del accesorio"></textarea>
                            </div>
                         </div>
                      </div>
@@ -278,7 +278,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="adano">No</label>
                            </div>
                            <div>
-                              <textarea id="area7"></textarea>
+                              <textarea id="area7" placeholder="N° de serie del accesorio"></textarea>
                            </div>
                         </div>
                      </div>
@@ -295,14 +295,14 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="batno">No</label>
                            </div>
                            <div>
-                              <textarea id="area8"></textarea>
+                              <textarea id="area8" placeholder="N° de serie del accesorio"></textarea>
                            </div>
                         </div>
                      </div>
 
                      <div id="pantalla" class="row hide">
                         <div>
-                           <legend>¿El Equipo Posee Pantalla En Buen Estado?:</legend>
+                           <legend>¿El Equipo Posee Pantalla En Mal Estado?:</legend>
                            <div>
                               <input type="radio" id="pansi" name="pant" value="si" onclick="hideShowJacks9('Y');" />
                               <label for="pansi">Si</label>
@@ -312,16 +312,16 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="panno">No</label>
                            </div>
                            <div>
-                              <textarea id="area9"></textarea>
+                              <textarea id="area9" placeholder="El Equipo presenta..."></textarea>
                            </div>
                         </div>
                      </div>
 
                      <div id="teclado" class="row hide">
                         <div>
-                           <legend>¿El Equipo Posee Teclado en Buen Estado?:</legend>
+                           <legend>¿El Equipo Posee Teclado en Mal Estado?:</legend>
                            <div>
-                              <input type="radio" id=tecsi" name="teclado" value="si" onclick="hideShowJacks10('Y');" />
+                              <input type="radio" id="tecsi" name="teclado" value="si" onclick="hideShowJacks10('Y');" />
                               <label for="tecsi">Si</label>
                            </div>
                            <div>
@@ -329,7 +329,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="tecno">No</label>
                            </div>
                            <div>
-                              <textarea id="area10"></textarea>
+                              <textarea id="area10" placeholder="El Equipo presenta..."></textarea>
                            </div>
                         </div>
                      </div>
