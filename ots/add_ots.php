@@ -595,19 +595,8 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          var element = document.getElementById("obs");
          element.classList.remove("hide");
 
-         var element2 = document.getElementById("add");
-         element2.classList.remove("hide");
 
       } else {
-
-         var element = document.getElementById("sublinea");
-         element.classList.add("hide");
-
-         var element = document.getElementById("equipo");
-         element.classList.add("hide");
-
-         var element = document.getElementById("tarea");
-         element.classList.remove("hide");
 
          var element = document.getElementById("rayones");
          element.classList.add("hide");
@@ -627,8 +616,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          var element = document.getElementById("obs");
          element.classList.add("hide");
 
-         var element3 = document.getElementById("add");
-         element3.classList.add("hide");
       }
    };
 
