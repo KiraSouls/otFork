@@ -61,7 +61,16 @@ if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
     {
       $url_array = explode('/', $_SERVER['REQUEST_URI']);
       $url = end($url_array);
-      if ($currect_page == $url) {
+      if ((strpos($url, $currect_page) !== false)) {
+        echo 'activo';
+      }
+    }
+
+    function activeFolder($currect_page)
+    {
+      $url_array = explode('/', $_SERVER['REQUEST_URI']);
+      $url = $url_array[1];
+      if ($url == $currect_page) {
         echo 'activo';
       }
     }
@@ -79,20 +88,20 @@ if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
 
 
 
-  <li><a class="<?php active('index.php'); ?> id=" ordenes" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../ots/index.php"><i style="color: white;" class="material-icons">assignment</i>Ordenes</a></li>
-  <li><a class="<?php active('users.php'); ?> id=" clientes" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../users/users.php"><i style="color: white;" class="material-icons">account_circle</i>Clientes</a></li>
-  <li><a class="<?php active('index-providers.php'); ?> id=" proveedores" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../providers/index-providers.php"><i style="color: white;" class="material-icons">local_shipping</i>Proveedores</a></li>
-  <li><a class="<?php active('index-replacements.php'); ?> id=" repuestos" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../replacements/index-replacements.php"><i style="color: white;" class="material-icons">build</i>Repuestos</a></li>
-  <li><a class="<?php active('index-techs.php'); ?> id=" especialistas" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../techs/index-techs.php"><i style="color: white;" class="material-icons">person_pin_circle</i>Técnicos</a></li>
-  <li><a class="<?php active('index-home.php'); ?> id=" usuarios" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../home/index-home.php"><i style="color: white;" class="material-icons">supervisor_account</i>Usuarios</a></li>
-  <li><a class="<?php active('index-services.php'); ?> id=" servicios" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../services/index-services.php"><i style="color: white;" class="material-icons">device_hub</i>Servicios</a></li>
-  <li><a class="<?php active('index-equipments.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../equipments/index-equipments.php"><i style="color: white;" class="material-icons">computer</i>Equipos</a></li>
-  <li><a class="<?php active('index-config.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../config/index-config.php"><i style="color: white;" class="material-icons">settings</i>Parametros</a></li>
-  <li><a class="<?php active('index-reclamo.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/index-reclamo.php"><i style="color: white;" class="material-icons">verified</i>Reclamos</a></li>
-  <li><a class="<?php active('seguimiento.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/seguimiento.php"><i style="color: white;" class="material-icons">list</i>Seguimiento</a></li>
-  <li><a class="<?php active('agendamiento.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/agendamiento.php"><i style="color: white;" class="material-icons">event</i>Agendamiento</a></li>
-  <li><a class="<?php active('contratos.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/contratos.php"><i style="color: white;" class="material-icons">article</i>Contrato</a></li>
-  <li><a class="<?php active('salir.php'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../login/salir.php"><i style="color: white;" class="material-icons">power_settings_new</i>Salir</a></li>
+  <li><a class="<?php activeFolder('ots'); ?> id=" ordenes" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../ots/index.php"><i style="color: white;" class="material-icons">assignment</i>Ordenes</a></li>
+  <li><a class="<?php activeFolder('users'); ?><?php activeFolder('clients'); ?> id=" clientes" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../users/users.php"><i style="color: white;" class="material-icons">account_circle</i>Clientes</a></li>
+  <li><a class="<?php activeFolder('providers'); ?> id=" proveedores" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../providers/index-providers.php"><i style="color: white;" class="material-icons">local_shipping</i>Proveedores</a></li>
+  <li><a class="<?php activeFolder('replacements'); ?> id=" repuestos" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../replacements/index-replacements.php"><i style="color: white;" class="material-icons">build</i>Repuestos</a></li>
+  <li><a class="<?php activeFolder('techs'); ?> id=" especialistas" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../techs/index-techs.php"><i style="color: white;" class="material-icons">person_pin_circle</i>Técnicos</a></li>
+  <li><a class="<?php activeFolder('home'); ?> id=" usuarios" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../home/index-home.php"><i style="color: white;" class="material-icons">supervisor_account</i>Usuarios</a></li>
+  <li><a class="<?php activeFolder('services'); ?> id=" servicios" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../services/index-services.php"><i style="color: white;" class="material-icons">device_hub</i>Servicios</a></li>
+  <li><a class="<?php activeFolder('equipments'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../equipments/index-equipments.php"><i style="color: white;" class="material-icons">computer</i>Equipos</a></li>
+  <li><a class="<?php activeFolder('config'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../config/index-config.php"><i style="color: white;" class="material-icons">settings</i>Parametros</a></li>
+  <li><a class="<?php active('reclamo'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/index-reclamo.php"><i style="color: white;" class="material-icons">verified</i>Reclamos</a></li>
+  <li><a class="<?php active('seguimiento'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/seguimiento.php"><i style="color: white;" class="material-icons">list</i>Seguimiento</a></li>
+  <li><a class="<?php active('agendamiento'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/agendamiento.php"><i style="color: white;" class="material-icons">event</i>Agendamiento</a></li>
+  <li><a class="<?php active('contratos'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/contratos.php"><i style="color: white;" class="material-icons">article</i>Contrato</a></li>
+  <li><a class="<?php active('salir'); ?> id="" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../login/salir.php"><i style="color: white;" class="material-icons">power_settings_new</i>Salir</a></li>
   <h1 class="" style="position:fixed;bottom: 25px;"> <img src="http://www.scinformatica.cl/universal/img/logo-small.png" alt="" hidden></h1>
 
 </ul>
