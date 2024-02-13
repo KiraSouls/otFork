@@ -190,7 +190,7 @@ while ($p = $sel_location->fetch_assoc()) {
                        WHERE number_ot = '$number_ot'"); ?>
 
               <tr>
-                <td style="">Número de serie</td>
+                <td>Número de serie</td>
                 <td>Modelo</td>
                 <td>Tarea</td>
               </tr>
