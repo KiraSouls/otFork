@@ -191,43 +191,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         </div>
                      </div>
 
-                     <div id="toner" class="row hide">
-                        <div>
-                           <legend>¿El Equipo Posee Toner?:</legend>
-                           <div>
-                              <input type="radio" id="tonsi" name="ton" value="si" onclick="hideShowJacks11('Y');" />
-                              <label for="tonsi">Si</label>
-                           </div>
-                           <div>
-                              <input type="radio" id="tonno" name="ton" value="no" onclick="hideShowJacks11('N');" />
-                              <label for="tonno">No</label>
-                           </div>
-                           <div>
-                              <textarea id="area11" placeholder="El Equipo presenta..."></textarea>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div id="drum" class="row hide">
-                        <div>
-                           <legend>¿El Equipo Posee Drum?:</legend>
-                           <div>
-                              <input type="radio" id="drsi" name="dru" value="si" onclick="hideShowJacks12('Y');" />
-                              <label for="drsi">Si</label>
-                           </div>
-                           <div>
-                              <input type="radio" id="drno" name="dru" value="no" onclick="hideShowJacks12('N');" />
-                              <label for="drno">No</label>
-                           </div>
-                           <div>
-                              <textarea id="area12" placeholder="El Equipo presenta..."></textarea>
-                           </div>
-                        </div>
-                     </div>
-
-
-
-
                      <div class="row hide" id="estado">
                         <div class="input-field col s12 ">
                            <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"></textarea>
@@ -358,6 +321,40 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <textarea id="area10" placeholder="El Equipo presenta..."></textarea>
                            </div>
                         </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div id="toner" class="row hide">
+                  <div class="col s6">
+                     <legend>¿El Equipo Posee Toner?:</legend>
+                     <div>
+                        <input type="radio" id="tonsi" name="ton" value="si" onclick="hideShowJacks11('Y');" />
+                        <label for="tonsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="tonno" name="ton" value="no" onclick="hideShowJacks11('N');" />
+                        <label for="tonno">No</label>
+                     </div>
+                     <div>
+                        <textarea id="area11" placeholder="El Equipo presenta..."></textarea>
+                     </div>
+                  </div>
+               </div>
+
+               <div id="drum" class="row hide">
+                  <div class="col s6">
+                     <legend>¿El Equipo Posee Drum?:</legend>
+                     <div>
+                        <input type="radio" id="drsi" name="dru" value="si" onclick="hideShowJacks12('Y');" />
+                        <label for="drsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="drno" name="dru" value="no" onclick="hideShowJacks12('N');" />
+                        <label for="drno">No</label>
+                     </div>
+                     <div>
+                        <textarea id="area12" placeholder="El Equipo presenta..."></textarea>
                      </div>
                   </div>
                </div>
