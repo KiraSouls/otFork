@@ -210,7 +210,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                <div id="acc" class="row " style="border: 1px solid #cfcfcf">
                   <div class="col s6">
                      <div>
-                        <legend>¿El Equipo Posee Accesorios:</legend>
+                        <legend>¿El Equipo Posee Accesorios?:</legend>
                         <div>
                            <input type="radio" id="accsi" name="acce" value="si" onclick="accesorios('Y');" />
                            <label for="accsi">Si</label>

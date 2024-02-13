@@ -109,6 +109,50 @@ while ($p = $sel_location->fetch_assoc()) {
 
             <?php  } ?>
 
+            <label for="hour_price">¿El Equipo Posee Detalles?</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">¿El Equipo Posee Rayones?</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">¿El Equipo Posee Rupturas?</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">¿El Equipo Posee Los Tornillos De Su Carcasa?</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">¿El Equipo Posee Las Gomas De La Base En Buen Estado?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">Estado del equipo:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">Observaciones Adicionales:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">¿El Equipo Posee Accesorios?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price">¿El Equipo Posee Cargador?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price"> ¿El Equipo Posee Cable de Poder?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price"> ¿El Equipo Posee Adaptador de Poder?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price"> ¿El Equipo Posee Batería?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price"> ¿El Equipo Posee Pantalla En Mal Estado?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+            <label for="hour_price"> ¿El Equipo Posee Teclado en Mal Estado?:</label>
+            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+
+
+
             <label for="hour_price">Tipo</label>
             <?php
             $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
