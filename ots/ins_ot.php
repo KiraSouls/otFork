@@ -56,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-    //$ins = $con->query("INSERT ots VALUES('NULL','$client','$branch','$contact','$hours','$created_at','$type','$description','$service','$leader','$priority','$status','$number','')");;
 
     $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, number, comment
      , detalle, accesorios, rayones, rupturas, tornillos, gomas, estado, observaciones, cargador, cable, adaptador, bateria, pantalla, teclado, drum, toner) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status', '$number', '', 

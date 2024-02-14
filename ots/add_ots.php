@@ -470,10 +470,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
    #area12 {
       display: none;
    }
-
-   /* #estadox {
-      display: none;
-   } */
 </style>
 
 <!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
