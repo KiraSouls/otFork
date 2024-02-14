@@ -7,15 +7,31 @@ while ($f = $sel->fetch_assoc()) {
    $id_client = $f['id_client'];
    $id_branch = $f['id_branch'];
    $id_contact = $f['id_contact'];
-   $type = $f['type'];
    $hours = $f['hours'];
+   $type = $f['type'];
+   $description = $f['description'];
    $id_service = $f['id_service'];
    $leader = $f['leader'];
-   $number = $f['number'];
-   $description = $f['description'];
-   $hours = $f['hours'];
    $priority = $f['priority'];
    $status = $f['status'];
+   $number = $f['number'];
+
+   $detalle = $f['detalle'];
+   $accesorios = $f['accesorios'];
+   $rayones = $f['rayones'];
+   $rupturas = $f['rupturas'];
+   $tornillos = $f['tornillos'];
+   $gomas = $f['gomas'];
+   $estado = $f['estado'];
+   $observaciones = $f['observaciones'];
+   $cargador = $f['cargador'];
+   $cable = $f['cable'];
+   $adaptador = $f['adaptador'];
+   $bateria = $f['bateria'];
+   $pantalla = $f['pantalla'];
+   $teclado = $f['teclado'];
+   $drum = $f['drum'];
+   $toner = $f['toner'];
 }
 
 $sel_subline = $con->query("SELECT id_sublinea FROM services WHERE id='$id_service'");
@@ -89,10 +105,8 @@ while ($g = $sel_id_line->fetch_assoc()) {
                   <div class="row">
                      <div class=" col s6">
                         <label for="service">Servicio</label>
-
                         <select class="browser-default" name="service" id="service" required>
                            <option value="" selected>Selecciona servicio</option>
-
                            <?php
                            $sel2 = $con->query("SELECT * FROM services WHERE id='$id_service' ");
                            while ($f = $sel2->fetch_assoc()) {  ?>
@@ -181,25 +195,20 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                           <?php
                                           $id_equip = $k['id'];
                                           $sel2 = $con->query("SELECT * FROM tasks WHERE id_service='$id_service'");
-
-
                                           while ($rr = $sel_id_task->fetch_assoc()) {
-
                                              while ($p = $sel2->fetch_assoc()) {
                                                 $id_p = $p['id'];
                                           ?>
                                                 <option value='<?php echo $p['id'] ?>' <?php $sel_s =  $con->query("SELECT * FROM tasks_equipments WHERE number_ot='$number' AND id_equipment='$id_equip' AND id_tasks='$id_p'");
                                                                                        $filas = mysqli_num_rows($sel_s);
                                                                                        if ($filas > 0) {
-                                                                                          echo selected;
+                                                                                          echo 'selected';
                                                                                        }  ?>> <?php echo $p['name'] ?></option>
-
                                           <?php
                                              }
                                              $i = 1;
                                           }  ?>
                                        </select>
-
                                     </div>
                                  </td>
                                  <td>
@@ -261,265 +270,317 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      </div>
                   </div>
 
-
-
-
                   <div id="det" class="row" style="border:1px solid #cfcfcf">
                      <div class="col s6">
                         <div>
                            <legend>¿El Equipo Posee Detalles?:</legend>
                            <div>
-                              <input type="radio" id="detsi" name="deta" value="si" onclick="detalles('Y');" />
+                              <input type="radio" id="detsi" name="deta" value='1' <?php if ($detalle == '1') {
+                                                                                       echo 'checked';
+                                                                                    } ?> onclick="detalles('Y');" />
                               <label for="detsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="detno" name="deta" value="no" onclick="detalles('N');" />
+                              <input type="radio" id="detno" name="deta" value='0' <?php if ($detalle == '0') {
+                                                                                       echo 'checked';
+                                                                                    } ?>onclick="detalles('N');" />
                               <label for="detno">No</label>
                            </div>
                         </div>
-
-
-                        <div id="rayones" class="row hide">
+                        <!-- ver las funciones para los valores default -->
+                        <div id="rayones" class="row">
                            <div>
                               <legend>¿El Equipo Posee Rayones?:</legend>
                               <div>
-                                 <input type="radio" id="raysi" name="raya" value="si" onclick="hideShowJacks('Y');" />
+                                 <input type="radio" id="raysi" name="raya" value="si" <?php if ($rayones != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks('Y');" />
                                  <label for="raysi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="rayno" name="raya" value="no" onclick="hideShowJacks('N');" />
+                                 <input type="radio" id="rayno" name="raya" value="no" <?php if ($rayones == "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks('N');" />
                                  <label for="rayno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area" placeholder="El Equipo presenta..."></textarea>
+                                 <textarea required id="area" name="rayones" placeholder="El Equipo presenta..."><?php echo $rayones ?></textarea>
                               </div>
                            </div>
                         </div>
 
-
-                        <div id="rupturas" class="row hide">
+                        <div id="rupturas" class="row">
                            <div>
                               <legend>¿El Equipo Posee Rupturas?:</legend>
                               <div>
-                                 <input type="radio" id="rupsi" name="rup" value="si" onclick="hideShowJacks2('Y');" />
+                                 <input type="radio" id="rupsi" name="rup" value="si" <?php if ($rupturas != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks2('Y');" />
                                  <label for="rupsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="rupno" name="rup" value="no" onclick="hideShowJacks2('N');" />
+                                 <input type="radio" id="rupno" name="rup" value="no" <?php if ($rupturas == "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks2('N');" />
                                  <label for="rupno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area2" placeholder="El Equipo presenta..."></textarea>
+                                 <textarea required id="area2" name="rupturas" placeholder="El Equipo presenta..."><?php echo $rupturas ?></textarea>
                               </div>
                            </div>
                         </div>
 
-
-                        <div id="tornillos" class="row hide">
+                        <div id="tornillos" class="row">
                            <div>
                               <legend>¿El Equipo Posee Todos Los Tornillos De Su Carcasa?:</legend>
                               <div>
-                                 <input type="radio" id="torsi" name="torn" value="si" onclick="hideShowJacks3('Y');" />
+                                 <input type="radio" id="torsi" name="torn" value="si" <?php if ($tornillos != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks3('Y');" />
                                  <label for="torsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="torno" name="torn" value="no" onclick="hideShowJacks3('N');" />
+                                 <input type="radio" id="torno" name="torn" value="no" <?php if ($tornillos == "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks3('N');" />
                                  <label for="torno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area3" placeholder="El Equipo presenta..."></textarea>
+                                 <textarea required id="area3" name="tornillos" placeholder="El Equipo presenta..."><?php echo $tornillos ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="gomas" class="row hide">
+                        <div id="gomas" class="row">
                            <div>
                               <legend>¿El Equipo Posee Las Gomas De La Base En Buen Estado?:</legend>
                               <div>
-                                 <input type="radio" id="gosi" name="go" value="si" onclick="hideShowJacks4('Y');" />
+                                 <input type="radio" id="gosi" name="go" value="si" <?php if ($gomas != "No Aplica") {
+                                                                                       echo 'checked';
+                                                                                    } ?> onclick="hideShowJacks4('Y');" />
                                  <label for="gosi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="gono" name="go" value="no" onclick="hideShowJacks4('N');" />
+                                 <input type="radio" id="gono" name="go" value="no" <?php if ($gomas == "No Aplica") {
+                                                                                       echo 'checked';
+                                                                                    } ?> onclick="hideShowJacks4('N');" />
                                  <label for="gono">No</label>
                               </div>
                               <div>
-                                 <textarea id="area4" placeholder="El Equipo presenta..."></textarea>
+                                 <textarea required id="area4" name="gomas" placeholder="El Equipo presenta..."><?php echo $gomas ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div class="row hide" id="estado">
+                        <div class="row" id="estado">
                            <div class="input-field col s12 ">
-                              <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"></textarea>
+                              <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"><?php echo $estado ?></textarea>
                               <label for="estado">Indique El Estado Del Equipo</label>
                            </div>
                         </div>
 
-                        <div class="row hide" id="obs">
+                        <div class="row" id="obs">
                            <div class="input-field col s12 ">
-                              <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800"></textarea>
+                              <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800"><?php echo $observaciones ?></textarea>
                               <label for="obs">Observaciones Adicionales</label>
                            </div>
                         </div>
                      </div>
                   </div>
 
-                  <div id="acc" class="row " style="border: 1px solid #cfcfcf">
+                  <div id="acc" class="row" style="border: 1px solid #cfcfcf">
+
                      <div class="col s6">
                         <div>
-                           <legend>¿El Equipo Posee Accesorios:</legend>
+                           <legend>¿El Equipo Posee Accesorios?:</legend>
                            <div>
-                              <input type="radio" id="accsi" name="acce" value="si" onclick="accesorios('Y');" />
+                              <input type="radio" id="accsi" name="acce" value='1' <?php if ($accesorios != "1") {
+                                                                                       echo 'checked';
+                                                                                    } ?> onclick="accesorios('Y');" />
                               <label for="accsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="accno" name="acce" value="no" onclick="accesorios('N');" />
+                              <input type="radio" id="accno" name="acce" value='0' <?php if ($accesorios == "0") {
+                                                                                       echo 'checked';
+                                                                                    } ?> onclick="accesorios('N');" />
                               <label for="accno">No</label>
                            </div>
                         </div>
 
-                        <div id="cargador" class="row hide">
+                        <div id="cargador" class="row">
                            <div>
                               <legend>¿El Equipo Posee Cargador?:</legend>
                               <div>
-                                 <input type="radio" id="carsi" name="carga" value="si" onclick="hideShowJacks5('Y');" />
+                                 <input type="radio" id="carsi" name="carga" value="si" <?php if ($cargador != "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> onclick="hideShowJacks5('Y');" />
                                  <label for="carsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="carno" name="carga" value="no" onclick="hideShowJacks5('N');" />
+                                 <input type="radio" id="carno" name="carga" value="no" <?php if ($cargador == "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> onclick="hideShowJacks5('N');" />
                                  <label for="carno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area5" placeholder="N° de serie del accesorio"></textarea>
+                                 <textarea required id="area5" name="cargador" placeholder="N° de serie del accesorio"><?php echo $cargador ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="cable" class="row hide">
+                        <div id="cable" class="row">
                            <div>
                               <legend>¿El Equipo Posee Cable de Poder?:</legend>
                               <div>
-                                 <input type="radio" id="podersi" name="poder" value="si" onclick="hideShowJacks6('Y');" />
+                                 <input type="radio" id="podersi" name="poder" value="si" <?php if ($cable != "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> onclick="hideShowJacks6('Y');" />
                                  <label for="podersi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="poderno" name="poder" value="no" onclick="hideShowJacks6('N');" />
+                                 <input type="radio" id="poderno" name="poder" value="no" <?php if ($cable == "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> onclick="hideShowJacks6('N');" />
                                  <label for="poderno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area6" placeholder="N° de serie del accesorio"></textarea>
+                                 <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio"><?php echo $cable ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="adaptador" class="row hide">
+                        <div id="adaptador" class="row">
                            <div>
                               <legend>¿El Equipo Posee Adaptador de Poder?:</legend>
                               <div>
-                                 <input type="radio" id="adasi" name="adapt" value="si" onclick="hideShowJacks7('Y');" />
+                                 <input type="radio" id="adasi" name="adapt" value="si" <?php if ($adaptador != "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> onclick="hideShowJacks7('Y');" />
                                  <label for="adasi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="adano" name="adapt" value="no" onclick="hideShowJacks7('N');" />
+                                 <input type="radio" id="adano" name="adapt" value="no" <?php if ($adaptador == "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> onclick="hideShowJacks7('N');" />
                                  <label for="adano">No</label>
                               </div>
                               <div>
-                                 <textarea id="area7" placeholder="N° de serie del accesorio"></textarea>
+                                 <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio"><?php echo $adaptador ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="bateria" class="row hide">
+                        <div id="bateria" class="row">
                            <div>
                               <legend>¿El Equipo Posee Batería?:</legend>
                               <div>
-                                 <input type="radio" id="batsi" name="bat" value="si" onclick="hideShowJacks8('Y');" />
+                                 <input type="radio" id="batsi" name="bat" value="si" <?php if ($bateria != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks8('Y');" />
                                  <label for="batsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="batno" name="bat" value="no" onclick="hideShowJacks8('N');" />
+                                 <input type="radio" id="batno" name="bat" value="no" <?php if ($bateria == "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks8('N');" />
                                  <label for="batno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area8" placeholder="N° de serie del accesorio"></textarea>
+                                 <textarea required id="area8" name="bateria" placeholder="N° de serie del accesorio"><?php echo $bateria ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="pantalla" class="row hide">
+                        <div id="pantalla" class="row">
                            <div>
                               <legend>¿El Equipo Posee Pantalla En Mal Estado?:</legend>
                               <div>
-                                 <input type="radio" id="pansi" name="pant" value="si" onclick="hideShowJacks9('Y');" />
+                                 <input type="radio" id="pansi" name="pant" value="si" <?php if ($pantalla != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks9('Y');" />
                                  <label for="pansi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="panno" name="pant" value="no" onclick="hideShowJacks9('N');" />
+                                 <input type="radio" id="panno" name="pant" value="no" <?php if ($pantalla == "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks9('N');" />
                                  <label for="panno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area9" placeholder="El Equipo presenta..."></textarea>
+                                 <textarea required id="area9" name="pantalla" placeholder="El Equipo presenta..."><?php echo $pantalla ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="teclado" class="row hide">
+                        <div id="teclado" class="row">
                            <div>
                               <legend>¿El Equipo Posee Teclado en Mal Estado?:</legend>
                               <div>
-                                 <input type="radio" id="tecsi" name="tec" value="si" onclick="hideShowJacks10('Y');" />
+                                 <input type="radio" id="tecsi" name="tec" value="si" <?php if ($teclado != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks10('Y');" />
                                  <label for="tecsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="tecno" name="tec" value="no" onclick="hideShowJacks10('N');" />
+                                 <input type="radio" id="tecno" name="tec" value="no" <?php if ($teclado == "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> onclick="hideShowJacks10('N');" />
                                  <label for="tecno">No</label>
                               </div>
                               <div>
-                                 <textarea id="area10" placeholder="El Equipo presenta..."></textarea>
+                                 <textarea required id="area10" name="teclado" placeholder="El Equipo presenta..."><?php echo $teclado ?></textarea>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
 
-                  <div id="toner" class="row hide">
+                  <div id="toner" class="row">
                      <div class="col s6">
                         <legend>¿El Equipo Posee Toner?:</legend>
                         <div>
-                           <input type="radio" id="tonsi" name="ton" value="si" onclick="hideShowJacks11('Y');" />
+                           <input type="radio" id="tonsi" name="ton" value="si" <?php if ($toner != "No Aplica") {
+                                                                                    echo 'checked';
+                                                                                 } ?> onclick="hideShowJacks11('Y');" />
                            <label for="tonsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="tonno" name="ton" value="no" onclick="hideShowJacks11('N');" />
+                           <input type="radio" id="tonno" name="ton" value="no" <?php if ($toner == "No Aplica") {
+                                                                                    echo 'checked';
+                                                                                 } ?> onclick="hideShowJacks11('N');" />
                            <label for="tonno">No</label>
                         </div>
                         <div>
-                           <textarea id="area11" placeholder="El Equipo presenta..."></textarea>
+                           <textarea required id="area11" name="toner" placeholder="El Equipo presenta..."><?php echo $toner ?></textarea>
                         </div>
                      </div>
                   </div>
 
-                  <div id="drum" class="row hide">
+                  <div id="drum" class="row">
                      <div class="col s6">
                         <legend>¿El Equipo Posee Drum?:</legend>
                         <div>
-                           <input type="radio" id="drsi" name="dru" value="si" onclick="hideShowJacks12('Y');" />
+                           <input type="radio" id="drsi" name="dru" value="si" <?php if ($drum != "No Aplica") {
+                                                                                    echo 'checked';
+                                                                                 } ?> onclick="hideShowJacks12('Y');" />
                            <label for="drsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="drno" name="dru" value="no" onclick="hideShowJacks12('N');" />
+                           <input type="radio" id="drno" name="dru" value="no" <?php if ($drum == "No Aplica") {
+                                                                                    echo 'checked';
+                                                                                 } ?> onclick="hideShowJacks12('N');" />
                            <label for="drno">No</label>
                         </div>
                         <div>
-                           <textarea id="area12" placeholder="El Equipo presenta..."></textarea>
+                           <textarea required id="area12" name="drum" placeholder="El Equipo presenta..."><?php echo $drum ?></textarea>
                         </div>
                      </div>
                   </div>
 
+
                   <div class="row">
                      <div class="input-field col s12">
-                        <textarea id="description" name="description" class="materialize-textarea" data-length="800"></textarea>
+                        <textarea id="description" name="description" class="materialize-textarea" data-length="800"><?php echo $description ?></textarea>
                         <label for="description">Descripción De Orden</label>
                      </div>
                   </div>
@@ -528,7 +589,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      <div class="col s6">
                         <label for="hours">Horas</label>
 
-                        <input type="number" min="0" name="hours">
+                        <input type="number" min="0" name="hours" value="<?php echo $hours ?>">
 
                      </div>
                   </div>
@@ -655,7 +716,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
 
 </div>
 <?php include '../extend/scripts.php'; ?>
-
+<!-- 
 <style>
    #area {
       display: none;
@@ -704,103 +765,139 @@ while ($g = $sel_id_line->fetch_assoc()) {
    #area12 {
       display: none;
    }
-</style>
+</style> -->
 
 <!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
-<script>
+<!-- <script>
    function hideShowJacks(val) {
       if (val == "Y") {
          $("#area").show();
+         document.getElementById("area").textContent = ""
       } else {
          $("#area").hide();
+         document.getElementById("area").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks2(val) {
       if (val == "Y") {
          $("#area2").show();
+         document.getElementById("area2").textContent = ""
       } else {
          $("#area2").hide();
+         document.getElementById("area2").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks3(val) {
       if (val == "Y") {
-         $("#area3").show();
-      } else {
          $("#area3").hide();
+         document.getElementById("area3").textContent = "No Aplica"
+      } else {
+         $("#area3").show();
+         document.getElementById("area3").textContent = ""
       }
    }
 
    function hideShowJacks4(val) {
       if (val == "Y") {
-         $("#area4").show();
-      } else {
          $("#area4").hide();
+         document.getElementById("area4").textContent = "No Aplica"
+      } else {
+         $("#area4").show();
+         document.getElementById("area4").textContent = ""
       }
    }
 
    function hideShowJacks5(val) {
       if (val == "Y") {
          $("#area5").show();
+         document.getElementById("area5").textContent = ""
+         document.getElementById("area5").placeholder = "Escriba N° de serie del accesorio"
       } else {
-         $("#area5").hide();
+         $("#area5").show();
+         document.getElementById("area5").textContent = ""
+         document.getElementById("area5").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
+
       }
    }
 
    function hideShowJacks6(val) {
       if (val == "Y") {
          $("#area6").show();
+         document.getElementById("area6").textContent = ""
+         document.getElementById("area6").placeholder = "Escriba N° de serie del accesorio"
+
       } else {
-         $("#area6").hide();
+         $("#area6").show();
+         document.getElementById("area6").textContent = ""
+         document.getElementById("area6").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks7(val) {
       if (val == "Y") {
          $("#area7").show();
+         document.getElementById("area7").textContent = ""
+         document.getElementById("area7").placeholder = "Escriba N° de serie del accesorio"
+
       } else {
-         $("#area7").hide();
+         $("#area7").show();
+         document.getElementById("area7").textContent = ""
+         document.getElementById("area7").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks8(val) {
       if (val == "Y") {
          $("#area8").show();
+         document.getElementById("area8").textContent = ""
+         document.getElementById("area8").placeholder = "Escriba N° de serie del accesorio"
+
       } else {
-         $("#area8").hide();
+         $("#area8").show();
+         document.getElementById("area8").textContent = ""
+         document.getElementById("area8").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks9(val) {
       if (val == "Y") {
          $("#area9").show();
+         document.getElementById("area9").textContent = ""
       } else {
          $("#area9").hide();
+         document.getElementById("area9").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks10(val) {
       if (val == "Y") {
          $("#area10").show();
+         document.getElementById("area10").textContent = ""
       } else {
          $("#area10").hide();
+         document.getElementById("area10").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks11(val) {
       if (val == "Y") {
-         $("#area11").show();
-      } else {
          $("#area11").hide();
+         document.getElementById("area11").textContent = "No Aplica"
+      } else {
+         $("#area11").show();
+         document.getElementById("area11").textContent = ""
       }
    }
 
    function hideShowJacks12(val) {
       if (val == "Y") {
-         $("#area12").show();
-      } else {
          $("#area12").hide();
+         document.getElementById("area12").textContent = "No Aplica"
+      } else {
+         $("#area12").show();
+         document.getElementById("area12").textContent = ""
       }
    }
 
@@ -823,6 +920,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
          var element = document.getElementById("estado");
          element.classList.remove("hide");
 
+
          var element = document.getElementById("obs");
          element.classList.remove("hide");
 
@@ -846,7 +944,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
 
          var element = document.getElementById("obs");
          element.classList.add("hide");
-
       }
    };
 
@@ -894,12 +991,9 @@ while ($g = $sel_id_line->fetch_assoc()) {
 
          var element = document.getElementById("teclado");
          element.classList.add("hide");
-
-         var element3 = document.getElementById("add");
-         element3.classList.add("hide");
       }
    };
-</script>
+</script> -->
 
 
 <script>
