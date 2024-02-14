@@ -111,11 +111,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div>
                         <legend>¿El Equipo Posee Detalles?:</legend>
                         <div>
-                           <input type="radio" id="detsi" name="deta" value="si" onclick="detalles('Y');" />
+                           <input type="radio" id="detsi" name="deta" value="1" required onclick="detalles('Y');" onclick="hideShowJacks13('Y');" />
                            <label for="detsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="detno" name="deta" value="no" onclick="detalles('N');" />
+                           <input type="radio" id="detno" name="deta" value="0" onclick="detalles('N');" onclick="hideShowJacks13('N');" />
                            <label for="detno">No</label>
                         </div>
                      </div>
@@ -133,7 +133,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="rayno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area" placeholder="El Equipo presenta...">No Aplica</textarea>
+                              <textarea required id="area" name="rayones" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -151,7 +151,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="rupno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area2" placeholder="El Equipo presenta...">No Aplica</textarea>
+                              <textarea required id="area2" name="rupturas" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -169,7 +169,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="torno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area3" placeholder="El Equipo presenta...">No Aplica</textarea>
+                              <textarea required id="area3" name="tornillos" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -186,7 +186,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="gono">No</label>
                            </div>
                            <div>
-                              <textarea required id="area4" placeholder="El Equipo presenta...">No Aplica</textarea>
+                              <textarea required id="area4" name="gomas" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -212,11 +212,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div>
                         <legend>¿El Equipo Posee Accesorios?:</legend>
                         <div>
-                           <input type="radio" id="accsi" name="acce" value="si" onclick="accesorios('Y');" />
+                           <input type="radio" id="accsi" name="acce" value="1" required onclick="accesorios('Y');" />
                            <label for="accsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="accno" name="acce" value="no" onclick="accesorios('N');" />
+                           <input type="radio" id="accno" name="acce" value="0" onclick="accesorios('N');" />
                            <label for="accno">No</label>
                         </div>
                      </div>
@@ -233,7 +233,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="carno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area5" placeholder="N° de serie del accesorio">No Aplica</textarea>
+                              <textarea required id="area5" name="cargador" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -250,7 +250,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="poderno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area6" placeholder="N° de serie del accesorio">No Aplica</textarea>
+                              <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -267,7 +267,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="adano">No</label>
                            </div>
                            <div>
-                              <textarea required id="area7" placeholder="N° de serie del accesorio">No Aplica</textarea>
+                              <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -284,7 +284,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="batno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area8" placeholder="N° de serie del accesorio">No Aplica</textarea>
+                              <textarea required id="area8" name="bateria" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -301,7 +301,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="panno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area9" placeholder="El Equipo presenta...">No Aplica</textarea>
+                              <textarea required id="area9" name="pantalla" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -318,7 +318,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="tecno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area10" placeholder="El Equipo presenta...">No Aplica</textarea>
+                              <textarea required id="area10" name="teclado" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -337,7 +337,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         <label for="tonno">No</label>
                      </div>
                      <div>
-                        <textarea required id="area11" placeholder="El Equipo presenta...">No Aplica</textarea>
+                        <textarea required id="area11" name="toner" placeholder="El Equipo presenta...">No Aplica</textarea>
                      </div>
                   </div>
                </div>
@@ -354,7 +354,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         <label for="drno">No</label>
                      </div>
                      <div>
-                        <textarea required id="area12" placeholder="El Equipo presenta...">No Aplica</textarea>
+                        <textarea required id="area12" name="drum" placeholder="El Equipo presenta...">No Aplica</textarea>
                      </div>
                   </div>
                </div>
@@ -470,6 +470,10 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
    #area12 {
       display: none;
    }
+
+   /* #estadox {
+      display: none;
+   } */
 </style>
 
 <!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
@@ -480,118 +484,133 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          document.getElementById("area").textContent = ""
       } else {
          $("#area").hide();
+         document.getElementById("area").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks2(val) {
       if (val == "Y") {
          $("#area2").show();
-         document.getElementById("area").textContent = ""
-
+         document.getElementById("area2").textContent = ""
       } else {
          $("#area2").hide();
+         document.getElementById("area2").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks3(val) {
       if (val == "Y") {
-         $("#area3").show();
-         document.getElementById("area").textContent = ""
-
-      } else {
          $("#area3").hide();
+         document.getElementById("area3").textContent = "No Aplica"
+      } else {
+         $("#area3").show();
+         document.getElementById("area3").textContent = ""
       }
    }
 
    function hideShowJacks4(val) {
       if (val == "Y") {
-         $("#area4").show();
-         document.getElementById("area").textContent = ""
-
-      } else {
          $("#area4").hide();
+         document.getElementById("area4").textContent = "No Aplica"
+      } else {
+         $("#area4").show();
+         document.getElementById("area4").textContent = ""
       }
    }
 
    function hideShowJacks5(val) {
       if (val == "Y") {
-         $("#area5").show();
-         document.getElementById("area").textContent = ""
-
-      } else {
          $("#area5").hide();
+         document.getElementById("area5").textContent = "No Aplica"
+      } else {
+         $("#area5").show();
+         document.getElementById("area5").textContent = ""
       }
    }
 
    function hideShowJacks6(val) {
       if (val == "Y") {
-         $("#area6").show();
-         document.getElementById("area").textContent = ""
+         $("#area6").hide();
+         document.getElementById("area6").textContent = "No Aplica"
 
       } else {
-         $("#area6").hide();
+         $("#area6").show();
+         document.getElementById("area6").textContent = ""
       }
    }
 
    function hideShowJacks7(val) {
       if (val == "Y") {
-         $("#area7").show();
-         document.getElementById("area").textContent = ""
+         $("#area7").hide();
+         document.getElementById("area7").textContent = "No Aplica"
 
       } else {
-         $("#area7").hide();
+         $("#area7").show();
+         document.getElementById("area7").textContent = ""
       }
    }
 
    function hideShowJacks8(val) {
       if (val == "Y") {
-         $("#area8").show();
-         document.getElementById("area").textContent = ""
+         $("#area8").hide();
+         document.getElementById("area8").textContent = "No Aplica"
 
       } else {
-         $("#area8").hide();
+         $("#area8").show();
+         document.getElementById("area8").textContent = ""
       }
    }
 
    function hideShowJacks9(val) {
       if (val == "Y") {
          $("#area9").show();
-         document.getElementById("area").textContent = ""
-
+         document.getElementById("area9").textContent = ""
       } else {
          $("#area9").hide();
+         document.getElementById("area9").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks10(val) {
       if (val == "Y") {
          $("#area10").show();
-         document.getElementById("area").textContent = ""
-
+         document.getElementById("area10").textContent = ""
       } else {
          $("#area10").hide();
+         document.getElementById("area10").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks11(val) {
       if (val == "Y") {
-         $("#area11").show();
-         document.getElementById("area").textContent = ""
-
-      } else {
          $("#area11").hide();
+         document.getElementById("area11").textContent = "No Aplica"
+      } else {
+         $("#area11").show();
+         document.getElementById("area11").textContent = ""
       }
    }
 
    function hideShowJacks12(val) {
       if (val == "Y") {
-         $("#area12").show();
-         document.getElementById("area").textContent = ""
-
-      } else {
          $("#area12").hide();
+         document.getElementById("area12").textContent = "No Aplica"
+      } else {
+         $("#area12").show();
+         document.getElementById("area12").textContent = ""
       }
    }
+
+   // function hideShowJacks13(val) {
+   //    if (val == "Y") {
+   //       $("#estadox").show();
+   //       document.getElementById("estadox").textContent = ""
+   //    } else {
+   //       $("#estadox").hide();
+   //       document.getElementById("estadox").textContent = "No Aplica"
+   //    }
+   // }
+
 
    function detalles(val) {
 
@@ -612,6 +631,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          var element = document.getElementById("estado");
          element.classList.remove("hide");
 
+
          var element = document.getElementById("obs");
          element.classList.remove("hide");
 
@@ -635,7 +655,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
          var element = document.getElementById("obs");
          element.classList.add("hide");
-
       }
    };
 

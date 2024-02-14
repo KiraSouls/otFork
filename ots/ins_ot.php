@@ -19,15 +19,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $client  = $con->real_escape_string(htmlentities($_POST['client']));
     $branch = $con->real_escape_string(htmlentities($_POST['branch']));
     $contact = $con->real_escape_string(htmlentities($_POST['contact']));
-    $leader = $con->real_escape_string(htmlentities($_POST['leader']));
     $hours = $con->real_escape_string(htmlentities($_POST['hours']));
+
     $type = $con->real_escape_string(htmlentities($_POST['type']));
     $description = $con->real_escape_string(htmlentities($_POST['description']));
     $service = $con->real_escape_string(htmlentities($_POST['service']));
-    $task = $_POST['task'];
+    $leader = $con->real_escape_string(htmlentities($_POST['leader']));
     $priority = $_POST['priority'];
     $status = "iniciada";
     $number = $number + 1;
+
+    $detalle = $con->real_escape_string(htmlentities($_POST['deta']));
+    $accesorios = $con->real_escape_string(htmlentities($_POST['acce']));
+    $rayones = $con->real_escape_string(htmlentities($_POST['rayones']));
+    $rupturas = $con->real_escape_string(htmlentities($_POST['rupturas']));
+    $tornillos = $con->real_escape_string(htmlentities($_POST['tornillos']));
+    $gomas = $con->real_escape_string(htmlentities($_POST['gomas']));
+    $estado = $con->real_escape_string(htmlentities($_POST['estado']));
+    $observaciones = $con->real_escape_string(htmlentities($_POST['obs']));
+    $cargador = $con->real_escape_string(htmlentities($_POST['cargador']));
+    $cable = $con->real_escape_string(htmlentities($_POST['cable']));
+    $adaptador = $con->real_escape_string(htmlentities($_POST['adaptador']));
+    $bateria = $con->real_escape_string(htmlentities($_POST['bateria']));
+    $pantalla = $con->real_escape_string(htmlentities($_POST['pantalla']));
+    $teclado = $con->real_escape_string(htmlentities($_POST['teclado']));
+    $drum = $con->real_escape_string(htmlentities($_POST['drum']));
+    $toner = $con->real_escape_string(htmlentities($_POST['toner']));
+
+
+    $task = $_POST['task'];
     $equipment = $_POST['equipment'];
     $created_at = date("Y-m-d H:i:s");
     $participants = $_POST['participants'];
@@ -37,7 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     //$ins = $con->query("INSERT ots VALUES('NULL','$client','$branch','$contact','$hours','$created_at','$type','$description','$service','$leader','$priority','$status','$number','')");;
-    $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, number, comment) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status', '$number', '')");
+
+    $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, number, comment
+     , detalle, accesorios, rayones, rupturas, tornillos, gomas, estado, observaciones, cargador, cable, adaptador, bateria, pantalla, teclado, drum, toner) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status', '$number', '', 
+      '$detalle', '$accesorios', '$rayones', '$rupturas', '$tornillos', '$gomas', '$estado', '$observaciones', '$cargador', '$cable', '$adaptador', '$bateria', '$pantalla', '$teclado', '$drum', '$toner')");
+
+
+
+    //    $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, number, comment) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status', '$number', '')");
+
     // Mis consultas
     $service_name = $con->query("SELECT service_name FROM services WHERE id='$service'");
     $branch_name = $con->query("SELECT branch_name FROM branches WHERE id='$branch'");
@@ -650,6 +678,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         header('location:../extend/alerta.php?msj=No se pudo ingresar la orden&c=ots&p=fuera&t=error');
     }
+
     $con->close();
 } else {
     header('location:../extend/alerta.php?msj=Utiliza el formulario&c=us&p=in&t=error');
