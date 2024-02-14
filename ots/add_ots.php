@@ -520,44 +520,53 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
    function hideShowJacks5(val) {
       if (val == "Y") {
-         $("#area5").hide();
-         document.getElementById("area5").textContent = "No Aplica"
+         $("#area5").show();
+         document.getElementById("area5").textContent = ""
+         document.getElementById("area5").placeholder = "Escriba N° de serie del accesorio"
       } else {
          $("#area5").show();
          document.getElementById("area5").textContent = ""
+         document.getElementById("area5").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
+
       }
    }
 
    function hideShowJacks6(val) {
       if (val == "Y") {
-         $("#area6").hide();
-         document.getElementById("area6").textContent = "No Aplica"
+         $("#area6").show();
+         document.getElementById("area6").textContent = ""
+         document.getElementById("area6").placeholder = "Escriba N° de serie del accesorio"
 
       } else {
          $("#area6").show();
          document.getElementById("area6").textContent = ""
+         document.getElementById("area6").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks7(val) {
       if (val == "Y") {
-         $("#area7").hide();
-         document.getElementById("area7").textContent = "No Aplica"
+         $("#area7").show();
+         document.getElementById("area7").textContent = ""
+         document.getElementById("area7").placeholder = "Escriba N° de serie del accesorio"
 
       } else {
          $("#area7").show();
          document.getElementById("area7").textContent = ""
+         document.getElementById("area7").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks8(val) {
       if (val == "Y") {
-         $("#area8").hide();
-         document.getElementById("area8").textContent = "No Aplica"
+         $("#area8").show();
+         document.getElementById("area8").textContent = ""
+         document.getElementById("area8").placeholder = "Escriba N° de serie del accesorio"
 
       } else {
          $("#area8").show();
          document.getElementById("area8").textContent = ""
+         document.getElementById("area8").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
