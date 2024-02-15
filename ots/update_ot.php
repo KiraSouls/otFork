@@ -298,13 +298,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="raysi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="rayno" name="raya" value="no" <?php if ($rayones == "No Aplica") {
+                                 <input type="radio" id="rayno" name="raya" value="no" <?php if ($rayones == "No Aplica" or $rayones == "") {
                                                                                           echo 'checked';
                                                                                        } ?> onclick="hideShowJacks('N');" />
                                  <label for="rayno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area" name="rayones" placeholder="El Equipo presenta..."><?php echo $rayones ?></textarea>
+                                 <textarea required id="area" name="rayones" placeholder="El Equipo presenta..."><?php if ($rayones == "") {
+                                                                                                                     echo "No Aplica";
+                                                                                                                  } else {
+                                                                                                                     echo $rayones;
+                                                                                                                  } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -319,13 +323,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="rupsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="rupno" name="rup" value="no" <?php if ($rupturas == "No Aplica") {
+                                 <input type="radio" id="rupno" name="rup" value="no" <?php if ($rupturas == "No Aplica" or $rupturas == "") {
                                                                                           echo 'checked';
                                                                                        } ?> onclick="hideShowJacks2('N');" />
                                  <label for="rupno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area2" name="rupturas" placeholder="El Equipo presenta..."><?php echo $rupturas ?></textarea>
+                                 <textarea required id="area2" name="rupturas" placeholder="El Equipo presenta..."><?php if ($rupturas == "") {
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $rupturas;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -340,13 +348,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="torsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="torno" name="torn" value="no" <?php if ($tornillos == "No Aplica") {
+                                 <input type="radio" id="torno" name="torn" value="no" <?php if ($tornillos == "No Aplica" or $tornillos == "") {
                                                                                           echo 'checked';
                                                                                        } ?> onclick="hideShowJacks3('N');" />
                                  <label for="torno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area3" name="tornillos" placeholder="El Equipo presenta..."><?php echo $tornillos ?></textarea>
+                                 <textarea required id="area3" name="tornillos" placeholder="El Equipo presenta..."><?php if ($tornillos == "") {
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $tornillos;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -361,13 +373,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="gosi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="gono" name="go" value="no" <?php if ($gomas == "No Aplica") {
+                                 <input type="radio" id="gono" name="go" value="no" <?php if ($gomas == "No Aplica" or $gomas == "") {
                                                                                        echo 'checked';
                                                                                     } ?> onclick="hideShowJacks4('N');" />
                                  <label for="gono">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area4" name="gomas" placeholder="El Equipo presenta..."><?php echo $gomas ?></textarea>
+                                 <textarea required id="area4" name="gomas" placeholder="El Equipo presenta..."><?php if ($gomas == "") {
+                                                                                                                     echo "No Aplica";
+                                                                                                                  } else {
+                                                                                                                     echo $gomas;
+                                                                                                                  } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -417,13 +433,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="carsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="carno" name="carga" value="no" <?php if ($cargador == "No Aplica") {
+                                 <input type="radio" id="carno" name="carga" value="no" <?php if ($cargador == "No Aplica" or $cargador == "") {
                                                                                              echo 'checked';
                                                                                           } ?> onclick="hideShowJacks5('N');" />
                                  <label for="carno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area5" name="cargador" placeholder="N° de serie del accesorio"><?php echo $cargador ?></textarea>
+                                 <textarea required id="area5" name="cargador" placeholder="N° de serie del accesorio"><?php if ($cargador == "") {
+                                                                                                                           echo "No Aplica";
+                                                                                                                        } else {
+                                                                                                                           echo $cargador;
+                                                                                                                        } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -438,13 +458,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="podersi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="poderno" name="poder" value="no" <?php if ($cable == "No Aplica") {
+                                 <input type="radio" id="poderno" name="poder" value="no" <?php if ($cable == "No Aplica" or $cable == "") {
                                                                                              echo 'checked';
                                                                                           } ?> onclick="hideShowJacks6('N');" />
                                  <label for="poderno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio"><?php echo $cable ?></textarea>
+                                 <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio"><?php if ($cable == "") {
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $cable;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -459,13 +483,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="adasi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="adano" name="adapt" value="no" <?php if ($adaptador == "No Aplica") {
+                                 <input type="radio" id="adano" name="adapt" value="no" <?php if ($adaptador == "No Aplica" or $adaptador == "") {
                                                                                              echo 'checked';
                                                                                           } ?> onclick="hideShowJacks7('N');" />
                                  <label for="adano">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio"><?php echo $adaptador ?></textarea>
+                                 <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio"><?php if ($adaptador == "") {
+                                                                                                                           echo "No Aplica";
+                                                                                                                        } else {
+                                                                                                                           echo $adaptador;
+                                                                                                                        } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -480,13 +508,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="batsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="batno" name="bat" value="no" <?php if ($bateria == "No Aplica") {
+                                 <input type="radio" id="batno" name="bat" value="no" <?php if ($bateria == "No Aplica" or $bateria == "") {
                                                                                           echo 'checked';
                                                                                        } ?> onclick="hideShowJacks8('N');" />
                                  <label for="batno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area8" name="bateria" placeholder="N° de serie del accesorio"><?php echo $bateria ?></textarea>
+                                 <textarea required id="area8" name="bateria" placeholder="N° de serie del accesorio"><?php if ($bateria == "") {
+                                                                                                                           echo "No Aplica";
+                                                                                                                        } else {
+                                                                                                                           echo $bateria;
+                                                                                                                        } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -501,13 +533,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="pansi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="panno" name="pant" value="no" <?php if ($pantalla == "No Aplica") {
+                                 <input type="radio" id="panno" name="pant" value="no" <?php if ($pantalla == "No Aplica" or $pantalla == "") {
                                                                                           echo 'checked';
                                                                                        } ?> onclick="hideShowJacks9('N');" />
                                  <label for="panno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area9" name="pantalla" placeholder="El Equipo presenta..."><?php echo $pantalla ?></textarea>
+                                 <textarea required id="area9" name="pantalla" placeholder="El Equipo presenta..."><?php if ($pantalla == "") {
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $pantalla;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -522,13 +558,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="tecsi">Si</label>
                               </div>
                               <div>
-                                 <input type="radio" id="tecno" name="tec" value="no" <?php if ($teclado == "No Aplica") {
+                                 <input type="radio" id="tecno" name="tec" value="no" <?php if ($teclado == "No Aplica" or $teclado == "") {
                                                                                           echo 'checked';
                                                                                        } ?> onclick="hideShowJacks10('N');" />
                                  <label for="tecno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area10" name="teclado" placeholder="El Equipo presenta..."><?php echo $teclado ?></textarea>
+                                 <textarea required id="area10" name="teclado" placeholder="El Equipo presenta..."><?php if ($teclado == "") {
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $teclado;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -545,13 +585,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            <label for="tonsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="tonno" name="ton" value="no" <?php if ($toner == "No Aplica") {
+                           <input type="radio" id="tonno" name="ton" value="no" <?php if ($toner == "No Aplica" or $toner == "") {
                                                                                     echo 'checked';
                                                                                  } ?> onclick="hideShowJacks11('N');" />
                            <label for="tonno">No</label>
                         </div>
                         <div>
-                           <textarea required id="area11" name="toner" placeholder="El Equipo presenta..."><?php echo $toner ?></textarea>
+                           <textarea required id="area11" name="toner" placeholder="El Equipo presenta..."><?php if ($toner == "") {
+                                                                                                               echo "No Aplica";
+                                                                                                            } else {
+                                                                                                               echo $toner;
+                                                                                                            } ?></textarea>
                         </div>
                      </div>
                   </div>
@@ -566,13 +610,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            <label for="drsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="drno" name="dru" value="no" <?php if ($drum == "No Aplica") {
+                           <input type="radio" id="drno" name="dru" value="no" <?php if ($drum == "No Aplica" or $drum == "") {
                                                                                     echo 'checked';
                                                                                  } ?> onclick="hideShowJacks12('N');" />
                            <label for="drno">No</label>
                         </div>
                         <div>
-                           <textarea required id="area12" name="drum" placeholder="El Equipo presenta..."><?php echo $drum ?></textarea>
+                           <textarea required id="area12" name="drum" placeholder="El Equipo presenta..."><?php if ($drum == "") {
+                                                                                                               echo "No Aplica";
+                                                                                                            } else {
+                                                                                                               echo $drum;
+                                                                                                            } ?></textarea>
                         </div>
                      </div>
                   </div>
