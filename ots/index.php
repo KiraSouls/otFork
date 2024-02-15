@@ -65,7 +65,28 @@ $row = mysqli_num_rows($sel);
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 
+
 <script>
+    $(document).on('click', 'a.delete', function(e) {
+        e.preventDefault();
+        var linkURL = $(this).attr("href");
+        warnBeforeRedirect(linkURL);
+    });
+
+    function warnBeforeRedirect(linkURL) {
+        swal({
+            title: "¿Deseas Eliminar?",
+            text: "Si das click a Ok, se perderán datos.",
+            type: "warning",
+            showCancelButton: true,
+        }).then(function(result) {
+            console.log(result);
+            if (result.value) {
+                window.location.href = linkURL;
+            }
+        });
+    }
+
     $(document).ready(function() {
         $('#ot_tabledata').DataTable({
 
@@ -121,11 +142,11 @@ $row = mysqli_num_rows($sel);
                     // Botón "Eliminar"
                     "data": null,
                     "render": function(data, type, row) {
-                        return '<a href="#" class="btn-floating red" onclick="confirmarEliminar(' + row.id + ')"><i class="material-icons">clear</i></a>';
+                        return '<a href="delete_ot.php?id= ' + row.id + '" class="delete"><i class="material-icons">clear</i></a>';
+
                     }
                 }
             ],
-
             /* ---- */
 
             responsive: true,

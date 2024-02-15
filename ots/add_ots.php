@@ -81,14 +81,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                            </div>
                         </td>
 
-                        <!-- <td>
-                           <div class="col s12 right">
-                              <label for="pnum">Part Number</label>
-                              <select style="height:150px;width: 300px;" class="browser-default" name="pnum[]" id="pnum" multiple>
-                              </select>
-                           </div>
-                        </td> -->
-
                         <td>
                            <div class="col s6 right">
                               <a id="add" class="btn-floating btn-large waves-effect waves-light light-blue darken-2 right hide"><i class="material-icons">add</i></a>
@@ -119,15 +111,14 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div>
                         <legend>¿El Equipo Posee Detalles?:</legend>
                         <div>
-                           <input type="radio" id="detsi" name="det" value="si" onclick="detalles('Y');" />
+                           <input type="radio" id="detsi" name="deta" value="1" required onclick="detalles('Y');" onclick="hideShowJacks13('Y');" />
                            <label for="detsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="detno" name="det" value="no" onclick="detalles('N');" />
+                           <input type="radio" id="detno" name="deta" value="0" onclick="detalles('N');" onclick="hideShowJacks13('N');" />
                            <label for="detno">No</label>
                         </div>
                      </div>
-
 
                      <div id="rayones" class="row hide">
                         <div>
@@ -141,7 +132,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="rayno">No</label>
                            </div>
                            <div>
-                              <textarea id="area" placeholder="El Equipo presenta..."></textarea>
+                              <textarea required id="area" name="rayones" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -151,15 +142,15 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         <div>
                            <legend>¿El Equipo Posee Rupturas?:</legend>
                            <div>
-                              <input type="radio" id="rupsi" name="rupturas" value="si" onclick="hideShowJacks2('Y');" />
+                              <input type="radio" id="rupsi" name="rup" value="si" onclick="hideShowJacks2('Y');" />
                               <label for="rupsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="rupno" name="rupturas" value="no" onclick="hideShowJacks2('N');" />
+                              <input type="radio" id="rupno" name="rup" value="no" onclick="hideShowJacks2('N');" />
                               <label for="rupno">No</label>
                            </div>
                            <div>
-                              <textarea id="area2" placeholder="El Equipo presenta..."></textarea>
+                              <textarea required id="area2" name="rupturas" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -169,15 +160,15 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         <div>
                            <legend>¿El Equipo Posee Todos Los Tornillos De Su Carcasa?:</legend>
                            <div>
-                              <input type="radio" id="torsi" name="tornillos" value="si" onclick="hideShowJacks3('Y');" />
+                              <input type="radio" id="torsi" name="torn" value="si" onclick="hideShowJacks3('Y');" />
                               <label for="torsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="torno" name="tornillos" value="no" onclick="hideShowJacks3('N');" />
+                              <input type="radio" id="torno" name="torn" value="no" onclick="hideShowJacks3('N');" />
                               <label for="torno">No</label>
                            </div>
                            <div>
-                              <textarea id="area3" placeholder="El Equipo presenta..."></textarea>
+                              <textarea required id="area3" name="tornillos" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -186,21 +177,18 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         <div>
                            <legend>¿El Equipo Posee Las Gomas De La Base En Buen Estado?:</legend>
                            <div>
-                              <input type="radio" id="gosi" name="carga" value="si" onclick="hideShowJacks4('Y');" />
+                              <input type="radio" id="gosi" name="go" value="si" onclick="hideShowJacks4('Y');" />
                               <label for="gosi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="gono" name="carga" value="no" onclick="hideShowJacks4('N');" />
+                              <input type="radio" id="gono" name="go" value="no" onclick="hideShowJacks4('N');" />
                               <label for="gono">No</label>
                            </div>
                            <div>
-                              <textarea id="area4" placeholder="El Equipo presenta..."></textarea>
+                              <textarea required id="area4" name="gomas" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
-
-
-
 
                      <div class="row hide" id="estado">
                         <div class="input-field col s12 ">
@@ -221,13 +209,13 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                <div id="acc" class="row " style="border: 1px solid #cfcfcf">
                   <div class="col s6">
                      <div>
-                        <legend>¿El Equipo Posee Accesorios:</legend>
+                        <legend>¿El Equipo Posee Accesorios?:</legend>
                         <div>
-                           <input type="radio" id="accsi" name="acc" value="si" onclick="accesorios('Y');" />
+                           <input type="radio" id="accsi" name="acce" value="1" required onclick="accesorios('Y');" />
                            <label for="accsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="accno" name="acc" value="no" onclick="accesorios('N');" />
+                           <input type="radio" id="accno" name="acce" value="0" onclick="accesorios('N');" />
                            <label for="accno">No</label>
                         </div>
                      </div>
@@ -244,7 +232,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="carno">No</label>
                            </div>
                            <div>
-                              <textarea id="area5" placeholder="N° de serie del accesorio"></textarea>
+                              <textarea required id="area5" name="cargador" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -261,7 +249,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="poderno">No</label>
                            </div>
                            <div>
-                              <textarea id="area6" placeholder="N° de serie del accesorio"></textarea>
+                              <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -278,7 +266,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="adano">No</label>
                            </div>
                            <div>
-                              <textarea id="area7" placeholder="N° de serie del accesorio"></textarea>
+                              <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -295,7 +283,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="batno">No</label>
                            </div>
                            <div>
-                              <textarea id="area8" placeholder="N° de serie del accesorio"></textarea>
+                              <textarea required id="area8" name="bateria" placeholder="N° de serie del accesorio">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -312,7 +300,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="panno">No</label>
                            </div>
                            <div>
-                              <textarea id="area9" placeholder="El Equipo presenta..."></textarea>
+                              <textarea required id="area9" name="pantalla" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -321,33 +309,67 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         <div>
                            <legend>¿El Equipo Posee Teclado en Mal Estado?:</legend>
                            <div>
-                              <input type="radio" id="tecsi" name="teclado" value="si" onclick="hideShowJacks10('Y');" />
+                              <input type="radio" id="tecsi" name="tec" value="si" onclick="hideShowJacks10('Y');" />
                               <label for="tecsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="tecno" name="teclado" value="no" onclick="hideShowJacks10('N');" />
+                              <input type="radio" id="tecno" name="tec" value="no" onclick="hideShowJacks10('N');" />
                               <label for="tecno">No</label>
                            </div>
                            <div>
-                              <textarea id="area10" placeholder="El Equipo presenta..."></textarea>
+                              <textarea required id="area10" name="teclado" placeholder="El Equipo presenta...">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
 
-               <div class="row">
-                  <div class="input-field col s12">
-                     <textarea id="description" name="description" class="materialize-textarea" data-length="800"></textarea>
-                     <label for="description">Descripción De Orden</label>
+               <div id="toner" class="row hide">
+                  <div class="col s6">
+                     <legend>¿El Equipo Posee Toner?:</legend>
+                     <div>
+                        <input type="radio" id="tonsi" name="ton" value="si" onclick="hideShowJacks11('Y');" />
+                        <label for="tonsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="tonno" name="ton" value="no" onclick="hideShowJacks11('N');" />
+                        <label for="tonno">No</label>
+                     </div>
+                     <div>
+                        <textarea required id="area11" name="toner" placeholder="El Equipo presenta...">No Aplica</textarea>
+                     </div>
+                  </div>
+               </div>
+
+               <div id="drum" class="row hide">
+                  <div class="col s6">
+                     <legend>¿El Equipo Posee Drum?:</legend>
+                     <div>
+                        <input type="radio" id="drsi" name="dru" value="si" onclick="hideShowJacks12('Y');" />
+                        <label for="drsi">Si</label>
+                     </div>
+                     <div>
+                        <input type="radio" id="drno" name="dru" value="no" onclick="hideShowJacks12('N');" />
+                        <label for="drno">No</label>
+                     </div>
+                     <div>
+                        <textarea required id="area12" name="drum" placeholder="El Equipo presenta...">No Aplica</textarea>
+                     </div>
                   </div>
                </div>
 
                <div class="row">
+                  <div class="input-field col s12">
+                     <textarea required id="description" name="description" class="materialize-textarea" data-length="800"></textarea>
+                     <label for="description">Descripción De La Orden</label>
+                  </div>
+               </div>
+               <!-- Recuerda Editar La Hora - 09/02/2024 -->
+               <div class="row">
                   <div class="col s6">
-                     <label for="hours">Recuerda Arreglar La Hora, 09/02/2024</label>
+                     <label for="hours">Horas</label>
 
-                     <input type="number" min="0" name="hours">
+                     <input required type="number" min="0" name="hours">
 
                   </div>
                </div>
@@ -439,6 +461,14 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
    #area10 {
       display: none;
    }
+
+   #area11 {
+      display: none;
+   }
+
+   #area12 {
+      display: none;
+   }
 </style>
 
 <!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
@@ -446,85 +476,134 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
    function hideShowJacks(val) {
       if (val == "Y") {
          $("#area").show();
+         document.getElementById("area").textContent = ""
       } else {
          $("#area").hide();
+         document.getElementById("area").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks2(val) {
       if (val == "Y") {
          $("#area2").show();
+         document.getElementById("area2").textContent = ""
       } else {
          $("#area2").hide();
+         document.getElementById("area2").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks3(val) {
       if (val == "Y") {
-         $("#area3").show();
-      } else {
          $("#area3").hide();
+         document.getElementById("area3").textContent = "No Aplica"
+      } else {
+         $("#area3").show();
+         document.getElementById("area3").textContent = ""
       }
    }
 
    function hideShowJacks4(val) {
       if (val == "Y") {
-         $("#area4").show();
-      } else {
          $("#area4").hide();
+         document.getElementById("area4").textContent = "No Aplica"
+      } else {
+         $("#area4").show();
+         document.getElementById("area4").textContent = ""
       }
    }
 
    function hideShowJacks5(val) {
       if (val == "Y") {
          $("#area5").show();
+         document.getElementById("area5").textContent = ""
+         document.getElementById("area5").placeholder = "Escriba N° de serie del accesorio"
       } else {
-         $("#area5").hide();
+         $("#area5").show();
+         document.getElementById("area5").textContent = ""
+         document.getElementById("area5").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
+
       }
    }
 
    function hideShowJacks6(val) {
       if (val == "Y") {
          $("#area6").show();
+         document.getElementById("area6").textContent = ""
+         document.getElementById("area6").placeholder = "Escriba N° de serie del accesorio"
+
       } else {
-         $("#area6").hide();
+         $("#area6").show();
+         document.getElementById("area6").textContent = ""
+         document.getElementById("area6").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks7(val) {
       if (val == "Y") {
          $("#area7").show();
+         document.getElementById("area7").textContent = ""
+         document.getElementById("area7").placeholder = "Escriba N° de serie del accesorio"
+
       } else {
-         $("#area7").hide();
+         $("#area7").show();
+         document.getElementById("area7").textContent = ""
+         document.getElementById("area7").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks8(val) {
       if (val == "Y") {
          $("#area8").show();
+         document.getElementById("area8").textContent = ""
+         document.getElementById("area8").placeholder = "Escriba N° de serie del accesorio"
+
       } else {
-         $("#area8").hide();
+         $("#area8").show();
+         document.getElementById("area8").textContent = ""
+         document.getElementById("area8").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
       }
    }
 
    function hideShowJacks9(val) {
       if (val == "Y") {
          $("#area9").show();
+         document.getElementById("area9").textContent = ""
       } else {
          $("#area9").hide();
+         document.getElementById("area9").textContent = "No Aplica"
       }
    }
 
    function hideShowJacks10(val) {
       if (val == "Y") {
          $("#area10").show();
+         document.getElementById("area10").textContent = ""
       } else {
          $("#area10").hide();
+         document.getElementById("area10").textContent = "No Aplica"
       }
    }
 
+   function hideShowJacks11(val) {
+      if (val == "Y") {
+         $("#area11").hide();
+         document.getElementById("area11").textContent = "No Aplica"
+      } else {
+         $("#area11").show();
+         document.getElementById("area11").textContent = ""
+      }
+   }
 
-
+   function hideShowJacks12(val) {
+      if (val == "Y") {
+         $("#area12").hide();
+         document.getElementById("area12").textContent = "No Aplica"
+      } else {
+         $("#area12").show();
+         document.getElementById("area12").textContent = ""
+      }
+   }
 
    function detalles(val) {
 
@@ -545,21 +624,12 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          var element = document.getElementById("estado");
          element.classList.remove("hide");
 
+
          var element = document.getElementById("obs");
          element.classList.remove("hide");
 
 
-         var element2 = document.getElementById("add");
-         element2.classList.remove("hide");
       } else {
-         var element = document.getElementById("sublinea");
-         element.classList.add("hide");
-
-         var element = document.getElementById("equipo");
-         element.classList.add("hide");
-
-         var element = document.getElementById("tarea");
-         element.classList.remove("hide");
 
          var element = document.getElementById("rayones");
          element.classList.add("hide");
@@ -578,9 +648,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
          var element = document.getElementById("obs");
          element.classList.add("hide");
-
-         var element3 = document.getElementById("add");
-         element3.classList.add("hide");
       }
    };
 
@@ -795,33 +862,23 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   var element = document.getElementById("tarea");
                   element.classList.remove("hide");
 
-                  var element = document.getElementById("rayones");
+                  var element = document.getElementById("det");
                   element.classList.remove("hide");
 
-                  var element = document.getElementById("rupturas");
+                  var element = document.getElementById("acc");
                   element.classList.remove("hide");
 
-                  var element = document.getElementById("tornillos");
-                  element.classList.remove("hide");
+                  var element = document.getElementById("toner");
+                  element.classList.add("hide");
 
-                  var element = document.getElementById("gomas");
-                  element.classList.remove("hide");
-
-                  var element = document.getElementById("estado");
-                  element.classList.remove("hide");
-
-                  var element = document.getElementById("obs");
-                  element.classList.remove("hide");
-
-                  // var element = document.getElementById("bateria");
-                  // element.classList.remove("hide");
-
-                  // var element = document.getElementById("cargador");
-                  // element.classList.remove("hide");
+                  var element = document.getElementById("drum");
+                  element.classList.add("hide");
 
                   var element2 = document.getElementById("add");
                   element2.classList.remove("hide");
-               } else {
+
+               }
+               if (data == 0) {
                   var element = document.getElementById("sublinea");
                   element.classList.add("hide");
 
@@ -831,32 +888,47 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   var element = document.getElementById("tarea");
                   element.classList.remove("hide");
 
-                  var element = document.getElementById("rayones");
+                  var element = document.getElementById("det");
                   element.classList.add("hide");
 
-                  var element = document.getElementById("rupturas");
+                  var element = document.getElementById("acc");
                   element.classList.add("hide");
 
-                  var element = document.getElementById("tornillos");
+                  var element = document.getElementById("toner");
                   element.classList.add("hide");
 
-                  var element = document.getElementById("gomas");
+                  var element = document.getElementById("drum");
                   element.classList.add("hide");
-
-                  var element = document.getElementById("estado");
-                  element.classList.add("hide");
-
-                  var element = document.getElementById("obs");
-                  element.classList.add("hide");
-
-                  // var element = document.getElementById("bateria");
-                  // element.classList.add("hide");
-
-                  // var element = document.getElementById("cargador");
-                  // element.classList.add("hide");
 
                   var element3 = document.getElementById("add");
                   element3.classList.add("hide");
+
+               }
+               if (data == 2) {
+                  var element = document.getElementById("sublinea");
+                  element.classList.remove("hide");
+
+                  var element = document.getElementById("equipo");
+                  element.classList.remove("hide");
+
+                  var element = document.getElementById("tarea");
+                  element.classList.remove("hide");
+
+                  var element = document.getElementById("det");
+                  element.classList.remove("hide");
+
+                  var element = document.getElementById("acc");
+                  element.classList.remove("hide");
+
+                  var element = document.getElementById("toner");
+                  element.classList.remove("hide");
+
+                  var element = document.getElementById("drum");
+                  element.classList.remove("hide");
+
+                  var element2 = document.getElementById("add");
+                  element2.classList.remove("hide");
+
                }
             });
 
