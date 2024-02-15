@@ -120,7 +120,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                         </div>
                      </div>
 
-
                      <div id="rayones" class="row hide">
                         <div>
                            <legend>¿El Equipo Posee Rayones?:</legend>
@@ -605,17 +604,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          document.getElementById("area12").textContent = ""
       }
    }
-
-   // function hideShowJacks13(val) {
-   //    if (val == "Y") {
-   //       $("#estadox").show();
-   //       document.getElementById("estadox").textContent = ""
-   //    } else {
-   //       $("#estadox").hide();
-   //       document.getElementById("estadox").textContent = "No Aplica"
-   //    }
-   // }
-
 
    function detalles(val) {
 

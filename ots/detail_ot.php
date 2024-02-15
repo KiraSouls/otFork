@@ -10,15 +10,33 @@ while ($f = $sel->fetch_assoc()) {
   $id_client = $f['id_client'];
   $id_branch = $f['id_branch'];
   $id_contact = $f['id_contact'];
-  $type = $f['type'];
   $hours = $f['hours'];
+  $created_at = $f['created_at'];
+  $type = $f['type'];
+  $description = $f['description'];
   $id_service = $f['id_service'];
   $leader = $f['leader'];
-  $description = $f['description'];
+  $priority = $f['priority'];
+  $status = $f['status'];
   $number_ot = $f['number'];
   $comment = $f['comment'];
-  $created_at = $f['created_at'];
-  $status = $f['status'];
+
+  $detalle = $f['detalle'];
+  $accesorios = $f['accesorios'];
+  $rayones = $f['rayones'];
+  $rupturas = $f['rupturas'];
+  $tornillos = $f['tornillos'];
+  $gomas = $f['gomas'];
+  $estado = $f['estado'];
+  $observaciones = $f['observaciones'];
+  $cargador = $f['cargador'];
+  $cable = $f['cable'];
+  $adaptador = $f['adaptador'];
+  $bateria = $f['bateria'];
+  $pantalla = $f['pantalla'];
+  $teclado = $f['teclado'];
+  $drum = $f['drum'];
+  $toner = $f['toner'];
 }
 
 
@@ -110,47 +128,161 @@ while ($p = $sel_location->fetch_assoc()) {
             <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Detalles?</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php
+                                                  if ($f['detalle'] == '1') {
+                                                    echo 'Si';
+                                                  } else {
+                                                    echo 'No';
+                                                  }
+                                                  ?>" required>
+
+
+
+            <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Rayones?</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['rayones']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Rupturas?</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['rupturas']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Los Tornillos De Su Carcasa?</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['tornillos']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Las Gomas De La Base En Buen Estado?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['gomas']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">Estado del equipo:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['estado']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">Observaciones Adicionales:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['observaciones']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Accesorios?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php
+                                                  if ($f['accesorios'] == '1') {
+                                                    echo 'Si';
+                                                  } else {
+                                                    echo 'No';
+                                                  }
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Cargador?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['cargador']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price"> ¿El Equipo Posee Cable de Poder?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['cable']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price"> ¿El Equipo Posee Adaptador de Poder?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['adaptador']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price"> ¿El Equipo Posee Batería?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['bateria']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price"> ¿El Equipo Posee Pantalla En Mal Estado?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['pantalla']
+                                                  ?>" required>
+            <?php  } ?>
 
             <label for="hour_price"> ¿El Equipo Posee Teclado en Mal Estado?:</label>
-            <input disabled type="text" name="type" value="<?php echo $f['type'] ?>" required>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['teclado']
+                                                  ?>" required>
+            <?php  } ?>
 
+            <label for="hour_price"> ¿El Equipo Posee Toner?:</label>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['toner']
+                                                  ?>" required>
+            <?php  } ?>
+
+            <label for="hour_price"> ¿El Equipo Posee Drum?:</label>
+            <?php
+            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
+            while ($f = $sel2->fetch_assoc()) {
+            ?>
+              <input disabled type="text" value="<?php echo $f['drum']
+                                                  ?>" required>
+            <?php  } ?>
 
 
             <label for="hour_price">Tipo</label>
