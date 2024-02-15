@@ -127,9 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($status == "finalizada") {
 
-            // Correo técnicos : 
+            // Correo técnicos :
 
-            $to =  $email; // email tecnico $email 
+            $to =  $email; // email tecnico $email
             $subject = 'Orden de trabajo finalizada';
             $headers = "From: SC Informatica <proyectos@scinformatica.cl>\r\n";
             $headers .= "Reply-To: proyectos@scinformatica.cl\r\n";
@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $message = '
         <html>
-        
+
         <head>
             <meta charset="UTF-8">
             <style>
@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     font-size: 14px;
                     color: #333;
                 }
-        
+
                 .container {
                     max-width: 600px;
                     margin: 0 auto;
@@ -158,89 +158,89 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     border-radius: 4px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
-        
+
                 h2 {
                     margin-top: 0;
                     color: #333;
                     text-align: center;
                 }
-                
+
                 h3 {
                     margin-top: 0;
                     color: #333;
                     text-align: center;
                 }
-                
+
                 h4 {
                     margin-top: 0;
                     color: #333;
                     text-align: center;
                 }
-        
+
                 p {
                     margin-bottom: 10px;
                     color: #333;
                 }
-        
+
                 .table {
                     width: 100%;
                     border-collapse: collapse;
                     margin-top: 20px;
                 }
-        
+
                 .table th,
                 .table td {
                     padding: 8px;
                     text-align: left;
                     border-bottom: 1px solid #ccc;
                 }
-        
+
                 .table th {
                     font-weight: bold;
                     background-color: #f1f1f1;
                 }
-        
+
                 .table tbody tr:nth-child(even) {
                     background-color: #f9f9f9;
                 }
-        
+
                 .footer {
                     margin-top: 20px;
                     text-align: center;
                     color: #888;
                     font-size: 12px;
                 }
-        
+
                 .table-container {
                     overflow-x: auto;
                 }
-        
+
                 @media (max-width: 768px) {
                     .table-container {
                         width: 100%;
                     }
                 }
-        
+
                 img {
                     max-width: 100%;
                     height: auto;
                 }
             </style>
         </head>
-        
+
         <body>
             <div class="container">
                 <div style="text-align: center;">
                     <img src="https://drive.google.com/uc?export=download&id=1hTk5ZVvHS3qBb3yThfmsy7pS8vySIxjY" alt="">
                     <h2>Hola, ' . $valor . '</h2>
                 </div>
-        
+
                 <h3 style="text-align: center;">La orden de trabajo ha sido finalizada</h3>
-                
+
                 <h4> Tipo ' . $type . ' </h4>
-                
+
                 <h4> ' . $description . ' </h4>
-        
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -261,7 +261,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </tr>
                     </tbody>
                 </table> <br>
-                
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -275,17 +275,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <tr>
                             <td> ' .  $leader . ' </td>
                             <td> ' . $valor . ' </td>
-                            <td> ' . $priority . ' </td> 
+                            <td> ' . $priority . ' </td>
                             <td> ' . $hours . ' </td>
                         </tr>
                     </tbody>
                 </table>
                 <p>Este correo es generado automáticamente. Por favor, no es necesario responder.</p>
                 <p> &copy;' . date('Y') . ' SCINFORMATICA. Todos los derechos reservados. </p>
-                
+
             </div>
         </body>
-        
+
         </html>';
 
             if (mail($to, $subject, $message, $headers)) {
@@ -301,16 +301,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Correo clientes :
 
-        $to_cliente = $client_contact; // Email del cliente 
+        $to_cliente = $client_contact; // Email del cliente
         $subject_cliente = 'Orden finalizada';
         $headers_cliente = "From: SC Informatica <proyectos@scinformatica.cl>\r\n";
         $headers_cliente .= "Reply-To: proyectos@scinformatica.cl\r\n";
         $headers_cliente .= "MIME-Version: 1.0\r\n";
         $headers_cliente .= "Content-Type: text/html; charset=UTF-8\r\n";
         $message_cliente = '
-        
+
         <html>
-        
+
         <head>
             <meta charset="UTF-8">
             <style>
@@ -320,7 +320,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     font-size: 14px;
                     color: #333;
                 }
-        
+
                 .container {
                     max-width: 600px;
                     margin: 0 auto;
@@ -330,86 +330,86 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     border-radius: 4px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 }
-        
+
                 h2 {
                     margin-top: 0;
                     color: #333;
                 }
-                
+
                 h3 {
                     margin-top: 0;
                     color: #333;
                     text-align: center;
                 }
-                
+
                 h4 {
                     margin-top: 0;
                     color: #333;
                     text-align: center;
                 }
-        
+
                 p {
                     margin-bottom: 10px;
                     color: #333;
                 }
-        
+
                 .table {
                     width: 100%;
                     border-collapse: collapse;
                     margin-top: 20px;
                 }
-        
+
                 .table th,
                 .table td {
                     padding: 8px;
                     text-align: left;
                     border-bottom: 1px solid #ccc;
                 }
-        
+
                 .table th {
                     font-weight: bold;
                     background-color: #f1f1f1;
                 }
-        
+
                 .table tbody tr:nth-child(even) {
                     background-color: #f9f9f9;
                 }
-        
+
                 .footer {
                     margin-top: 20px;
                     text-align: center;
                     color: #888;
                     font-size: 12px;
                 }
-        
+
                 .table-container {
                     overflow-x: auto;
                 }
-        
+
                 @media (max-width: 768px) {
                     .table-container {
                         width: 100%;
                     }
                 }
-        
+
                 img {
                     max-width: 100%;
-                    height: auto;       
+                    height: auto;
                 }
             </style>
         </head>
-        
+
         <body>
             <div class="container">
                 <div style="text-align: center;">
                     <img src="https://drive.google.com/uc?export=download&id=1hTk5ZVvHS3qBb3yThfmsy7pS8vySIxjY" alt="">
                     <h2>Hola, ' . $client_name . '</h2>
                 </div>
-        
+
                 <h3> Se ha finalizado la orden ' . $number . '  </h3>
-                
+
                 <h4> ' . $description . ' </h4>
-        
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -430,7 +430,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </tr>
                     </tbody>
                 </table> <br>
-                
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -442,17 +442,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <tbody>
                         <tr>
                             <td> ' .  $leader . ' </td>
-                            <td> ' . $priority . ' </td> 
+                            <td> ' . $priority . ' </td>
                             <td> ' . $hours . ' </td>
                         </tr>
                     </tbody>
                 </table>
                 <p>Este correo es generado automáticamente. Por favor, no es necesario responder.</p>
                 <p> &copy;' . date('Y') . ' SCINFORMATICA. Todos los derechos reservados. </p>
-                
+
             </div>
         </body>
-        
+
         </html>';
 
 
@@ -468,7 +468,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-        // Correos de respaldo 
+        // Correos de respaldo
 
         $tableRows = ''; // Variable para almacenar las filas de la tabla
 
@@ -478,7 +478,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $tableRows .= '</tr>';
         }
 
-        $to_copy = 'rmoya@scinformatica.cl ,  scinformatica@scinformatica.cl '; // lista de emails que recibirán el comprobante 
+        $to_copy = 'rmoya@scinformatica.cl ,  scinformatica@scinformatica.cl '; // lista de emails que recibirán el comprobante
         $subject_copy = ' Comprobante de Orden Completada : ' . $number;
         $headers_copy = "From: SC Informatica <proyectos@scinformatica.cl>\r\n";
         $headers_copy .= "Reply-To: proyectos@scinformatica.cl\r\n";
@@ -511,13 +511,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-top: 0;
             color: #333;
         }
-        
+
         h3 {
             margin-top: 0;
             color: #333;
             text-align: center;
         }
-        
+
         h4 {
             margin-top: 0;
             color: #333;
@@ -587,7 +587,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h3> ' . $created_at  . '</h3>
 
         <h4> ' . $description . ' </h4>
-        
+
         <h4> ' . $type . ' </h4>
 
         <table class="table">
@@ -665,7 +665,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'Hubo un error al enviar el correo al cliente.';
         }
 
-        // 
+        //
 
 
 
@@ -736,7 +736,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     $up = $con->query("UPDATE ots SET id_client='$client', id_branch='$branch', id_contact='$contact', hours='$hours', type='$type'
-    , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status', 
+    , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status',
     detalle='$detalle' , accesorios= '$accesorios', rayones='$rayones', rupturas='$rupturas', tornillos='$tornillos', gomas='$gomas', estado='$estado'
      , observaciones='$observaciones', cargador='$cargador', cable='$cable', adaptador='$adaptador', bateria='$bateria', pantalla='$pantalla', teclado='$teclado'
      , drum='$drum', toner='$toner'
@@ -744,7 +744,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if ($up) {
-        header('location:../extend/alerta.php?msj=Orden actualizado&c=ots&p=update_ot&t=success&id=' . $id . '');
+        header('location:../extend/alerta.php?msj=Orden actualizado&c=ots&p=fuera&t=success&id=' . $id . '');
     } else {
         header('location:../extend/alerta.php?msj=La orden no se pudo actualizar&c=ots&p=update_ot&t=error&id=' . $id . '');
     }

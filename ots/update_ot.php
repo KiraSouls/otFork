@@ -275,15 +275,15 @@ while ($g = $sel_id_line->fetch_assoc()) {
                         <div>
                            <legend>¿El Equipo Posee Detalles?:</legend>
                            <div>
-                              <input type="radio" id="detsi" name="deta" value='1' <?php if ($detalle == '1') {
+                              <input type="radio" id="detsi" name="deta" value='1' <?php if ($detalle == 1) {
                                                                                        echo 'checked';
                                                                                     } ?> onclick="detalles('Y');" />
                               <label for="detsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="detno" name="deta" value='0' <?php if ($detalle == '0') {
+                              <input type="radio" id="detno" name="deta" value='0' <?php if ($detalle == 0) {
                                                                                        echo 'checked';
-                                                                                    } ?>onclick="detalles('N');" />
+                                                                                    } ?> onclick="detalles('N');" />
                               <label for="detno">No</label>
                            </div>
                         </div>
@@ -394,13 +394,13 @@ while ($g = $sel_id_line->fetch_assoc()) {
                         <div>
                            <legend>¿El Equipo Posee Accesorios?:</legend>
                            <div>
-                              <input type="radio" id="accsi" name="acce" value='1' <?php if ($accesorios != "1") {
+                              <input type="radio" id="accsi" name="acce" value='1' <?php if ($accesorios == 1) {
                                                                                        echo 'checked';
                                                                                     } ?> onclick="accesorios('Y');" />
                               <label for="accsi">Si</label>
                            </div>
                            <div>
-                              <input type="radio" id="accno" name="acce" value='0' <?php if ($accesorios == "0") {
+                              <input type="radio" id="accno" name="acce" value='0' <?php if ($accesorios == 0) {
                                                                                        echo 'checked';
                                                                                     } ?> onclick="accesorios('N');" />
                               <label for="accno">No</label>
