@@ -464,7 +464,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="poderno">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio"><?php if ($cable == "") {
+                                 <textarea required id="area6" name="cable" placeholder="Ingrese observaciones"><?php if ($cable == "") {
                                                                                                                         echo "No Aplica";
                                                                                                                      } else {
                                                                                                                         echo $cable;
@@ -489,7 +489,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                  <label for="adano">No</label>
                               </div>
                               <div>
-                                 <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio"><?php if ($adaptador == "") {
+                                 <textarea required id="area7" name="adaptador" placeholder="Ingrese observaciones"><?php if ($adaptador == "") {
                                                                                                                            echo "No Aplica";
                                                                                                                         } else {
                                                                                                                            echo $adaptador;
