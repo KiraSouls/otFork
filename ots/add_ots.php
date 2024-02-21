@@ -111,11 +111,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div>
                         <legend>¿El Equipo Posee Detalles?:</legend>
                         <div>
-                           <input type="radio" id="detsi" name="deta" value="1" required onclick="detalles('Y');" onclick="hideShowJacks13('Y');" />
+                           <input type="radio" id="detsi" name="deta" value="1" onclick="detalles('Y');" onclick="hideShowJacks13('Y');" />
                            <label for="detsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="detno" name="deta" value="0" onclick="detalles('N');" onclick="hideShowJacks13('N');" />
+                           <input type="radio" id="detno" name="deta" value="0" checked onclick="detalles('N');" onclick="hideShowJacks13('N');" />
                            <label for="detno">No</label>
                         </div>
                      </div>
@@ -192,14 +192,14 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
                      <div class="row hide" id="estado">
                         <div class="input-field col s12 ">
-                           <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"></textarea>
+                           <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800">No Aplica</textarea>
                            <label for="estado">Indique El Estado Del Equipo</label>
                         </div>
                      </div>
 
                      <div class="row hide" id="obs">
                         <div class="input-field col s12 ">
-                           <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800"></textarea>
+                           <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800">No Aplica</textarea>
                            <label for="obs">Observaciones Adicionales</label>
                         </div>
                      </div>
@@ -211,11 +211,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div>
                         <legend>¿El Equipo Posee Accesorios?:</legend>
                         <div>
-                           <input type="radio" id="accsi" name="acce" value="1" required onclick="accesorios('Y');" />
+                           <input type="radio" id="accsi" name="acce" value="1" onclick="accesorios('Y');" />
                            <label for="accsi">Si</label>
                         </div>
                         <div>
-                           <input type="radio" id="accno" name="acce" value="0" onclick="accesorios('N');" />
+                           <input type="radio" id="accno" name="acce" checked value="0" onclick="accesorios('N');" />
                            <label for="accno">No</label>
                         </div>
                      </div>
@@ -622,7 +622,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          var element = document.getElementById("estado");
          element.classList.remove("hide");
 
-
          var element = document.getElementById("obs");
          element.classList.remove("hide");
 
@@ -646,6 +645,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
          var element = document.getElementById("obs");
          element.classList.add("hide");
+
       }
    };
 
@@ -930,12 +930,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                }
             });
 
-
-
-
-
-
-
             $.post("data_line.php", {
                id_service: id_service,
                id_branch: id_branch
@@ -967,7 +961,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#subline10").html(data);
             });
          });
-
 
       })
 
@@ -1022,7 +1015,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      $("#equipment" + i).html(data);
                   });
                });
-
 
             })
 
