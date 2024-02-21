@@ -626,3 +626,5 @@ Stack trace:
 [02-Feb-2024 08:48:00 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 50
 [02-Feb-2024 08:48:00 America/Santiago] PHP Notice:  Undefined index: location in /home/scinform/public_html/ot/techs/add_service.php on line 13
 [02-Feb-2024 11:46:04 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 50
+[15-Feb-2024 22:34:47 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 5
+[15-Feb-2024 22:34:47 America/Santiago] PHP Notice:  Undefined index: password in /home/scinform/public_html/ot/extend/menu_admin.php on line 5

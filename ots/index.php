@@ -142,7 +142,7 @@ $row = mysqli_num_rows($sel);
                     // Botón "Eliminar"
                     "data": null,
                     "render": function(data, type, row) {
-                        return '<a href="delete_ot.php?id= ' + row.id + '" class="delete"><i class="material-icons">clear</i></a>';
+                        return '<a href="delete_ot.php?id= ' + row.id + '" class="btn-floating red delete"><i class="material-icons">clear</i></a>';
 
                     }
                 }
