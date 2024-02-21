@@ -16,6 +16,24 @@ while ($f = $sel->fetch_assoc()) {
    $hours = $f['hours'];
    $priority = $f['priority'];
    $status = $f['status'];
+
+
+   $detalle = $f['detalle'];
+   $accesorios = $f['accesorios'];
+   $rayones = $f['rayones'];
+   $rupturas = $f['rupturas'];
+   $tornillos = $f['tornillos'];
+   $gomas = $f['gomas'];
+   $estado = $f['estado'];
+   $observaciones = $f['observaciones'];
+   $cargador = $f['cargador'];
+   $cable = $f['cable'];
+   $adaptador = $f['adaptador'];
+   $bateria = $f['bateria'];
+   $pantalla = $f['pantalla'];
+   $teclado = $f['teclado'];
+   $drum = $f['drum'];
+   $toner = $f['toner'];
 }
 
 $sel_subline = $con->query("SELECT id_sublinea FROM services WHERE id='$id_service'");
@@ -40,12 +58,11 @@ while ($g = $sel_id_line->fetch_assoc()) {
             <div class="card-content">
                <form class="form" action="up_ot.php" method="post">
                   <div class="row">
+
                      <div class="col s3">
                         <label for="client">Cliente</label>
-
                         <select class="browser-default" name="client" id="client" required>
                            <option value="0" selected>Selecciona un cliente</option>
-
                            <?php
                            $sel2 = $con->query("SELECT * FROM clients");
                            while ($f = $sel2->fetch_assoc()) {  ?>
@@ -53,9 +70,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                         echo 'selected';
                                                                      } ?>> <?php echo $f['name'] ?></option>
                            <?php  } ?>
-
                         </select>
-
                      </div>
 
                      <div class="col s7">
@@ -89,7 +104,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
                   <div class="row">
                      <div class=" col s6">
                         <label for="service">Servicio</label>
-
                         <select class="browser-default" name="service" id="service" required>
                            <option value="" selected>Selecciona servicio</option>
 
@@ -102,7 +116,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            <?php  } ?>
                         </select>
                      </div>
-
                   </div>
 
                   <div class="row"> <?php
@@ -191,7 +204,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                 <option value='<?php echo $p['id'] ?>' <?php $sel_s =  $con->query("SELECT * FROM tasks_equipments WHERE number_ot='$number' AND id_equipment='$id_equip' AND id_tasks='$id_p'");
                                                                                        $filas = mysqli_num_rows($sel_s);
                                                                                        if ($filas > 0) {
-                                                                                          echo selected;
+                                                                                          echo 'selected';
                                                                                        }  ?>> <?php echo $p['name'] ?></option>
 
                                           <?php
@@ -261,48 +274,39 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      </div>
                   </div>
 
-
-
-
                   <div id="det" class="row" style="border:1px solid #cfcfcf">
                      <div class="col s6">
                         <div>
                            <legend>¿El Equipo Posee Detalles?:</legend>
                            <div>
-<<<<<<< HEAD
                               <input type="radio" id="detsi" name="deta" value='1' <?php if ($detalle == 1) {
                                                                                        echo 'checked';
-                                                                                    } ?> onclick="detalles('Y');" />
+                                                                                    } ?> />
                               <label for="detsi">Si</label>
                            </div>
                            <div>
                               <input type="radio" id="detno" name="deta" value='0' <?php if ($detalle == 0) {
                                                                                        echo 'checked';
-                                                                                    } ?> onclick="detalles('N');" />
-=======
-                              <input type="radio" id="detsi" name="deta" value="si" onclick="detalles('Y');" />
-                              <label for="detsi">Si</label>
-                           </div>
-                           <div>
-                              <input type="radio" id="detno" name="deta" value="no" onclick="detalles('N');" />
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
+                                                                                    } ?> />
+
                               <label for="detno">No</label>
                            </div>
                         </div>
 
 
-                        <div id="rayones" class="row hide">
+                        <div id="rayones" class="row">
                            <div>
                               <legend>¿El Equipo Posee Rayones?:</legend>
                               <div>
-                                 <input type="radio" id="raysi" name="raya" value="si" onclick="hideShowJacks('Y');" />
+                                 <input type="radio" id="raysi" name="raya" value="si" <?php if ($rayones != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
                                  <label for="raysi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="rayno" name="raya" value="no" <?php if ($rayones == "No Aplica" or $rayones == "") {
+                                 <input type="radio" id="rayno" name="raya" value="no" <?php if ($rayones == "No Aplica") {
                                                                                           echo 'checked';
-                                                                                       } ?> onclick="hideShowJacks('N');" />
+                                                                                       } ?> />
                                  <label for="rayno">No</label>
                               </div>
                               <div>
@@ -311,30 +315,24 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                   } else {
                                                                                                                      echo $rayones;
                                                                                                                   } ?></textarea>
-=======
-                                 <input type="radio" id="rayno" name="raya" value="no" onclick="hideShowJacks('N');" />
-                                 <label for="rayno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
 
-                        <div id="rupturas" class="row hide">
+                        <div id="rupturas" class="row">
                            <div>
                               <legend>¿El Equipo Posee Rupturas?:</legend>
                               <div>
-                                 <input type="radio" id="rupsi" name="rup" value="si" onclick="hideShowJacks2('Y');" />
+                                 <input type="radio" id="rupsi" name="rup" value="si" <?php if ($rupturas != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
                                  <label for="rupsi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="rupno" name="rup" value="no" <?php if ($rupturas == "No Aplica" or $rupturas == "") {
+                                 <input type="radio" id="rupno" name="rup" value="no" <?php if ($rupturas == "No Aplica") {
                                                                                           echo 'checked';
-                                                                                       } ?> onclick="hideShowJacks2('N');" />
+                                                                                       } ?> />
                                  <label for="rupno">No</label>
                               </div>
                               <div>
@@ -343,30 +341,24 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                      } else {
                                                                                                                         echo $rupturas;
                                                                                                                      } ?></textarea>
-=======
-                                 <input type="radio" id="rupno" name="rup" value="no" onclick="hideShowJacks2('N');" />
-                                 <label for="rupno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area2" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
 
-                        <div id="tornillos" class="row hide">
+                        <div id="tornillos" class="row">
                            <div>
                               <legend>¿El Equipo Posee Todos Los Tornillos De Su Carcasa?:</legend>
                               <div>
-                                 <input type="radio" id="torsi" name="torn" value="si" onclick="hideShowJacks3('Y');" />
+                                 <input type="radio" id="torsi" name="torn" value="si" <?php if ($tornillos != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
                                  <label for="torsi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="torno" name="torn" value="no" <?php if ($tornillos == "No Aplica" or $tornillos == "") {
+                                 <input type="radio" id="torno" name="torn" value="no" <?php if ($tornillos == "No Aplica") {
                                                                                           echo 'checked';
-                                                                                       } ?> onclick="hideShowJacks3('N');" />
+                                                                                       } ?> />
                                  <label for="torno">No</label>
                               </div>
                               <div>
@@ -375,29 +367,23 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                      } else {
                                                                                                                         echo $tornillos;
                                                                                                                      } ?></textarea>
-=======
-                                 <input type="radio" id="torno" name="torn" value="no" onclick="hideShowJacks3('N');" />
-                                 <label for="torno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area3" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
-                        <div id="gomas" class="row hide">
+                        <div id="gomas" class="row">
                            <div>
                               <legend>¿El Equipo Posee Las Gomas De La Base En Buen Estado?:</legend>
                               <div>
-                                 <input type="radio" id="gosi" name="go" value="si" onclick="hideShowJacks4('Y');" />
+                                 <input type="radio" id="gosi" name="go" value="si" <?php if ($gomas != "No Aplica") {
+                                                                                       echo 'checked';
+                                                                                    } ?> />
                                  <label for="gosi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="gono" name="go" value="no" <?php if ($gomas == "No Aplica" or $gomas == "") {
+                                 <input type="radio" id="gono" name="go" value="no" <?php if ($gomas == "No Aplica") {
                                                                                        echo 'checked';
-                                                                                    } ?> onclick="hideShowJacks4('N');" />
+                                                                                    } ?> />
                                  <label for="gono">No</label>
                               </div>
                               <div>
@@ -406,27 +392,28 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                   } else {
                                                                                                                      echo $gomas;
                                                                                                                   } ?></textarea>
-=======
-                                 <input type="radio" id="gono" name="go" value="no" onclick="hideShowJacks4('N');" />
-                                 <label for="gono">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area4" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
-                        <div class="row hide" id="estado">
+                        <div class="row" id="estado">
                            <div class="input-field col s12 ">
-                              <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"></textarea>
+                              <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"><?php if ($estado == "") {
+                                                                                                                                                      echo "No Aplica";
+                                                                                                                                                   } else {
+                                                                                                                                                      echo $estado;
+                                                                                                                                                   } ?></textarea>
                               <label for="estado">Indique El Estado Del Equipo</label>
                            </div>
                         </div>
 
-                        <div class="row hide" id="obs">
+                        <div class="row" id="obs">
                            <div class="input-field col s12 ">
-                              <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800"></textarea>
+                              <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800"><?php if ($observaciones == "") {
+                                                                                                                                          echo "No Aplica";
+                                                                                                                                       } else {
+                                                                                                                                          echo $observaciones;
+                                                                                                                                       } ?></textarea>
                               <label for="obs">Observaciones Adicionales</label>
                            </div>
                         </div>
@@ -438,39 +425,32 @@ while ($g = $sel_id_line->fetch_assoc()) {
                         <div>
                            <legend>¿El Equipo Posee Accesorios:</legend>
                            <div>
-<<<<<<< HEAD
                               <input type="radio" id="accsi" name="acce" value='1' <?php if ($accesorios == 1) {
                                                                                        echo 'checked';
-                                                                                    } ?> onclick="accesorios('Y');" />
+                                                                                    } ?> />
                               <label for="accsi">Si</label>
                            </div>
                            <div>
                               <input type="radio" id="accno" name="acce" value='0' <?php if ($accesorios == 0) {
                                                                                        echo 'checked';
-                                                                                    } ?> onclick="accesorios('N');" />
-=======
-                              <input type="radio" id="accsi" name="acce" value="si" onclick="accesorios('Y');" />
-                              <label for="accsi">Si</label>
-                           </div>
-                           <div>
-                              <input type="radio" id="accno" name="acce" value="no" onclick="accesorios('N');" />
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
+                                                                                    } ?> />
                               <label for="accno">No</label>
                            </div>
                         </div>
 
-                        <div id="cargador" class="row hide">
+                        <div id="cargador" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Cargador?:</legend>
                               <div>
-                                 <input type="radio" id="carsi" name="carga" value="si" onclick="hideShowJacks5('Y');" />
+                                 <input type="radio" id="carsi" name="carga" value="si" <?php if ($cargador != "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> />
                                  <label for="carsi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="carno" name="carga" value="no" <?php if ($cargador == "No Aplica" or $cargador == "") {
+                                 <input type="radio" id="carno" name="carga" value="no" <?php if ($cargador == "No Aplica") {
                                                                                              echo 'checked';
-                                                                                          } ?> onclick="hideShowJacks5('N');" />
+                                                                                          } ?> />
                                  <label for="carno">No</label>
                               </div>
                               <div>
@@ -479,91 +459,73 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                         } else {
                                                                                                                            echo $cargador;
                                                                                                                         } ?></textarea>
-=======
-                                 <input type="radio" id="carno" name="carga" value="no" onclick="hideShowJacks5('N');" />
-                                 <label for="carno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area5" placeholder="N° de serie del accesorio"></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
-                        <div id="cable" class="row hide">
+                        <div id="cable" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Cable de Poder?:</legend>
                               <div>
-                                 <input type="radio" id="podersi" name="poder" value="si" onclick="hideShowJacks6('Y');" />
+                                 <input type="radio" id="podersi" name="poder" value="si" <?php if ($cable != "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> />
                                  <label for="podersi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="poderno" name="poder" value="no" <?php if ($cable == "No Aplica" or $cable == "") {
+                                 <input type="radio" id="poderno" name="poder" value="no" <?php if ($cable == "No Aplica") {
                                                                                              echo 'checked';
-                                                                                          } ?> onclick="hideShowJacks6('N');" />
+                                                                                          } ?> />
                                  <label for="poderno">No</label>
                               </div>
                               <div>
                                  <textarea required id="area6" name="cable" placeholder="Ingrese observaciones"><?php if ($cable == "") {
-                                                                                                                        echo "No Aplica";
-                                                                                                                     } else {
-                                                                                                                        echo $cable;
-                                                                                                                     } ?></textarea>
-=======
-                                 <input type="radio" id="poderno" name="poder" value="no" onclick="hideShowJacks6('N');" />
-                                 <label for="poderno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area6" placeholder="N° de serie del accesorio"></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
+                                                                                                                     echo "No Aplica";
+                                                                                                                  } else {
+                                                                                                                     echo $cable;
+                                                                                                                  } ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="adaptador" class="row hide">
+                        <div id="adaptador" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Adaptador de Poder?:</legend>
                               <div>
-                                 <input type="radio" id="adasi" name="adapt" value="si" onclick="hideShowJacks7('Y');" />
+                                 <input type="radio" id="adasi" name="adapt" value="si" <?php if ($adaptador != "No Aplica") {
+                                                                                             echo 'checked';
+                                                                                          } ?> />
                                  <label for="adasi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="adano" name="adapt" value="no" <?php if ($adaptador == "No Aplica" or $adaptador == "") {
+                                 <input type="radio" id="adano" name="adapt" value="no" <?php if ($adaptador == "No Aplica") {
                                                                                              echo 'checked';
-                                                                                          } ?> onclick="hideShowJacks7('N');" />
+                                                                                          } ?> />
                                  <label for="adano">No</label>
                               </div>
                               <div>
                                  <textarea required id="area7" name="adaptador" placeholder="Ingrese observaciones"><?php if ($adaptador == "") {
-                                                                                                                           echo "No Aplica";
-                                                                                                                        } else {
-                                                                                                                           echo $adaptador;
-                                                                                                                        } ?></textarea>
-=======
-                                 <input type="radio" id="adano" name="adapt" value="no" onclick="hideShowJacks7('N');" />
-                                 <label for="adano">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area7" placeholder="N° de serie del accesorio"></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $adaptador;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="bateria" class="row hide">
+                        <div id="bateria" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Batería?:</legend>
                               <div>
-                                 <input type="radio" id="batsi" name="bat" value="si" onclick="hideShowJacks8('Y');" />
+                                 <input type="radio" id="batsi" name="bat" value="si" <?php if ($bateria != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
                                  <label for="batsi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="batno" name="bat" value="no" <?php if ($bateria == "No Aplica" or $bateria == "") {
+                                 <input type="radio" id="batno" name="bat" value="no" <?php if ($bateria == "No Aplica") {
                                                                                           echo 'checked';
-                                                                                       } ?> onclick="hideShowJacks8('N');" />
+                                                                                       } ?> />
                                  <label for="batno">No</label>
                               </div>
                               <div>
@@ -572,29 +534,23 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                         } else {
                                                                                                                            echo $bateria;
                                                                                                                         } ?></textarea>
-=======
-                                 <input type="radio" id="batno" name="bat" value="no" onclick="hideShowJacks8('N');" />
-                                 <label for="batno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area8" placeholder="N° de serie del accesorio"></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
-                        <div id="pantalla" class="row hide">
+                        <div id="pantalla" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Pantalla En Mal Estado?:</legend>
                               <div>
-                                 <input type="radio" id="pansi" name="pant" value="si" onclick="hideShowJacks9('Y');" />
+                                 <input type="radio" id="pansi" name="pant" value="si" <?php if ($pantalla != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
                                  <label for="pansi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="panno" name="pant" value="no" <?php if ($pantalla == "No Aplica" or $pantalla == "") {
+                                 <input type="radio" id="panno" name="pant" value="no" <?php if ($pantalla == "No Aplica") {
                                                                                           echo 'checked';
-                                                                                       } ?> onclick="hideShowJacks9('N');" />
+                                                                                       } ?> />
                                  <label for="panno">No</label>
                               </div>
                               <div>
@@ -603,29 +559,23 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                      } else {
                                                                                                                         echo $pantalla;
                                                                                                                      } ?></textarea>
-=======
-                                 <input type="radio" id="panno" name="pant" value="no" onclick="hideShowJacks9('N');" />
-                                 <label for="panno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area9" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
 
-                        <div id="teclado" class="row hide">
+                        <div id="teclado" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Teclado en Mal Estado?:</legend>
                               <div>
-                                 <input type="radio" id="tecsi" name="tec" value="si" onclick="hideShowJacks10('Y');" />
+                                 <input type="radio" id="tecsi" name="tec" value="si" <?php if ($teclado != "No Aplica") {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
                                  <label for="tecsi">Si</label>
                               </div>
                               <div>
-<<<<<<< HEAD
-                                 <input type="radio" id="tecno" name="tec" value="no" <?php if ($teclado == "No Aplica" or $teclado == "") {
+                                 <input type="radio" id="tecno" name="tec" value="no" <?php if ($teclado == "No Aplica") {
                                                                                           echo 'checked';
-                                                                                       } ?> onclick="hideShowJacks10('N');" />
+                                                                                       } ?> />
                                  <label for="tecno">No</label>
                               </div>
                               <div>
@@ -634,31 +584,25 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                                      } else {
                                                                                                                         echo $teclado;
                                                                                                                      } ?></textarea>
-=======
-                                 <input type="radio" id="tecno" name="tec" value="no" onclick="hideShowJacks10('N');" />
-                                 <label for="tecno">No</label>
-                              </div>
-                              <div>
-                                 <textarea id="area10" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
 
-                  <div id="toner" class="row hide">
+                  <div id="toner" class="row ">
                      <div class="col s6">
                         <legend>¿El Equipo Posee Toner?:</legend>
                         <div>
-                           <input type="radio" id="tonsi" name="ton" value="si" onclick="hideShowJacks11('Y');" />
+                           <input type="radio" id="tonsi" name="ton" value="si" <?php if ($toner != "No Aplica") {
+                                                                                    echo 'checked';
+                                                                                 } ?> />
                            <label for="tonsi">Si</label>
                         </div>
                         <div>
-<<<<<<< HEAD
-                           <input type="radio" id="tonno" name="ton" value="no" <?php if ($toner == "No Aplica" or $toner == "") {
+                           <input type="radio" id="tonno" name="ton" value="no" <?php if ($toner == "No Aplica") {
                                                                                     echo 'checked';
-                                                                                 } ?> onclick="hideShowJacks11('N');" />
+                                                                                 } ?> />
                            <label for="tonno">No</label>
                         </div>
                         <div>
@@ -667,29 +611,23 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                             } else {
                                                                                                                echo $toner;
                                                                                                             } ?></textarea>
-=======
-                           <input type="radio" id="tonno" name="ton" value="no" onclick="hideShowJacks11('N');" />
-                           <label for="tonno">No</label>
-                        </div>
-                        <div>
-                           <textarea id="area11" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                         </div>
                      </div>
                   </div>
 
-                  <div id="drum" class="row hide">
+                  <div id="drum" class="row ">
                      <div class="col s6">
                         <legend>¿El Equipo Posee Drum?:</legend>
                         <div>
-                           <input type="radio" id="drsi" name="dru" value="si" onclick="hideShowJacks12('Y');" />
+                           <input type="radio" id="drsi" name="dru" value="si" <?php if ($drum != "No Aplica") {
+                                                                                    echo 'checked';
+                                                                                 } ?> />
                            <label for="drsi">Si</label>
                         </div>
                         <div>
-<<<<<<< HEAD
-                           <input type="radio" id="drno" name="dru" value="no" <?php if ($drum == "No Aplica" or $drum == "") {
+                           <input type="radio" id="drno" name="dru" value="no" <?php if ($drum == "No Aplica") {
                                                                                     echo 'checked';
-                                                                                 } ?> onclick="hideShowJacks12('N');" />
+                                                                                 } ?> />
                            <label for="drno">No</label>
                         </div>
                         <div>
@@ -698,20 +636,17 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                                             } else {
                                                                                                                echo $drum;
                                                                                                             } ?></textarea>
-=======
-                           <input type="radio" id="drno" name="dru" value="no" onclick="hideShowJacks12('N');" />
-                           <label for="drno">No</label>
-                        </div>
-                        <div>
-                           <textarea id="area12" placeholder="El Equipo presenta..."></textarea>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
                         </div>
                      </div>
                   </div>
 
                   <div class="row">
                      <div class="input-field col s12">
-                        <textarea id="description" name="description" class="materialize-textarea" data-length="800"></textarea>
+                        <textarea id="description" name="description" class="materialize-textarea" data-length="800"><?php if ($description == "") {
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $description;
+                                                                                                                     } ?></textarea>
                         <label for="description">Descripción De Orden</label>
                      </div>
                   </div>
@@ -720,7 +655,11 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      <div class="col s6">
                         <label for="hours">Horas</label>
 
-                        <input type="number" min="0" name="hours">
+                        <input type="number" min="0" name="hours" value="<?php if ($hours == "") {
+                                                                              echo '0';
+                                                                           } else {
+                                                                              echo $hours;
+                                                                           } ?>">
 
                      </div>
                   </div>
@@ -847,255 +786,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
 
 </div>
 <?php include '../extend/scripts.php'; ?>
-<<<<<<< HEAD
-
-=======
-
-<style>
-   #area {
-      display: none;
-   }
-
-   #area2 {
-      display: none;
-   }
-
-   #area3 {
-      display: none;
-   }
-
-   #area4 {
-      display: none;
-   }
-
-   #area5 {
-      display: none;
-   }
-
-   #area6 {
-      display: none;
-   }
-
-   #area7 {
-      display: none;
-   }
-
-   #area8 {
-      display: none;
-   }
-
-   #area9 {
-      display: none;
-   }
-
-   #area10 {
-      display: none;
-   }
-
-   #area11 {
-      display: none;
-   }
-
-   #area12 {
-      display: none;
-   }
-</style>
-
-<!-- funcion que esconde el textarea segun el radiobutton seleccionado -->
-<script>
-   function hideShowJacks(val) {
-      if (val == "Y") {
-         $("#area").show();
-      } else {
-         $("#area").hide();
-      }
-   }
-
-   function hideShowJacks2(val) {
-      if (val == "Y") {
-         $("#area2").show();
-      } else {
-         $("#area2").hide();
-      }
-   }
-
-   function hideShowJacks3(val) {
-      if (val == "Y") {
-         $("#area3").show();
-      } else {
-         $("#area3").hide();
-      }
-   }
-
-   function hideShowJacks4(val) {
-      if (val == "Y") {
-         $("#area4").show();
-      } else {
-         $("#area4").hide();
-      }
-   }
-
-   function hideShowJacks5(val) {
-      if (val == "Y") {
-         $("#area5").show();
-      } else {
-         $("#area5").hide();
-      }
-   }
-
-   function hideShowJacks6(val) {
-      if (val == "Y") {
-         $("#area6").show();
-      } else {
-         $("#area6").hide();
-      }
-   }
-
-   function hideShowJacks7(val) {
-      if (val == "Y") {
-         $("#area7").show();
-      } else {
-         $("#area7").hide();
-      }
-   }
-
-   function hideShowJacks8(val) {
-      if (val == "Y") {
-         $("#area8").show();
-      } else {
-         $("#area8").hide();
-      }
-   }
-
-   function hideShowJacks9(val) {
-      if (val == "Y") {
-         $("#area9").show();
-      } else {
-         $("#area9").hide();
-      }
-   }
-
-   function hideShowJacks10(val) {
-      if (val == "Y") {
-         $("#area10").show();
-      } else {
-         $("#area10").hide();
-      }
-   }
-
-   function hideShowJacks11(val) {
-      if (val == "Y") {
-         $("#area11").show();
-      } else {
-         $("#area11").hide();
-      }
-   }
-
-   function hideShowJacks12(val) {
-      if (val == "Y") {
-         $("#area12").show();
-      } else {
-         $("#area12").hide();
-      }
-   }
-
-   function detalles(val) {
-
-      if (val == "Y") {
-
-         var element = document.getElementById("rayones");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("rupturas");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("tornillos");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("gomas");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("estado");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("obs");
-         element.classList.remove("hide");
-
-
-      } else {
-
-         var element = document.getElementById("rayones");
-         element.classList.add("hide");
-
-         var element = document.getElementById("rupturas");
-         element.classList.add("hide");
-
-         var element = document.getElementById("tornillos");
-         element.classList.add("hide");
-
-         var element = document.getElementById("gomas");
-         element.classList.add("hide");
-
-         var element = document.getElementById("estado");
-         element.classList.add("hide");
-
-         var element = document.getElementById("obs");
-         element.classList.add("hide");
-
-      }
-   };
-
-   function accesorios(val) {
-
-      if (val == "Y") {
-
-         var element = document.getElementById("cargador");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("cable");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("adaptador");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("bateria");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("pantalla");
-         element.classList.remove("hide");
-
-         var element = document.getElementById("teclado");
-         element.classList.remove("hide");
-
-         var element2 = document.getElementById("add");
-         element2.classList.remove("hide");
-
-      } else {
-
-         var element = document.getElementById("cargador");
-         element.classList.add("hide");
-
-         var element = document.getElementById("cable");
-         element.classList.add("hide");
-
-         var element = document.getElementById("adaptador");
-         element.classList.add("hide");
-
-         var element = document.getElementById("bateria");
-         element.classList.add("hide");
-
-         var element = document.getElementById("pantalla");
-         element.classList.add("hide");
-
-         var element = document.getElementById("teclado");
-         element.classList.add("hide");
-
-         var element3 = document.getElementById("add");
-         element3.classList.add("hide");
-      }
-   };
-</script>
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
 
 
 <script>
