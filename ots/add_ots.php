@@ -192,14 +192,14 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
                      <div class="row hide" id="estado">
                         <div class="input-field col s12 ">
-                           <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800">No Aplica</textarea>
+                           <textarea name="estado" placeholder="El Equipo (si/no) enciende..." class="materialize-textarea" data-length="800"></textarea>
                            <label for="estado">Indique El Estado Del Equipo</label>
                         </div>
                      </div>
 
                      <div class="row hide" id="obs">
                         <div class="input-field col s12 ">
-                           <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800">No Aplica</textarea>
+                           <textarea name="obs" class="materialize-textarea" placeholder="El Equipo presenta..." data-length="800"></textarea>
                            <label for="obs">Observaciones Adicionales</label>
                         </div>
                      </div>
@@ -405,8 +405,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
                   </div>
                </div>
-
-
 
 
                <input id="number" type="text" name="number" value="<?php echo $number ?>" hidden>
@@ -710,10 +708,9 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       $('.modal-trigger').leanModal();
    });
 
+
    $(document).ready(function() {
       $("#client").change(function() {
-
-
          $("#client option:selected").each(function() {
             id_client = $(this).val();
             $.post("data.php", {
@@ -722,10 +719,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#branch").html(data);
             });
          });
-
-
       })
-
    });
 
 
@@ -741,16 +735,12 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#model_name").html(data);
             });
          });
-
-
       })
-
    });
+
 
    $(document).ready(function() {
       $("#subline").change(function() {
-
-
          $("#subline option:selected").each(function() {
             id_subline = $(this).val();
             $.post("data_subline_equipment.php", {
@@ -760,15 +750,8 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#equipment").html(data);
             });
          });
-
-
       })
-
    });
-
-
-
-
 
 
    $(document).ready(function() {
@@ -798,35 +781,21 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             }, function(data) {
                $("#contact").html(data);
             });
-
-
-
-
          });
-
-
       })
-
    });
-
-
 
 
    $(document).ready(function() {
       $("#service").change(function() {
-
-
          $("#service option:selected").each(function() {
             id_service = $(this).val();
-
-
             $.post("data_tech.php", {
                id_service: id_service
             }, function(data) {
                $("#leader").html(data);
                $("#participants").html(data);
             });
-
 
 
             $.post("data_service.php", {
@@ -842,7 +811,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#task8").html(data);
                $("#task9").html(data);
                $("#task10").html(data);
-
             });
 
             //Esta funcion despliega los elementos visualmente dependiendo de si es servicio o laboratorio (0-1)
@@ -928,9 +896,9 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
                   var element2 = document.getElementById("add");
                   element2.classList.remove("hide");
-
                }
             });
+
 
             $.post("data_line.php", {
                id_service: id_service,
@@ -948,6 +916,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#equipment10").html(data);
             });
 
+
             $.post("data_subline.php", {
                id_service: id_service
             }, function(data) {
@@ -963,16 +932,13 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#subline10").html(data);
             });
          });
-
       })
-
    });
 
 
    $(document).ready(function() {
       var i = 1;
       $('#add').click(function() {
-
          $.post("data_line.php", {
             id_service: id_service,
             id_branch: id_branch
@@ -984,19 +950,19 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
          });
 
+
          $.post("data_service.php", {
             id_service: id_service
          }, function(data) {
-
             for (f = 0; f < i; f++) {
                $("#task" + i).html(data);
             }
-
          });
+
+
          $.post("data_subline.php", {
             id_service: id_service
          }, function(data) {
-
             for (f = 0; f < i; f++) {
                $("#subline" + i).html(data);
             }
@@ -1006,8 +972,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          i++;
          $(document).ready(function() {
             $("#subline" + i).change(function() {
-
-
                $("#subline" + i + " option:selected").each(function() {
                   id_subline = $(this).val();
                   $.post("data_subline_equipment.php", {
@@ -1017,9 +981,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      $("#equipment" + i).html(data);
                   });
                });
-
             })
-
          });
 
 
@@ -1038,10 +1000,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          var button_id = $(this).attr("id");
          $('#row' + button_id + '').remove();
       });
-
-
-
-
    });
 </script>
 

@@ -90,6 +90,9 @@ if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
 
   <li><a class="<?php activeFolder('ots'); ?> id=" ordenes" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../ots/index.php"><i style="color: white;" class="material-icons">assignment</i>Ordenes</a></li>
   <li><a class="<?php activeFolder('users'); ?><?php activeFolder('clients'); ?> id=" clientes" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../users/users.php"><i style="color: white;" class="material-icons">account_circle</i>Clientes</a></li>
+
+  <li><a class="<?php active('convenios'); ?> id=" convenios" style=" font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../convenios/index-convenios.php"><i style="color: white;" class="material-icons">article</i>Convenios</a></li>
+
   <li><a class="<?php activeFolder('providers'); ?> id=" proveedores" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../providers/index-providers.php"><i style="color: white;" class="material-icons">local_shipping</i>Proveedores</a></li>
   <li><a class="<?php activeFolder('replacements'); ?> id=" repuestos" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../replacements/index-replacements.php"><i style="color: white;" class="material-icons">build</i>Repuestos</a></li>
   <li><a class="<?php activeFolder('techs'); ?> id=" especialistas" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../techs/index-techs.php"><i style="color: white;" class="material-icons">person_pin_circle</i>Técnicos</a></li>
