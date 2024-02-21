@@ -63,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-    //    $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, number, comment) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status', '$number', '')");
 
     // Mis consultas
     $service_name = $con->query("SELECT service_name FROM services WHERE id='$service'");
@@ -91,14 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         foreach ($task as $val) {
-            //$ins3 = $con->query("INSERT tasks_equipments VALUES('','$val','$equipment','$number','1','','0')");
             $ins3 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$val','$equipment','$number','1','','0')");
         }
 
         for ($f = 2; $f <= $equipos; $f++) {
             foreach ($_POST['task' . $f] as $val) {
                 $equips = $_POST['equipment' . $f];
-                //$ins4 = $con->query("INSERT tasks_equipments VALUES('','$val','$equips','$number','$f','','0')");
                 $ins4 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$val','$equips','$number','$f','','0')");
             }
         }
@@ -120,7 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $userId = null;
             }
 
-            //$ins2 = $con->query("INSERT participants VALUES('','$valor','$description','$number')");
             $ins2 = $con->query("INSERT INTO participants (participant_name, description, ot_number, users_id) VALUES ('$valor','$description','$number', '$userId')");
 
             $sel3 = $con->query("SELECT email FROM techs WHERE name='$valor'");
