@@ -1,14 +1,6 @@
 <?php
-/* if (empty($_POST)) {
-  header('location:../extend/alerta.php?msj=Datos incorrectos&c=normal&p=fuera&t=error');
-} */
-
 include '../extend/header.php';
-
 ?>
-
-
-
 <div class="row" style="PADDING-TOP: 14PX;">
   <div class="col s12">
     <nav class="bg-dark">
@@ -23,9 +15,6 @@ include '../extend/header.php';
   </div>
 </div>
 
-
-
-
 <?php $sel = $con->query("SELECT * FROM convenios");
 $row = mysqli_num_rows($sel);
 ?>
@@ -35,7 +24,7 @@ $row = mysqli_num_rows($sel);
     <div class="card">
       <div class="card-content">
         <form action="excel.php" method="post" target="_blank" id="exportar">
-          <!-- <a class="right" style="padding: 10px;" href="../convenios/add_conv.php"> + Agregar</a> -->
+          <a class="right" style="padding: 10px;" href="../convenios/add_conv.php?number=<?php echo $row ?>"> + Agregar</a>
           <span class="card-title">Convenios(<?php echo $row ?>)</span>
           <button class="btn-floating light-blue darken-2 botonExcel"><i class="material-icons">grid_on</i></button>
           <input type="hidden" name="datos" id="datos">

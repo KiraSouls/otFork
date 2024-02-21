@@ -29,7 +29,7 @@ while ($f = $sel->fetch_assoc()) {
             <label for="email">Correo</label>
             <input type="text" name="email" value="<?php echo $email ?>" required>
             <label for="rut">Rut</label>
-            <input type="text" name="rut" value="<?php echo $rut ?>" id="rut" oninput="checkRut(this)" required>
+            <input type="text" name="rut" value="<?php echo $rut ?>" id="rut" required>
             <input type="text" name="id" value="<?php echo $idx ?>" hidden>
             <label for="web">web</label>
             <input type="text" name="web" value="<?php echo $web ?>" required>

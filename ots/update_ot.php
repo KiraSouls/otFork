@@ -58,12 +58,11 @@ while ($g = $sel_id_line->fetch_assoc()) {
             <div class="card-content">
                <form class="form" action="up_ot.php" method="post">
                   <div class="row">
+
                      <div class="col s3">
                         <label for="client">Cliente</label>
-
                         <select class="browser-default" name="client" id="client" required>
                            <option value="0" selected>Selecciona un cliente</option>
-
                            <?php
                            $sel2 = $con->query("SELECT * FROM clients");
                            while ($f = $sel2->fetch_assoc()) {  ?>
@@ -71,9 +70,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                         echo 'selected';
                                                                      } ?>> <?php echo $f['name'] ?></option>
                            <?php  } ?>
-
                         </select>
-
                      </div>
 
                      <div class="col s7">
@@ -107,7 +104,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
                   <div class="row">
                      <div class=" col s6">
                         <label for="service">Servicio</label>
-
                         <select class="browser-default" name="service" id="service" required>
                            <option value="" selected>Selecciona servicio</option>
 
@@ -120,7 +116,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            <?php  } ?>
                         </select>
                      </div>
-
                   </div>
 
                   <div class="row"> <?php
@@ -278,9 +273,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
                         </select>
                      </div>
                   </div>
-
-
-
 
                   <div id="det" class="row" style="border:1px solid #cfcfcf">
                      <div class="col s6">
@@ -446,7 +438,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            </div>
                         </div>
 
-                        <div id="cargador" class="row hide">
+                        <div id="cargador" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Cargador?:</legend>
                               <div>
@@ -471,7 +463,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            </div>
                         </div>
 
-                        <div id="cable" class="row hide">
+                        <div id="cable" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Cable de Poder?:</legend>
                               <div>
@@ -488,15 +480,15 @@ while ($g = $sel_id_line->fetch_assoc()) {
                               </div>
                               <div>
                                  <textarea required id="area6" name="cable" placeholder="Ingrese observaciones"><?php if ($cable == "") {
-                                                                                                                        echo "No Aplica";
-                                                                                                                     } else {
-                                                                                                                        echo $cable;
-                                                                                                                     } ?></textarea>
+                                                                                                                     echo "No Aplica";
+                                                                                                                  } else {
+                                                                                                                     echo $cable;
+                                                                                                                  } ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="adaptador" class="row hide">
+                        <div id="adaptador" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Adaptador de Poder?:</legend>
                               <div>
@@ -513,15 +505,15 @@ while ($g = $sel_id_line->fetch_assoc()) {
                               </div>
                               <div>
                                  <textarea required id="area7" name="adaptador" placeholder="Ingrese observaciones"><?php if ($adaptador == "") {
-                                                                                                                           echo "No Aplica";
-                                                                                                                        } else {
-                                                                                                                           echo $adaptador;
-                                                                                                                        } ?></textarea>
+                                                                                                                        echo "No Aplica";
+                                                                                                                     } else {
+                                                                                                                        echo $adaptador;
+                                                                                                                     } ?></textarea>
                               </div>
                            </div>
                         </div>
 
-                        <div id="bateria" class="row hide">
+                        <div id="bateria" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Batería?:</legend>
                               <div>
@@ -546,7 +538,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            </div>
                         </div>
 
-                        <div id="pantalla" class="row hide">
+                        <div id="pantalla" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Pantalla En Mal Estado?:</legend>
                               <div>
@@ -571,7 +563,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                            </div>
                         </div>
 
-                        <div id="teclado" class="row hide">
+                        <div id="teclado" class="row ">
                            <div>
                               <legend>¿El Equipo Posee Teclado en Mal Estado?:</legend>
                               <div>
@@ -598,7 +590,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      </div>
                   </div>
 
-                  <div id="toner" class="row hide">
+                  <div id="toner" class="row ">
                      <div class="col s6">
                         <legend>¿El Equipo Posee Toner?:</legend>
                         <div>
@@ -623,7 +615,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      </div>
                   </div>
 
-                  <div id="drum" class="row hide">
+                  <div id="drum" class="row ">
                      <div class="col s6">
                         <legend>¿El Equipo Posee Drum?:</legend>
                         <div>
