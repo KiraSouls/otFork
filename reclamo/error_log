@@ -6868,3 +6868,9 @@ Stack trace:
 [02-Feb-2024 11:39:02 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_tech.php on line 51
 [02-Feb-2024 11:39:02 America/Santiago] PHP Notice:  Undefined index: rol in /home/scinform/public_html/ot/extend/menu_tech.php on line 52
 [02-Feb-2024 11:39:02 America/Santiago] PHP Notice:  Undefined index: name in /home/scinform/public_html/ot/reclamo/agendamiento_tech.php on line 2
+[15-Feb-2024 22:37:37 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 5
+[15-Feb-2024 22:37:37 America/Santiago] PHP Notice:  Undefined index: password in /home/scinform/public_html/ot/extend/menu_admin.php on line 5
+[15-Feb-2024 23:28:56 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_tech.php on line 5
+[15-Feb-2024 23:28:56 America/Santiago] PHP Notice:  Undefined index: password in /home/scinform/public_html/ot/extend/menu_tech.php on line 5
+[16-Feb-2024 03:40:49 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 5
+[16-Feb-2024 03:40:49 America/Santiago] PHP Notice:  Undefined index: password in /home/scinform/public_html/ot/extend/menu_admin.php on line 5

@@ -7403,3 +7403,7 @@ Stack trace:
 [01-Feb-2024 14:21:35 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 50
 [01-Feb-2024 14:22:14 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 50
 [01-Feb-2024 16:42:47 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 50
+[15-Feb-2024 16:50:24 America/Santiago] PHP Notice:  Undefined index: email in /home/scinform/public_html/ot/extend/menu_admin.php on line 5
+[15-Feb-2024 16:50:24 America/Santiago] PHP Notice:  Undefined index: password in /home/scinform/public_html/ot/extend/menu_admin.php on line 5
+[15-Feb-2024 17:07:18 America/Santiago] PHP Notice:  Undefined index: equipment_name in /home/scinform/public_html/ot/equipments/ins_equipment.php on line 6
+[15-Feb-2024 17:16:25 America/Santiago] PHP Notice:  Undefined index: equipment_name in /home/scinform/public_html/ot/equipments/ins_equipment.php on line 6

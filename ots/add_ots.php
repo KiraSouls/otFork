@@ -249,7 +249,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="poderno">No</label>
                            </div>
                            <div>
-                              <textarea required id="area6" name="cable" placeholder="N° de serie del accesorio">No Aplica</textarea>
+                              <textarea required id="area6" name="cable" placeholder="Ingrese observaciones">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -266,7 +266,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                               <label for="adano">No</label>
                            </div>
                            <div>
-                              <textarea required id="area7" name="adaptador" placeholder="N° de serie del accesorio">No Aplica</textarea>
+                              <textarea required id="area7" name="adaptador" placeholder="Ingrese observaciones">No Aplica</textarea>
                            </div>
                         </div>
                      </div>
@@ -528,12 +528,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       if (val == "Y") {
          $("#area6").show();
          document.getElementById("area6").textContent = ""
-         document.getElementById("area6").placeholder = "Escriba N° de serie del accesorio"
+         document.getElementById("area6").placeholder = "Ingrese observaciones"
 
       } else {
-         $("#area6").show();
-         document.getElementById("area6").textContent = ""
-         document.getElementById("area6").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
+         $("#area6").hide();
+         document.getElementById("area6").textContent = "No aplica";
       }
    }
 
@@ -541,12 +540,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       if (val == "Y") {
          $("#area7").show();
          document.getElementById("area7").textContent = ""
-         document.getElementById("area7").placeholder = "Escriba N° de serie del accesorio"
+         document.getElementById("area7").placeholder = "Ingrese observaciones"
 
       } else {
-         $("#area7").show();
-         document.getElementById("area7").textContent = ""
-         document.getElementById("area7").placeholder = "Escriba Cotizar y el N° de serie del accesorio";
+         $("#area7").hide();
+         document.getElementById("area7").textContent = "No aplica";
       }
    }
 
