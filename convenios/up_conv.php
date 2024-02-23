@@ -1,28 +1,24 @@
-<?php include'../conn/connn.php';
+<?php include '../conn/connn.php';
 
-if ($_SERVER['REQUEST_METHOD']== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $id = $con->real_escape_string(htmlentities($_POST['id']));
-  $name = $con->real_escape_string(htmlentities($_POST['name']));
-  $email = $con->real_escape_string(htmlentities($_POST['email']));
-  $rut = $con->real_escape_string(htmlentities($_POST['rut']));
-  $web = $con->real_escape_string(htmlentities($_POST['web']));
-  $phone = $con->real_escape_string(htmlentities($_POST['phone']));
+  $id_cliente = $con->real_escape_string(htmlentities($_POST['cli']));
+  $visitas_presenciales = $con->real_escape_string(htmlentities($_POST['v_p']));
+  $visitas_emergencia =  $con->real_escape_string(htmlentities($_POST['v_e']));
+  $soporte_remoto = $con->real_escape_string(htmlentities($_POST['s_r']));
+  $estado =  $con->real_escape_string(htmlentities($_POST['estado']));
 
 
 
-
-  $up = $con->query("UPDATE clients SET name='$name', email='$email', rut='$rut', web='$web', phone='$phone' WHERE id='$id' ");
+  $up = $con->query("UPDATE convenios SET id_cliente='$id_cliente', visitas_presenciales='$visitas_presenciales', visitas_emergencia='$visitas_emergencia', soporte_remoto='$soporte_remoto',estado='$estado'  WHERE id='$id' ");
 
 
   if ($up) {
-      header('location:../extend/alerta.php?msj=Cliente actualizado&c=us&p=in&t=success');
-  }else {
-      header('location:../extend/alerta.php?msj=No se pudo actualizar el cliente&c=us&p=in&t=error');
+    header('location:../extend/alerta.php?msj=Convenio actualizado&c=cnv&p=r&t=success');
+  } else {
+    header('location:../extend/alerta.php?msj=No se pudo actualizar el convenio&c=cnv&p=r&t=error');
   }
 
-$con->close();
-}else {
-  header('location:../extend/alerta.php?msj=Utiliza el formulario&c=ofer&p=img&t=error&id='.$id.'');
-
+  $con->close();
 }

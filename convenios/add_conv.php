@@ -9,13 +9,14 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
     <div class="card">
       <div class="card-content">
         <span class="card-title">Agregar Convenio</span>
-        <form class="form" action="ins_client.php" method="post">
+        <form class="form" action="ins_conv.php" method="post">
 
           <div>
             <label for="client">Cliente</label>
-            <select class="browser-default" name="client" id="client" required>
-              <option value="0" selected>Selecciona un cliente</option>
+            <select class="browser-default" name="id" id="id" required>
+              <option value="" selected>Selecciona un cliente</option>
               <?php
+
               $sel2 = $con->query("SELECT * FROM clients");
               while ($f = $sel2->fetch_assoc()) {  ?>
                 <option value='<?php echo $f['id'] ?>'> <?php echo $f['name'] ?></option>
@@ -43,10 +44,10 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
           <div>
             <label for="estado">Estado</label>
             <select class="browser-default" name="estado" id="estado" required>
-              <option value="0" selected>Selecciona un estado</option>
+              <option value="" selected>Selecciona un estado</option>
               <option value="Vigente">Vigente</option>
               <option value="Pendiente">Pendiente</option>
-              <option value="Cancelada">Cancelada</option>
+              <option value="Cancelada">Cancelado</option>
             </select>
           </div>
           <input id="number" type="text" name="number" value="<?php echo $number ?>" hidden>
