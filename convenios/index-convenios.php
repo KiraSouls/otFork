@@ -15,7 +15,15 @@ include '../extend/header.php';
   </div>
 </div>
 
-<?php $sel = $con->query("SELECT * FROM convenios");
+
+
+<?php
+//$sel = $con->query("SELECT * FROM convenios");
+$sel = $con->query("SELECT c.id, c.number, c.visitas_presenciales, c.visitas_emergencia, c.soporte_remoto, c.estado, c.created_at,
+cli.name
+FROM  convenios c
+INNER JOIN clients cli ON c.id_cliente = cli.id ORDER BY c.created_at desc
+");
 $row = mysqli_num_rows($sel);
 ?>
 
@@ -44,14 +52,14 @@ $row = mysqli_num_rows($sel);
           <?php while ($f = $sel->fetch_assoc()) { ?>
             <tr>
               <td><?php echo $f['number'] ?></td>
-              <td><?php echo $f['id_cliente'] ?></td>
+              <td><?php echo $f['name'] ?></td>
               <td><?php echo $f['visitas_presenciales'] ?></td>
               <td><?php echo $f['visitas_emergencia'] ?></td>
               <td><?php echo $f['soporte_remoto'] ?></td>
               <td><?php echo $f['estado'] ?></td>
-              <!-- <td><a href="../convenios/clients_update.php?id=<?php echo $f['id'] ?>" class="btn-floating light-blue darken-2"><i class="material-icons">settings_applications</i></a></td> -->
-              <!-- <td class="borrar"><a href="#" class="btn-floating red" onclick="swal({ title:'Esta seguro que desea eliminar el cliente?',text: 'Se perderan los datos!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminar'}).then(function (isConfirm) {
-                         if(isConfirm.value){  location.href='delete_client.php?id=<?php echo     $f['id'] ?>'; } else { location.href='users.php';} })"><i class="material-icons">clear</i></a></td> -->
+              <td><a href="../convenios/update_conv.php?id=<?php echo $f['id'] ?>" class="btn-floating light-blue darken-2"><i class="material-icons">settings_applications</i></a></td>
+              <td class="borrar"><a href="#" class="btn-floating red" onclick="swal({ title:'Esta seguro que desea eliminar el cliente?',text: 'Se perderan los datos!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminar'}).then(function (isConfirm) {
+                         if(isConfirm.value){  location.href='delete_conv.php?id=<?php echo     $f['id'] ?>'; } else { location.href='index-convenios.php';} })"><i class="material-icons">clear</i></a></td>
             </tr>
           <?php } ?>
         </table>

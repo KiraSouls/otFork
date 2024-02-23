@@ -1,15 +1,13 @@
 <?php include '../conn/connn.php';
 
-$id = $con-> real_escape_string(htmlentities($_GET['id']));
+$id = $con->real_escape_string(htmlentities($_GET['id']));
 
-$eli = $con->query("DELETE FROM clients WHERE id='$id' ");
+$eli = $con->query("DELETE FROM convenios WHERE id='$id' ");
 
 if ($eli) {
-  header('location:../extend/alerta.php?msj=Cliente eliminado&c=us&p=in&t=success');
-}else {
-  header('location:../extend/alerta.php?msj=El cliente no pudo ser eliminado&c=us&p=in&t=error');
+  header('location:../extend/alerta.php?msj=Convenio eliminado&c=cnv&p=r&t=success');
+} else {
+  header('location:../extend/alerta.php?msj=El Convenio no pudo ser eliminado&c=cnv&p=r&t=error');
 }
 
 $con->close();
-
- ?>
