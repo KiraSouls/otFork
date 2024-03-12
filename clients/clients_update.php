@@ -51,7 +51,6 @@ $sel2 = $con->query("SELECT * FROM branches WHERE id = '$id' ");
 while ($f = $sel2->fetch_assoc()) {
   $location = $f['location'];
   $phone = $f['phone'];
-  $contact = $f['contact'];
 }
 ?>
 

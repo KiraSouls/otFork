@@ -1,12 +1,5 @@
 <?php include '../extend/header.php'; ?>
 
-
-
-
-
-
-
-
 <?php $sel = $con->query("SELECT o.id, o.description, o.leader, o.status, o.created_at, o.number,
                                         cli.name,
                                         bra.location,
@@ -16,6 +9,7 @@
                                   INNER JOIN branches bra ON o.id_branch = bra.id
                                   INNER JOIN services ser ON o.id_service = ser.id ORDER BY o.created_at desc");
 $row = mysqli_num_rows($sel);
+
 ?>
 
 <div class="row">
@@ -40,10 +34,9 @@ $row = mysqli_num_rows($sel);
             <th>Ver</th>
             <th class="borrar">Editar</th>
             <th class="borrar">Eliminar</th>
-
           </thead>
-          <tbody>
 
+          <tbody>
           </tbody>
         </table>
       </div>
@@ -53,12 +46,9 @@ $row = mysqli_num_rows($sel);
 
 <?php include '../extend/scripts.php'; ?>
 
-
 </body>
 
 </html>
-
-
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>

@@ -3,17 +3,15 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $id = $con->real_escape_string(htmlentities($_POST['id']));
-  $id_cliente = $con->real_escape_string(htmlentities($_POST['clir']));
+  $id_cliente = $con->real_escape_string(htmlentities($_POST['cli']));
   $visitas_presenciales = $con->real_escape_string(htmlentities($_POST['v_p']));
   $visitas_emergencia =  $con->real_escape_string(htmlentities($_POST['v_e']));
   $soporte_remoto = $con->real_escape_string(htmlentities($_POST['s_r']));
-  $horas_tecnicas = $con->real_escape_string(htmlentities($_POST['h_t']));
   $estado =  $con->real_escape_string(htmlentities($_POST['estado']));
 
 
 
-  $up = $con->query("UPDATE convenios SET id_cliente='$id_cliente', visitas_presenciales='$visitas_presenciales', visitas_emergencia='$visitas_emergencia'
-  , soporte_remoto='$soporte_remoto', horas_tecnicas='$horas_tecnicas',estado='$estado'  WHERE id='$id' ");
+  $up = $con->query("UPDATE convenios SET id_cliente='$id_cliente', visitas_presenciales='$visitas_presenciales', visitas_emergencia='$visitas_emergencia', soporte_remoto='$soporte_remoto',estado='$estado'  WHERE id='$id' ");
 
 
   if ($up) {

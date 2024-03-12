@@ -9,11 +9,9 @@ $sel = $con->query("SELECT * FROM convenios WHERE id = '$id' ");
 while ($f = $sel->fetch_assoc()) {
   $id = $f['id'];
   $id_cliente = $f['id_cliente'];
-
   $visitas_presenciales = $f['visitas_presenciales'];
   $visitas_emergencia = $f['visitas_emergencia'];
   $soporte_remoto = $f['soporte_remoto'];
-  $horas_tecnicas = $f['horas_tecnicas'];
   $estado = $f['estado'];
 }
 ?>
@@ -28,15 +26,14 @@ while ($f = $sel->fetch_assoc()) {
 
             <div>
               <label for="client">Cliente</label>
-              <select class="browser-default" name="clir" id="clir" required>
-                <option value="" selected>Selecciona un cliente</option>
+              <select class="browser-default" name="cli" id="cli" required>
+                <option disabled value="" selected>Selecciona un cliente</option>
                 <?php
                 $sel2 = $con->query("SELECT * FROM clients");
                 while ($f = $sel2->fetch_assoc()) {  ?>
-                  <!-- si quieres guardar otro cliente -> usa el echo $f['id'] en vez del echo $id_cliente -->
-                  <option value='<?php echo $id_cliente ?>' <?php if ($f['id'] == $id_cliente) {
-                                                              echo 'selected';
-                                                            } ?>> <?php echo $f['name'] ?></option>
+                  <option disabled value='<?php echo $id_cliente ?>' <?php if ($f['id'] == $id_cliente) {
+                                                                        echo 'selected';
+                                                                      } ?>> <?php echo $f['name'] ?></option>
                 <?php  } ?>
               </select>
             </div>
@@ -57,11 +54,6 @@ while ($f = $sel->fetch_assoc()) {
               <label for="s_r">Soporte Remoto:</label>
             </div>
             <br>
-            <div class="input-field">
-              <input type="number" name="h_t" required id="h_t" title="Horas Tecnicas" value="<?php echo $horas_tecnicas; ?>">
-              <label for="h_t">Horas Técnicas:</label>
-            </div>
-            <br>
             <div>
               <label for="estado">Estado</label>
               <select class="browser-default" name="estado" id="estado" required>
@@ -72,7 +64,7 @@ while ($f = $sel->fetch_assoc()) {
                 <option value="Pendiente" <?php if ($estado == 'Pendiente') {
                                             echo 'selected';
                                           } ?>>Pendiente</option>
-                <option value="Cancelado" <?php if ($estado == 'Cancelado') {
+                <option value="Cancelada" <?php if ($estado == 'Cancelado') {
                                             echo 'selected';
                                           } ?>>Cancelado</option>
               </select>
@@ -89,12 +81,12 @@ while ($f = $sel->fetch_assoc()) {
   </div>
 </div>
 <?php
-// $sel2 = $con->query("SELECT * FROM detalle_convenio WHERE num_convenio = '$number' ");
+$sel2 = $con->query("SELECT * FROM branches WHERE id = '$id' ");
 
-// while ($f = $sel2->fetch_assoc()) {
-//   $servicio = $f['service_name'];
-//   $tarea = $f['name'];
-// }
+while ($f = $sel2->fetch_assoc()) {
+  $location = $f['location'];
+  $phone = $f['phone'];
+}
 ?>
 
 
@@ -105,51 +97,30 @@ while ($f = $sel->fetch_assoc()) {
 
       <div class="card-stacked">
         <div class="card-content">
-          <form action="" method="post">
-
+          <form action="up_client.php" method="post">
             <table class="excel responsive-table" border="1">
               <thead>
                 <th>Servicio</th>
                 <th>Tarea</th>
-
+                <th>Editar</th>
                 <th class="borrar">Eliminar</th>
               </thead>
               <?php
+              $sel2 = $con->query("SELECT * FROM branches WHERE id_clients = '$id' ");
 
-              $i = 1;
-              $seld = $con->query("SELECT a.id as id_detalle, b.service_name, c.name, d.id 
-              -- , d.id
-                        FROM detalle_convenio AS a
-                        JOIN services AS b
-                        ON a.id_servicio = b.id
-                        JOIN tasks AS c
-                        ON a.id_tarea=c.id
-                        JOIN convenios AS d
-                        ON a.num_convenio=d.id
-                        WHERE num_convenio = '$id'");
 
-              while ($f = $seld->fetch_assoc()) {
-                $servicio = $f['service_name'];
-                $tarea = $f['name'];
-                $id_detalle = $f['id_detalle'];
-
-              ?>
+              while ($f = $sel2->fetch_assoc()) {  ?>
                 <tr>
-                  <td><?php echo $servicio ?></td>
-                  <td><?php echo $tarea ?></td>
-                  <td class="borrar">
-                    <a href="#" class="btn-floating red" onclick="swal({ title:'Esta seguro que desea eliminar este registro?',text: 'Se perderan los datos!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminar'}).then(function (isConfirm) {
-                         if(isConfirm.value){  location.href='delete_detalle.php?id=<?php echo $id_detalle ?>&idx=<?php echo $id_detalle ?>'; } else { location.href='#';} })"><i class="material-icons">clear</i></a>
-                  </td>
+                  <td><?php echo $f['branch_name'] ?></td>
+                  <td><?php echo $f['location'] ?></td>
+                  <td><a href="ins_detalle.php?id=<?php echo $f['id'] ?>" class="btn-floating light-blue darken-2"><i class="material-icons">settings_applications</i></a></td>
+                  <td class="borrar"><a href="#" class="" onclick="swal({ title:'Esta seguro que desea eliminar la sucursal?',text: 'Se perderan los datos!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminar'}).then(function (isConfirm) {
+                         if(isConfirm.value){  location.href='delete_detalle.php?id=<?php echo $f['id'] ?>&idx=<?php echo $id ?>'; } else { location.href='clients_update.php?id=<?php echo $idx ?>';} })"><i class="material-icons">clear</i></a></td>
                 </tr>
 
-              <?php
-              }
-              ?>
-              <!-- 
-SELECT * FROM `ots` WHERE MONTH(created_at) = "10" and year(created_at) = "2019"; -->
+              <?php  } ?>
 
-              <a href="add_detalle.php?id=<?php echo $id ?>"> + Agregar</a>
+              <a href="add_detalle.php?id=<?php echo $idx ?>"> + Agregar</a>
           </form>
         </div>
       </div>
