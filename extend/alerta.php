@@ -105,6 +105,10 @@
     case 'r':
       $pagina = "index-convenios.php";
       break;
+    case 'uc':
+      $pagina = "update_conv.php";
+      break;
+
     case 'in':
       $pagina = "users.php";
       break;

@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hours = $con->real_escape_string(htmlentities($_POST['hours']));
 
     $type = $con->real_escape_string(htmlentities($_POST['type']));
+    $tipo_visita = $con->real_escape_string(htmlentities($_POST['typev']));
     $description = $con->real_escape_string(htmlentities($_POST['description']));
     $service = $con->real_escape_string(htmlentities($_POST['service']));
     $leader = $con->real_escape_string(htmlentities($_POST['leader']));
@@ -57,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-    $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, number, comment
-     , detalle, accesorios, rayones, rupturas, tornillos, gomas, estado, observaciones, cargador, cable, adaptador, bateria, pantalla, teclado, drum, toner) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status', '$number', '', 
+    $ins = $con->query("INSERT INTO ots (id_client, id_branch, id_contact, hours, created_at, type, description, id_service, leader, priority, status, tipo_visitas, number, comment
+     , detalle, accesorios, rayones, rupturas, tornillos, gomas, estado, observaciones, cargador, cable, adaptador, bateria, pantalla, teclado, drum, toner) VALUES ('$client', '$branch', '$contact', '$hours', '$created_at', '$type', '$description', '$service', '$leader', '$priority', '$status','$tipo_visita','$number', '', 
       '$detalle', '$accesorios', '$rayones', '$rupturas', '$tornillos', '$gomas', '$estado', '$observaciones', '$cargador', '$cable', '$adaptador', '$bateria', '$pantalla', '$teclado', '$drum', '$toner')");
 
 
@@ -90,7 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         foreach ($task as $val) {
-            $ins3 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$val','$equipment','$number','1','','0')");
+            $ins3 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status)
+             VALUES ('$val','$equipment','$number','1','','0')");
         }
 
         for ($f = 2; $f <= $equipos; $f++) {

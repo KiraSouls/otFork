@@ -347,7 +347,7 @@ while ($p = $sel_location->fetch_assoc()) {
             <table class="centered">
               <?php
               $i = 1;
-              $sel_ot = $con->query("SELECT a.*, b.name, c.series_number, c.id_model, d.name AS model_name
+              $sel_ot = $con->query("SELECT a.*, b.name, b.tiempo, c.series_number, c.id_model, d.name AS model_name
                        FROM tasks_equipments AS a
                        JOIN tasks AS b
                        ON a.id_tasks = b.id
@@ -361,6 +361,7 @@ while ($p = $sel_location->fetch_assoc()) {
                 <td>Número de serie</td>
                 <td>Modelo</td>
                 <td>Tarea</td>
+                <td>Tiempo (en Minutos)</td>
               </tr>
               <?php
 
@@ -384,6 +385,7 @@ while ($p = $sel_location->fetch_assoc()) {
                       ?>
                     </label>
                   </td>
+                  <td><?php echo $f['tiempo']; ?></td>
                 </tr>
               <?php $i++;
               } ?>

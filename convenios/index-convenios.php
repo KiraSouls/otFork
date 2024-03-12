@@ -19,7 +19,7 @@ include '../extend/header.php';
 
 <?php
 //$sel = $con->query("SELECT * FROM convenios");
-$sel = $con->query("SELECT c.id, c.number, c.visitas_presenciales, c.visitas_emergencia, c.soporte_remoto, c.estado, c.created_at,
+$sel = $con->query("SELECT c.id, c.visitas_presenciales, c.visitas_emergencia, c.soporte_remoto, c.horas_tecnicas, c.estado, c.created_at,
 cli.name
 FROM  convenios c
 INNER JOIN clients cli ON c.id_cliente = cli.id ORDER BY c.created_at desc
@@ -44,6 +44,7 @@ $row = mysqli_num_rows($sel);
             <th>Visitas Presenciales</th>
             <th>Visitas de Emergencia</th>
             <th>Soporte Remoto</th>
+            <th>Horas Técnicas</th>
             <th>Estado</th>
             <th class="borrar">Editar</th>
             <th class="borrar">Eliminar</th>
@@ -51,11 +52,12 @@ $row = mysqli_num_rows($sel);
           </thead>
           <?php while ($f = $sel->fetch_assoc()) { ?>
             <tr>
-              <td><?php echo $f['number'] ?></td>
+              <td><?php echo $f['id'] ?></td>
               <td><?php echo $f['name'] ?></td>
               <td><?php echo $f['visitas_presenciales'] ?></td>
               <td><?php echo $f['visitas_emergencia'] ?></td>
               <td><?php echo $f['soporte_remoto'] ?></td>
+              <td><?php echo $f['horas_tecnicas'] ?></td>
               <td><?php echo $f['estado'] ?></td>
               <td><a href="../convenios/update_conv.php?id=<?php echo $f['id'] ?>" class="btn-floating light-blue darken-2"><i class="material-icons">settings_applications</i></a></td>
               <td class="borrar"><a href="#" class="btn-floating red" onclick="swal({ title:'Esta seguro que desea eliminar el cliente?',text: 'Se perderan los datos!', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminar'}).then(function (isConfirm) {
