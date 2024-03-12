@@ -20,9 +20,11 @@ include '../extend/header.php';
 <?php
 //$sel = $con->query("SELECT * FROM convenios");
 $sel = $con->query("SELECT c.id, c.visitas_presenciales, c.visitas_emergencia, c.soporte_remoto, c.horas_tecnicas, c.estado, c.created_at,
-cli.name
+cli.name, br.location
 FROM  convenios c
+inner join branches br on c.id_branch = br.id 
 INNER JOIN clients cli ON c.id_cliente = cli.id ORDER BY c.created_at desc
+
 ");
 $row = mysqli_num_rows($sel);
 ?>
@@ -41,6 +43,7 @@ $row = mysqli_num_rows($sel);
           <thead>
             <th>Numero Convenio</th>
             <th>Cliente</th>
+            <th>Sucursal</th>
             <th>Visitas Presenciales</th>
             <th>Visitas de Emergencia</th>
             <th>Soporte Remoto</th>
@@ -54,6 +57,7 @@ $row = mysqli_num_rows($sel);
             <tr>
               <td><?php echo $f['id'] ?></td>
               <td><?php echo $f['name'] ?></td>
+              <td><?php echo $f['location'] ?></td>
               <td><?php echo $f['visitas_presenciales'] ?></td>
               <td><?php echo $f['visitas_emergencia'] ?></td>
               <td><?php echo $f['soporte_remoto'] ?></td>

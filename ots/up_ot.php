@@ -4,32 +4,59 @@ require '../filtro/vendor/autoload.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $con->real_escape_string(htmlentities($_POST['id']));
 
     $client  = $con->real_escape_string(htmlentities($_POST['client']));
     $branch = $con->real_escape_string(htmlentities($_POST['branch']));
     $contact = $con->real_escape_string(htmlentities($_POST['contact']));
-    $participants = $_POST['participants'];
-    $leader = $con->real_escape_string(htmlentities($_POST['leader']));
     $hours = $con->real_escape_string(htmlentities($_POST['hours']));
     $type = $con->real_escape_string(htmlentities($_POST['type']));
     $description = $con->real_escape_string(htmlentities($_POST['description']));
     $service = $con->real_escape_string(htmlentities($_POST['service']));
-    $task = $_POST['task'];
-    $equipment = $_POST['equipment'];
+    $leader = $con->real_escape_string(htmlentities($_POST['leader']));
     $priority = $con->real_escape_string(htmlentities($_POST['priority']));
     $status = $_POST['status'];
-    $id = $con->real_escape_string(htmlentities($_POST['id']));
     $number = $_POST['number_ot'];
-    $equipment2 = trim($_POST['equipment2']);
+
+    $detalle = $con->real_escape_string(htmlentities($_POST['deta']));
+    $accesorios = $con->real_escape_string(htmlentities($_POST['acce']));
+    $rayones = $con->real_escape_string(htmlentities($_POST['rayones']));
+    $rupturas = $con->real_escape_string(htmlentities($_POST['rupturas']));
+    $tornillos = $con->real_escape_string(htmlentities($_POST['tornillos']));
+    $gomas = $con->real_escape_string(htmlentities($_POST['gomas']));
+    $estado = $con->real_escape_string(htmlentities($_POST['estado']));
+    $observaciones = $con->real_escape_string(htmlentities($_POST['obs']));
+    $cargador = $con->real_escape_string(htmlentities($_POST['cargador']));
+    $cable = $con->real_escape_string(htmlentities($_POST['cable']));
+    $adaptador = $con->real_escape_string(htmlentities($_POST['adaptador']));
+    $bateria = $con->real_escape_string(htmlentities($_POST['bateria']));
+    $pantalla = $con->real_escape_string(htmlentities($_POST['pantalla']));
+    $teclado = $con->real_escape_string(htmlentities($_POST['teclado']));
+    $drum = $con->real_escape_string(htmlentities($_POST['drum']));
+    $toner = $con->real_escape_string(htmlentities($_POST['toner']));
+
+    $task = $_POST['task'];
     $task2 = $_POST['task2'];
-    $equipment3 = trim($_POST['equipment3']);
     $task3 = $_POST['task3'];
-    $equipment4 = trim($_POST['equipment4']);
     $task4 = $_POST['task4'];
-    $equipment5 = trim($_POST['equipment5']);
     $task5 = $_POST['task5'];
-    $equipment6 = trim($_POST['equipment6']);
     $task6 = $_POST['task6'];
+
+    $equipment = $_POST['equipment'];
+    $equipment2 = trim($_POST['equipment2']);
+    $equipment3 = trim($_POST['equipment3']);
+    $equipment4 = trim($_POST['equipment4']);
+    $equipment5 = trim($_POST['equipment5']);
+    $equipment6 = trim($_POST['equipment6']);
+
+    $participants = $_POST['participants'];
+
+
+
+
+
+
+
 
     $eli_tasks_equipment = $con->query("DELETE  FROM tasks_equipments WHERE number_ot='$number' ");
 
@@ -708,16 +735,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-<<<<<<< HEAD
     $up = $con->query("UPDATE ots SET id_client='$client', id_branch='$branch', id_contact='$contact', hours='$hours', type='$type'
     , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status',
     detalle='$detalle' , accesorios= '$accesorios', rayones='$rayones', rupturas='$rupturas', tornillos='$tornillos', gomas='$gomas', estado='$estado'
      , observaciones='$observaciones', cargador='$cargador', cable='$cable', adaptador='$adaptador', bateria='$bateria', pantalla='$pantalla', teclado='$teclado'
      , drum='$drum', toner='$toner'
       WHERE id='$id' ");
-=======
-    $up = $con->query("UPDATE ots SET id_client='$client', id_branch='$branch', id_contact='$contact', hours='$hours', type='$type', description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status' WHERE id='$id' ");
->>>>>>> parent of fdcfd08 (Formulario modificar 14-02-2024)
 
 
     if ($up) {
