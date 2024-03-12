@@ -81,39 +81,26 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                            <td>
                               <div class=" col s8">
                                  <label for="vp">Visitas Presenciales</label>
-                                 <select class="browser-default" name="vp" id="vp" required>
-                                 </select>
-
-                                 <!-- <?php
-                                       $periodo_año = date('Y');
-                                       $periodo_mes = date('m');
-                                       $sel2 = $con->query("SELECT count(*) FROM ots where MONTH(created_at) = $periodo_mes and YEAR(created_at) = $periodo_año and tipo_visitas = 'Presenciales'");
-
-                                       while ($f = $sel2->fetch_assoc()) {  ?>
-                                    <input disabled name="vp" type="number" value="<?php echo $f['count(*)']; ?>">
-
-                                 <?php  } ?> -->
+                                 <textarea disabled id="vp" name="vp"></textarea>
                               </div>
                            </td>
                            <td>
                               <div class=" col s8">
                                  <label for="ve">Visitas Emergencia</label>
-                                 <select class="browser-default" name="ve" id="ve" required>
-                                 </select>
+                                 <textarea disabled id="ve" name="ve"></textarea>
 
                               </div>
                            </td>
                            <td>
                               <div class=" col s8">
                                  <label for="vs">Visitas Soporte Remoto</label>
-                                 <select class="browser-default" name="vs" id="vs" required>
-                                 </select>
+                                 <textarea disabled id="vs" name="vs"></textarea>
                               </div>
                            </td>
                            <td>
                               <div class=" col s8">
                                  <label for="vt">Visitas Tecnicas</label>
-                                 <select class="browser-default" name="vt" id="vt" required>
+                                 <textarea disabled id="vt" name="vt"></textarea>
                                  </select>
                               </div>
                            </td>
@@ -761,6 +748,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       $('.modal-trigger').leanModal();
    });
 
+   //Todas las funciones hasta el siguiente comentario generan las "option" de las listas respectivas, al cambiar la lista correspondiente
    $(document).ready(function() {
       $("#client").change(function() {
          $("#client option:selected").each(function() {
@@ -774,8 +762,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       })
    });
 
-
-
    $(document).ready(function() {
       $("#client").change(function() {
          $("#client option:selected").each(function() {
@@ -783,7 +769,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             $.post("data_presencial.php", {
                id_client: id_client
             }, function(data) {
-               $("#vp").html(data);
+               document.getElementById("vp").textContent = data;
             });
          });
       })
@@ -796,7 +782,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             $.post("data_emergencia.php", {
                id_client: id_client
             }, function(data) {
-               $("#ve").html(data);
+               document.getElementById("ve").textContent = data;
             });
          });
       })
@@ -808,7 +794,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             $.post("data_soporte.php", {
                id_client: id_client
             }, function(data) {
-               $("#vs").html(data);
+               document.getElementById("vs").textContent = data;
             });
          });
       })
@@ -820,7 +806,10 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             $.post("data_tecnico.php", {
                id_client: id_client
             }, function(data) {
-               $("#vt").html(data);
+               if (data > 0) {
+                  document.getElementById("vt").textContent = data;
+                  alert("Convenio Vigente");
+               }
             });
          });
       })
@@ -857,6 +846,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       $("#branch").change(function() {
          $("#branch option:selected").each(function() {
             id_branch = $(this).val();
+
             $.post("data_contact.php", {
                id_branch: id_branch
             }, function(data) {
@@ -868,6 +858,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
 
    $(document).ready(function() {
       $("#service").change(function() {
+         //Esta funcion carga datos en las listas segun el servicio
          $("#service option:selected").each(function() {
             id_service = $(this).val();
 
@@ -1012,22 +1003,21 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       })
    });
 
-
    $(document).ready(function() {
       var i = 1;
 
+      //Funcion que permite añadir mas equipos al ingresar una ot
+
       $('#add').click(function() {
+
          $.post("data_line.php", {
             id_service: id_service,
             id_branch: id_branch
          }, function(data) {
-
             for (f = 0; f < i; f++) {
                $("#equipment" + i).html(data);
             }
-
          });
-
 
          $.post("data_service.php", {
             id_service: id_service
@@ -1037,7 +1027,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             }
          });
 
-
          $.post("data_subline.php", {
             id_service: id_service
          }, function(data) {
@@ -1045,7 +1034,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                $("#subline" + i).html(data);
             }
          });
-
 
          i++;
          $(document).ready(function() {

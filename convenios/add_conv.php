@@ -12,7 +12,7 @@
 
           <div>
             <label for="client">Cliente</label>
-            <select class="browser-default" name="id" id="id" required>
+            <select class="browser-default" name="client" id="client" required>
               <option value="" selected>Selecciona un cliente</option>
               <?php
 
@@ -23,7 +23,12 @@
             </select>
           </div>
           <br>
-
+          <div>
+            <label for="branch">Sucursal</label>
+            <select class="browser-default" name="branch" id="branch" required>
+            </select>
+          </div>
+          <br>
           <div class="input-field">
             <input type="number" name="v_p" required id="v_p" title="v_p" required>
             <label for="v_p">Visitas Presenciales:</label>
@@ -68,7 +73,18 @@
 
 <?php include '../extend/scripts.php'; ?>
 <script>
-
+  $(document).ready(function() {
+    $("#client").change(function() {
+      $("#client option:selected").each(function() {
+        id_client = $(this).val();
+        $.post("data.php", {
+          id_client: id_client
+        }, function(data) {
+          $("#branch").html(data);
+        });
+      });
+    })
+  });
 </script>
 </body>
 

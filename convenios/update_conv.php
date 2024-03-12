@@ -9,7 +9,7 @@ $sel = $con->query("SELECT * FROM convenios WHERE id = '$id' ");
 while ($f = $sel->fetch_assoc()) {
   $id = $f['id'];
   $id_cliente = $f['id_cliente'];
-
+  $id_branch = $f['id_branch'];
   $visitas_presenciales = $f['visitas_presenciales'];
   $visitas_emergencia = $f['visitas_emergencia'];
   $soporte_remoto = $f['soporte_remoto'];
@@ -28,7 +28,7 @@ while ($f = $sel->fetch_assoc()) {
 
             <div>
               <label for="client">Cliente</label>
-              <select class="browser-default" name="clir" id="clir" required>
+              <select class="browser-default" name="cliente" id="cliente" required>
                 <option value="" selected>Selecciona un cliente</option>
                 <?php
                 $sel2 = $con->query("SELECT * FROM clients");
@@ -42,6 +42,20 @@ while ($f = $sel->fetch_assoc()) {
             </div>
             <br>
 
+            <div>
+              <label for="client">Sucursal</label>
+              <select class="browser-default" name="branch" id="branch" required>
+                <option value="" selected>Selecciona una sucursal</option>
+                <?php
+                $sel2 = $con->query("SELECT * FROM branches");
+                while ($f = $sel2->fetch_assoc()) {  ?>
+                  <option value='<?php echo $f['id']; ?>' <?php if ($f['id'] == $id_branch) {
+                                                            echo 'selected';
+                                                          } ?>> <?php echo $f['location'] ?></option>
+                <?php  } ?>
+              </select>
+            </div>
+            <br>
             <div class="input-field">
               <input type="number" name="v_p" required id="v_p" title="Visitas Presenciales" value="<?php echo $visitas_presenciales; ?>">
               <label for="v_p">Visitas Presenciales:</label>

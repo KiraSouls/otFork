@@ -2,7 +2,8 @@
 include '../conn/connn.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-  $id_cliente = $con->real_escape_string(htmlentities($_POST['id']));
+  $id_cliente = $con->real_escape_string(htmlentities($_POST['client']));
+  $id_branch = $con->real_escape_string(htmlentities($_POST['branch']));
 
 
   $visitas_presenciales = $con->real_escape_string(htmlentities($_POST['v_p']));
@@ -14,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
   //Consulta
-  $ins = $con->query("INSERT INTO convenios (id_cliente, visitas_presenciales, visitas_emergencia, soporte_remoto, horas_tecnicas, estado)
-   VALUES ('$id_cliente','$visitas_presenciales','$visitas_emergencia','$soporte_remoto', '$horas_tecnicas', '$estado')");
+  $ins = $con->query("INSERT INTO convenios (id_cliente, id_branch, visitas_presenciales, visitas_emergencia, soporte_remoto, horas_tecnicas, estado)
+   VALUES ('$id_cliente','$id_branch','$visitas_presenciales','$visitas_emergencia','$soporte_remoto', '$horas_tecnicas', '$estado')");
 
   if ($ins) {
     header('location:../extend/alerta.php?msj=Se ingreso con exito&c=cnv&p=r&t=success');

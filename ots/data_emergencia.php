@@ -10,7 +10,7 @@ and id_client= '$id_client'");
 
 while ($f = $sel2->fetch_assoc()) {
 
-    $html .= "<option value='" . $f['count(*)'] . "'>" . $f['count(*)'] . "</option>";
+    $count = $f['count(*)'];
 }
 
-echo $html;
+echo $count;

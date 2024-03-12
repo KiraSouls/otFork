@@ -16,7 +16,7 @@ while ($f = $sel->fetch_assoc()) {
    $hours = $f['hours'];
    $priority = $f['priority'];
    $status = $f['status'];
-
+   $tipo_visitas = $f['tipo_visitas'];
 
    $detalle = $f['detalle'];
    $accesorios = $f['accesorios'];
@@ -664,28 +664,32 @@ while ($g = $sel_id_line->fetch_assoc()) {
                      </div>
                   </div>
 
-                  <div class="col s6">
-                     <label for="task">Prioridad</label>
-                     <select class="" name="priority" id="priority">
+                  <div class="row">
+                     <div class="col s6">
+                        <label for="priority">Prioridad</label>
+                        <select class="browser-default" name="priority" id="priority">
 
-                        <option value="alta" <?php if ($priority == 'alta') {
-                                                echo 'selected';
-                                             } ?>>Alta</option>
-
-                        <option value="media" <?php if ($priority == 'media') {
+                           <option value="alta" <?php if ($priority == 'alta') {
                                                    echo 'selected';
-                                                } ?>>Media</option>
+                                                } ?>>Alta</option>
 
-                        <option value="baja" <?php if ($priority == 'baja') {
-                                                echo 'selected';
-                                             } ?>>Baja</option>
+                           <option value="media" <?php if ($priority == 'media') {
+                                                      echo 'selected';
+                                                   } ?>>Media</option>
 
-                     </select>
+                           <option value="baja" <?php if ($priority == 'baja') {
+                                                   echo 'selected';
+                                                } ?>>Baja</option>
 
+                        </select>
+
+                     </div>
                   </div>
 
                   <div class="row">
                      <div class="col s12">
+                        <label for="type">Tipo de Orden</label>
+
                         <p>
                            <input id="interna" type="radio" name="type" value="Laboratorio" <?php if ($type == 'Laboratorio') {
                                                                                                 echo 'checked';
@@ -704,6 +708,40 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                                           echo 'checked';
                                                                                        } ?> />
                            <label for="remota">Remota</label>
+                        </p>
+
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class=" col s12">
+                        <label for="type">Tipo de Visita</label>
+                        <p>
+                           <input id="pre" type="radio" name="typev" value="Presencial" <?php if ($tipo_visitas == 'Presencial') {
+                                                                                             echo 'checked';
+                                                                                          } ?> />
+                           <label for="pre">Presencial</label>
+                        </p>
+
+                        <p>
+                           <input id="em" type="radio" name="typev" value="Emergencia" <?php if ($tipo_visitas == 'Emergencia') {
+                                                                                          echo 'checked';
+                                                                                       } ?> />
+                           <label for="em">Emergencia</label>
+                        </p>
+
+                        <p>
+                           <input id="sr" type="radio" name="typev" value="Soporte Remoto" <?php if ($tipo_visitas == 'Soporte Remoto') {
+                                                                                                echo 'checked';
+                                                                                             } ?> />
+                           <label for="sr">Soporte Remoto</label>
+                        </p>
+
+                        <p>
+                           <input id="ht" type="radio" name="typev" value="Horas Tecnicas" <?php if ($tipo_visitas == 'Horas Tecnicas') {
+                                                                                                echo 'checked';
+                                                                                             } ?> />
+                           <label for="ht">Horas Técnicas</label>
                         </p>
 
                      </div>
@@ -1080,6 +1118,7 @@ while ($g = $sel_id_line->fetch_assoc()) {
       });
    });
 </script>
+
 
 </body>
 
