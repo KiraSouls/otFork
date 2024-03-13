@@ -40,7 +40,7 @@ if ($row == '1') {
     if ($val > 0) {
         $sum = $val - $count;
     } else {
-        $sum = "error";
+        $sum = "cotizar";
     }
     echo $sum;
 } else {

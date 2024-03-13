@@ -35,7 +35,7 @@ and id_client= '$id_client' and id_branch= '$id_branch'");
     if ($val > 0) {
         $sum = $val - $count;
     } else {
-        $sum = "error";
+        $sum = "cotizar";
     }
     echo $sum;
 } else {
