@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $leader = $con->real_escape_string(htmlentities($_POST['leader']));
     $priority = $con->real_escape_string(htmlentities($_POST['priority']));
     $status = $_POST['status'];
+    $tipo_visitas = $_POST['typev'];
     $number = $_POST['number_ot'];
 
     $detalle = $con->real_escape_string(htmlentities($_POST['deta']));
@@ -51,44 +52,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $participants = $_POST['participants'];
 
-
-
-
-
-
-
-
     $eli_tasks_equipment = $con->query("DELETE  FROM tasks_equipments WHERE number_ot='$number' ");
-
-
     $eli_participants = $con->query("DELETE  FROM participants WHERE ot_number='$number' ");
-
     foreach ($task as $val) {
-
-
         //$ins3 = $con->query("INSERT tasks_equipments VALUES('','$val','','$number','1','','0')");
         $ins3 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$val','2','$number','1','2','0')");
     }
-
-
     $up1 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment' WHERE number_ot='$number' AND task_set=1 ");
-
     foreach ($participants as $valor) {
-
-
         //$ins2 = $con->query("INSERT participants VALUES('','$valor','$description','$number')");
         $ins2 = $con->query("INSERT INTO participants (participant_name, description, ot_number) VALUES ('$valor','$description','$number')");
-
-
         $sel3 = $con->query("SELECT email FROM techs WHERE name='$valor'");
-
         while ($k = $sel3->fetch_assoc()) {
             $email = $k['email'];
         }
 
-
         // Consultas para el correo :
-
         $service_name = $con->query("SELECT service_name FROM services WHERE id='$service'");
         $branch_name = $con->query("SELECT branch_name FROM branches WHERE id='$branch'");
         $client_name = $con->query("SELECT name FROM clients WHERE id='$client'");
@@ -107,35 +86,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $client_email = $client_email_row['email'];
         $created_at = $created_at_row['created_at'];
 
-
         $contact_id = $con->query("SELECT id_contact from ots where number = '$number_ot' ");
-
         $contact_id_row = $contact_id->fetch_assoc();
         $contact_id = $contact_id_row['id_contact'];
 
-
         $contact_email = $con->query("SELECT email from contacts where id = '$contact_id' ");
-
         $contact_email_row = $contact_email->fetch_assoc();
         $contact_email = $contact_email_row['email'];
-
-
-
-
 
         // Enviar correo
 
         if ($status == "finalizada") {
 
             // Correo técnicos :
-
             $to =  $email; // email tecnico $email
             $subject = 'Orden de trabajo finalizada';
             $headers = "From: SC Informatica <proyectos@scinformatica.cl>\r\n";
             $headers .= "Reply-To: proyectos@scinformatica.cl\r\n";
             $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
             $message = '
         <html>
 
@@ -455,18 +424,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         </html>';
 
-
         if (mail($to_cliente, $subject_cliente, $message_cliente, $headers)) {
             echo 'El correo para el cliente se envi車 correctamente.';
         } else {
             echo 'Hubo un error al enviar el correo al cliente.';
         }
-
-
-
-
-
-
 
         // Correos de respaldo
 
@@ -664,63 +626,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo 'Hubo un error al enviar el correo al cliente.';
         }
-
-        //
-
-
-
     }
-
-
-
-
-
-
-
-
     foreach ($task2 as $vale) {
-
         //$ins4 = $con->query("INSERT tasks_equipments VALUES('','$vale','','$number','2','','0')");
         $ins4 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$vale','','$number','2','','0')");
     }
 
     $up4 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment2' WHERE number_ot='$number' AND task_set=2 ");
-
-
-
-
     foreach ($task3 as $vali) {
-
         //$ins5 = $con->query("INSERT tasks_equipments VALUES('','$vali','','$number','3','','0')");
         $ins5 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$vali','','$number','3','','0')");
     }
 
     $up5 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment3' WHERE number_ot='$number' AND task_set=3 ");
-
-
-
     foreach ($task4 as $va) {
-
         //$ins6 = $con->query("INSERT tasks_equipments VALUES('','$va','','$number','4','','0')");
         $ins6 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$va','','$number','4','','0')");
     }
 
     $up6 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment4' WHERE number_ot='$number' AND task_set=4 ");
-
     foreach ($task5 as $v) {
         //$ins7 = $con->query("INSERT tasks_equipments VALUES('','$v','','$number','5','','0')");
         $ins7 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$v','','$number','5','','0')");
     }
 
     $up7 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment5' WHERE number_ot='$number' AND task_set=5 ");
-
     foreach ($task6 as $valuex) {
         //$ins8 = $con->query("INSERT tasks_equipments VALUES('','$valuex','','$number','6','','0')");
         $ins8 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$valuex','','$number','6','','0')");
     }
 
     $up8 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment6' WHERE number_ot='$number' AND task_set=6 ");
-
     foreach ($task6 as $vol) {
         //$ins9 = $con->query("INSERT tasks_equipments VALUES('','$vol','','$number','7','','0')");
         $ins9 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$vol','','$number','7','','0')");
@@ -728,27 +664,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $up9 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment7' WHERE number_ot='$number' AND task_set=7 ");
 
-
-
-
-
-
-
-
+    //Metodo Update OT
     $up = $con->query("UPDATE ots SET id_client='$client', id_branch='$branch', id_contact='$contact', hours='$hours', type='$type'
-    , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status',
+    , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status', tipo_visitas='$tipo_visitas',
     detalle='$detalle' , accesorios= '$accesorios', rayones='$rayones', rupturas='$rupturas', tornillos='$tornillos', gomas='$gomas', estado='$estado'
      , observaciones='$observaciones', cargador='$cargador', cable='$cable', adaptador='$adaptador', bateria='$bateria', pantalla='$pantalla', teclado='$teclado'
      , drum='$drum', toner='$toner'
       WHERE id='$id' ");
-
 
     if ($up) {
         header('location:../extend/alerta.php?msj=Orden actualizado&c=ots&p=fuera&t=success&id=' . $id . '');
     } else {
         header('location:../extend/alerta.php?msj=La orden no se pudo actualizar&c=ots&p=update_ot&t=error&id=' . $id . '');
     }
-
     $con->close();
 } else {
     header('location:../extend/alerta.php?msj=Utiliza el formulario&c=ofer&p=img&t=error&id=' . $id . '');
