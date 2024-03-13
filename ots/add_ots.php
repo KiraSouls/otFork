@@ -762,58 +762,46 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       })
    });
 
-   $(document).ready(function() {
-      $("#client").change(function() {
-         $("#client option:selected").each(function() {
-            id_client = $(this).val();
-            $.post("data_presencial.php", {
-               id_client: id_client
-            }, function(data) {
-               document.getElementById("vp").textContent = data;
-            });
-         });
-      })
-   });
+   // $(document).ready(function() {
+   //    $("#client").change(function() {
+   //       $("#client option:selected").each(function() {
+   //          id_client = $(this).val();
+   //          $.post("data_presencial.php", {
+   //             id_client: id_client
+   //          }, function(data) {
+   //             document.getElementById("vp").textContent = data;
+   //          });
+   //       });
+   //    })
+   // });
 
-   $(document).ready(function() {
-      $("#client").change(function() {
-         $("#client option:selected").each(function() {
-            id_client = $(this).val();
-            $.post("data_emergencia.php", {
-               id_client: id_client
-            }, function(data) {
-               document.getElementById("ve").textContent = data;
-            });
-         });
-      })
-   });
-   $(document).ready(function() {
-      $("#client").change(function() {
-         $("#client option:selected").each(function() {
-            id_client = $(this).val();
-            $.post("data_soporte.php", {
-               id_client: id_client
-            }, function(data) {
-               document.getElementById("vs").textContent = data;
-            });
-         });
-      })
-   });
-   $(document).ready(function() {
-      $("#client").change(function() {
-         $("#client option:selected").each(function() {
-            id_client = $(this).val();
-            $.post("data_tecnico.php", {
-               id_client: id_client
-            }, function(data) {
-               if (data > 0) {
-                  document.getElementById("vt").textContent = data;
-                  alert("Convenio Vigente");
-               }
-            });
-         });
-      })
-   });
+   // $(document).ready(function() {
+   //    $("#client").change(function() {
+   //       $("#client option:selected").each(function() {
+   //          id_client = $(this).val();
+   //          $.post("data_emergencia.php", {
+   //             id_client: id_client
+   //          }, function(data) {
+   //             document.getElementById("ve").textContent = data;
+   //          });
+   //       });
+   //    })
+   // });
+
+   // $(document).ready(function() {
+   //    $("#client").change(function() {
+   //       $("#client option:selected").each(function() {
+   //          id_client = $(this).val();
+   //          $.post("data_soporte.php", {
+   //             id_client: id_client
+   //          }, function(data) {
+   //             document.getElementById("vs").textContent = data;
+   //          });
+   //       });
+   //    })
+   // });
+
+
 
    $(document).ready(function() {
       $("#brand_name").change(function() {
@@ -861,6 +849,81 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
          //Esta funcion carga datos en las listas segun el servicio
          $("#service option:selected").each(function() {
             id_service = $(this).val();
+
+            $.post("data_presencial.php", {
+               id_client: id_client,
+               id_branch: id_branch,
+               id_service: id_service
+            }, function(data) {
+               if (data > 0) {
+                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  document.getElementById("vp").textContent = data;
+               }
+               if (data <= 0) {
+                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  document.getElementById("vp").textContent = data;
+               }
+               if (data == "error") {
+                  document.getElementById("vp").textContent = "0";
+               }
+            });
+
+
+            $.post("data_emergencia.php", {
+               id_client: id_client,
+               id_branch: id_branch,
+               id_service: id_service
+            }, function(data) {
+               if (data > 0) {
+                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  document.getElementById("ve").textContent = data;
+               }
+               if (data <= 0) {
+                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  document.getElementById("ve").textContent = data;
+               }
+               if (data == "error") {
+                  document.getElementById("ve").textContent = "0";
+               }
+            });
+
+
+            $.post("data_soporte.php", {
+               id_client: id_client,
+               id_branch: id_branch,
+               id_service: id_service
+            }, function(data) {
+               if (data > 0) {
+                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  document.getElementById("vs").textContent = data;
+               }
+               if (data <= 0) {
+                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  document.getElementById("vs").textContent = data;
+               }
+               if (data == "error") {
+                  document.getElementById("vs").textContent = "0";
+               }
+            });
+
+
+            $.post("data_tecnico.php", {
+               id_client: id_client,
+               id_branch: id_branch,
+               id_service: id_service
+            }, function(data) {
+               if (data > 0) {
+                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  document.getElementById("vt").textContent = data;
+               }
+               if (data <= 0) {
+                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  document.getElementById("vt").textContent = data;
+               }
+               if (data == "error") {
+                  document.getElementById("vt").textContent = "0";
+               }
+            });
 
             $.post("data_tech.php", {
                id_service: id_service
