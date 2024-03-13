@@ -863,6 +863,9 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
                   document.getElementById("vp").textContent = data;
                }
+               if (data == "cotizar") {
+                  document.getElementById("vp").textContent = "0";
+               }
                if (data == "error") {
                   document.getElementById("vp").textContent = "0";
                }
@@ -881,6 +884,9 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                if (data <= 0) {
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
                   document.getElementById("ve").textContent = data;
+               }
+               if (data == "cotizar") {
+                  document.getElementById("ve").textContent = "0";
                }
                if (data == "error") {
                   document.getElementById("ve").textContent = "0";
@@ -901,6 +907,9 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
                   document.getElementById("vs").textContent = data;
                }
+               if (data == "cotizar") {
+                  document.getElementById("vs").textContent = "0";
+               }
                if (data == "error") {
                   document.getElementById("vs").textContent = "0";
                }
@@ -919,6 +928,10 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                if (data <= 0) {
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
                   document.getElementById("vt").textContent = data;
+               }
+               if (data == "cotizar") {
+                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  document.getElementById("vt").textContent = "0";
                }
                if (data == "error") {
                   document.getElementById("vt").textContent = "0";
