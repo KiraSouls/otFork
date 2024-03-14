@@ -467,6 +467,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
    </div>
 </div>
 <?php include '../extend/scripts.php'; ?>
+<!-- Se setean los campos vacios para añadirles el contenido segun corresponda -->
 <style>
    #area {
       display: none;
@@ -762,47 +763,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       })
    });
 
-   // $(document).ready(function() {
-   //    $("#client").change(function() {
-   //       $("#client option:selected").each(function() {
-   //          id_client = $(this).val();
-   //          $.post("data_presencial.php", {
-   //             id_client: id_client
-   //          }, function(data) {
-   //             document.getElementById("vp").textContent = data;
-   //          });
-   //       });
-   //    })
-   // });
-
-   // $(document).ready(function() {
-   //    $("#client").change(function() {
-   //       $("#client option:selected").each(function() {
-   //          id_client = $(this).val();
-   //          $.post("data_emergencia.php", {
-   //             id_client: id_client
-   //          }, function(data) {
-   //             document.getElementById("ve").textContent = data;
-   //          });
-   //       });
-   //    })
-   // });
-
-   // $(document).ready(function() {
-   //    $("#client").change(function() {
-   //       $("#client option:selected").each(function() {
-   //          id_client = $(this).val();
-   //          $.post("data_soporte.php", {
-   //             id_client: id_client
-   //          }, function(data) {
-   //             document.getElementById("vs").textContent = data;
-   //          });
-   //       });
-   //    })
-   // });
-
-
-
    $(document).ready(function() {
       $("#brand_name").change(function() {
          $("#brand_name option:selected").each(function() {
@@ -834,7 +794,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
       $("#branch").change(function() {
          $("#branch option:selected").each(function() {
             id_branch = $(this).val();
-
             $.post("data_contact.php", {
                id_branch: id_branch
             }, function(data) {
@@ -871,7 +830,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                }
             });
 
-
             $.post("data_emergencia.php", {
                id_client: id_client,
                id_branch: id_branch,
@@ -893,7 +851,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                }
             });
 
-
             $.post("data_soporte.php", {
                id_client: id_client,
                id_branch: id_branch,
@@ -914,7 +871,6 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   document.getElementById("vs").textContent = "0";
                }
             });
-
 
             $.post("data_tecnico.php", {
                id_client: id_client,

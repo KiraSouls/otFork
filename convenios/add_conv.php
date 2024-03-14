@@ -1,8 +1,5 @@
 <?php include '../extend/header.php';
-
 ?>
-
-
 <div class="row" style="padding-top:10px;">
   <div class="col s12">
     <div class="card">

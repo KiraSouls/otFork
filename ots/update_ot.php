@@ -818,7 +818,6 @@ while ($g = $sel_id_line->fetch_assoc()) {
          </div>
       </div>
    </div>
-
 </div>
 <?php include '../extend/scripts.php'; ?>
 

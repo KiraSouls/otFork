@@ -22,6 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('location:../extend/alerta.php?msj=Se ingreso con exito&c=cnv&p=r&t=success');
   } else {
     //  header('location:../extend/alerta.php?msj=No se pudo ingresar el registro&c=cnv&p=r&t=error');
+    echo $id_cliente;
+    echo $id_branch;
+    echo $visitas_emergencia;
+    echo $visitas_presenciales;
+    echo $soporte_remoto;
+    echo $horas_tecnicas;
+    echo $estado;
   }
   $con->close();
 } else {

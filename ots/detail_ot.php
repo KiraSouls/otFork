@@ -414,6 +414,8 @@ while ($p = $sel_location->fetch_assoc()) {
 $row = mysqli_num_rows($sel);
 ?>
 
+
+
 <div class="row">
   <div class="col s12">
     <div style="min-height:320px;" class="card">
@@ -481,9 +483,38 @@ $row = mysqli_num_rows($sel);
 
     </div>
   </div>
-
 </div>
 
+<div class="row">
+  <div class=" col s12">
+    <div class="card">
+      <div class="card-content">
+        <span>Actividades Adicionales</span>
+        <table class="excel striped responsive-table" border="1">
+          <thead>
+            <th>Nombre</th>
+            <th>Duración</th>
+
+          </thead>
+          <?php
+          $sel2 = $con->query("SELECT * FROM activities WHERE id_ot = '$id' ");
+
+
+          while ($f = $sel2->fetch_assoc()) {  ?>
+            <tr>
+              <td><?php echo $f['name'] ?></td>
+              <td><?php echo $f['hours'] ?> Horas</td>
+
+            </tr>
+
+          <?php  } ?>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
