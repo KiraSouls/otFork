@@ -489,7 +489,7 @@ $row = mysqli_num_rows($sel);
   <div class=" col s12">
     <div class="card">
       <div class="card-content">
-        <span>Actividades</span>
+        <span>Actividades Adicionales</span>
         <table class="excel striped responsive-table" border="1">
           <thead>
             <th>Nombre</th>
