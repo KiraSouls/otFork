@@ -2,8 +2,8 @@
 <?php
 include_once '../conn/connn.php';
 
-//url datos de tabla 
-$consulta = "SELECT o.id, o.description, o.leader, o.status, o.created_at, o.number,
+//url datos de tabla
+$consulta = "SELECT o.id, o.description, o.leader, o.status, o.created_at, o.number, o.cotizacion,
 cli.name,
 bra.location,
 ser.service_name

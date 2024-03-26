@@ -1,6 +1,7 @@
-<?php include '../extend/header_tech.php'; 
+<?php include '../extend/header_tech.php';
 $name = $_SESSION['name'];
-//phpinfo();?>
+//phpinfo();
+?>
 
 <div class="row" style="PADDING-TOP: 14PX;">
     <div class="col s12">
@@ -16,8 +17,13 @@ $name = $_SESSION['name'];
     </div>
 </div>
 
-<?php $sel = $con->query("select e.id, o.number, c.name, b.branch_name, o.leader, e.dia, e.hora, o.status, ser.service_name from ejecucion_ot e inner join ots o on e.ot=o.number 
-inner join clients c on c.id=o.id_client inner join branches b on b.id=o.id_branch INNER JOIN services ser ON o.id_service = ser.id where o.leader='$name'");
+<?php $sel = $con->query("select e.id, o.number, c.name, b.branch_name, b.location, o.leader, e.dia, e.hora, o.status, ser.service_name
+from ejecucion_ot e
+inner join ots o on e.ot=o.number
+inner join clients c on c.id=o.id_client
+inner join branches b on b.id=o.id_branch
+INNER JOIN services ser ON o.id_service = ser.id
+where o.leader='$name'");
 $row = mysqli_num_rows($sel);
 ?>
 
@@ -40,24 +46,26 @@ $row = mysqli_num_rows($sel);
                         <th>Día</th>
                         <th>Hora</th>
                     </thead>
-                    <?php  while ($f = $sel->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo $f['number'] ?></td>
-                        <td><?php echo $f['name']."-".$f['location'] ?></td>
-                        <td><?php echo $f['service_name'] ?></td>
-                        <td><?php echo $f['leader'] ?></td>
-                        <td>
-                            <?php if ($f['status'] == 'iniciada') {?>
-                            <span class='task-cat green'><?php echo $f['status'] ?></span> 
-                            <?php }if ($f['status'] == 'finalizada') { ?>
-                            <span class='task-cat grey'><?php echo $f['status'] ?></span>
-                            <?php  }  if ($f['status'] == 'pendiente'){ ?>
-                            <span class='task-cat yellow'><?php echo $f['status'] ?></span>
-                            <?php } ?>
-                        </td>
-                        <td><?php echo substr($f['dia'], 0, 10) ?></td>
-                        <td><?php echo $f['hora'] ?></td>
-                    </tr>
+                    <?php while ($f = $sel->fetch_assoc()) { ?>
+                        <tr>
+                            <td><?php echo $f['number'] ?></td>
+                            <td><?php echo $f['name'] . "-" . $f['location'] ?></td>
+                            <td><?php echo $f['service_name'] ?></td>
+                            <td><?php echo $f['leader'] ?></td>
+                            <td>
+                                <?php if ($f['status'] == 'iniciada') { ?>
+                                    <span class='task-cat green'><?php echo $f['status'] ?></span>
+                                <?php }
+                                if ($f['status'] == 'finalizada') { ?>
+                                    <span class='task-cat grey'><?php echo $f['status'] ?></span>
+                                <?php  }
+                                if ($f['status'] == 'pendiente') { ?>
+                                    <span class='task-cat yellow'><?php echo $f['status'] ?></span>
+                                <?php } ?>
+                            </td>
+                            <td><?php echo substr($f['dia'], 0, 10) ?></td>
+                            <td><?php echo $f['hora'] ?></td>
+                        </tr>
                     <?php } ?>
                 </table>
             </div>

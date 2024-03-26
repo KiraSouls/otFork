@@ -17,6 +17,7 @@ while ($f = $sel->fetch_assoc()) {
    $priority = $f['priority'];
    $status = $f['status'];
    $tipo_visitas = $f['tipo_visitas'];
+   $coti = $f['cotizacion'];
 
    $detalle = $f['detalle'];
    $accesorios = $f['accesorios'];
@@ -115,6 +116,16 @@ while ($g = $sel_id_line->fetch_assoc()) {
                                                                      } ?>> <?php echo $f['service_name'] ?></option>
                            <?php  } ?>
                         </select>
+                     </div>
+                     <div class=" col s6">
+                        <label for="coti">Número Cotización</label>
+                        <input required id="coti" type="text" name="coti" value="<?php if ($coti == "Cotizar") {
+                                                                                    echo "";
+                                                                                 } else {
+                                                                                    echo $coti;
+                                                                                 } ?>">
+
+
                      </div>
                   </div>
 

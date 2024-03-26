@@ -37,6 +37,7 @@ $row = mysqli_num_rows($sel);
                         <th>Responsable</th>
                         <th>Estado</th>
                         <th>Fecha</th>
+                        <th>Cotizacion</th>
                         <th>Ver</th>
                         <th class="borrar">Editar</th>
                         <th class="borrar">Eliminar</th>
@@ -124,6 +125,9 @@ $row = mysqli_num_rows($sel);
                     }
                 }, {
                     "data": "created_at",
+                },
+                {
+                    "data": "cotizacion",
                 }, {
                     // Botón "Ver"
                     "data": null,

@@ -81,26 +81,25 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                            <td>
                               <div class=" col s8">
                                  <label for="vp">Visitas Presenciales</label>
-                                 <textarea disabled id="vp" name="vp"></textarea>
+                                 <input id="vp" type="text" style="width : 20px; heigth : 10px" name="vp" readonly>
                               </div>
                            </td>
                            <td>
                               <div class=" col s8">
                                  <label for="ve">Visitas Emergencia</label>
-                                 <textarea disabled id="ve" name="ve"></textarea>
-
+                                 <input id="ve" type="text" style="width : 20px; heigth : 10px" name="ve" readonly>
                               </div>
                            </td>
                            <td>
                               <div class=" col s8">
                                  <label for="vs">Visitas Soporte Remoto</label>
-                                 <textarea disabled id="vs" name="vs"></textarea>
+                                 <input id="vs" type="text" style="width : 20px; heigth : 10px" name="vs" readonly>
                               </div>
                            </td>
                            <td>
                               <div class=" col s8">
                                  <label for="vt">Visitas Tecnicas</label>
-                                 <textarea disabled id="vt" name="vt"></textarea>
+                                 <input id="vt" type="text" style="width : 20px; heigth : 10px" name="vt" readonly>
                                  </select>
                               </div>
                            </td>
@@ -412,7 +411,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div class=" col s12">
                         <label for="type">Tipo de Orden</label>
                         <p>
-                           <input id="interna" type="radio" name="type" value="Laboratorio" checked />
+                           <input required id="interna" type="radio" name="type" value="Laboratorio" checked />
                            <label for="interna">Laboratorio</label>
                         </p>
 
@@ -433,7 +432,7 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                      <div class=" col s12">
                         <label for="type">Tipo de Visita</label>
                         <p>
-                           <input id="pre" type="radio" name="typev" value="Presencial" checked />
+                           <input required id="pre" type="radio" name="typev" value="Presencial" checked />
                            <label for="pre">Presencial</label>
                         </p>
 
@@ -456,6 +455,11 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                   </div>
 
                   <input id="number" type="text" name="number" value="<?php echo $number ?>" hidden>
+
+                  <input id="coti1" type="text" name="coti1" value="No Aplica" hidden>
+                  <input id="coti2" type="text" name="coti2" value="No Aplica" hidden>
+                  <input id="coti3" type="text" name="coti3" value="No Aplica" hidden>
+                  <input id="coti4" type="text" name="coti4" value="No Aplica" hidden>
 
                   <button class="btn light-blue darken-2" name="btn-guardar" id="btn-guardar">Crear</button>
 
@@ -816,17 +820,23 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             }, function(data) {
                if (data > 0) {
                   alert("Convenio Vigente, Visitas Disponibles: " + data);
-                  document.getElementById("vp").textContent = data;
+                  $("#vp").val(data);
+                  $("#coti1").val("No Aplica");
                }
                if (data <= 0) {
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
-                  document.getElementById("vp").textContent = data;
+                  $("#vp").val(data);
+                  $("#coti1").val("Cotizar");
                }
                if (data == "cotizar") {
-                  document.getElementById("vp").textContent = "0";
+                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  $("#vp").val("0");
+                  $("#coti1").val("Cotizar");
                }
                if (data == "error") {
-                  document.getElementById("vp").textContent = "0";
+                  alert("Convenio No Existe");
+                  $("#vp").val("0");
+                  $("#coti1").val("Cotizar");
                }
             });
 
@@ -837,17 +847,23 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             }, function(data) {
                if (data > 0) {
                   alert("Convenio Vigente, Visitas Disponibles: " + data);
-                  document.getElementById("ve").textContent = data;
+                  $("#ve").val(data);
+                  $("#coti2").val("No Aplica");
                }
                if (data <= 0) {
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
-                  document.getElementById("ve").textContent = data;
+                  $("#ve").val(data);
+                  $("#coti2").val("Cotizar");
                }
                if (data == "cotizar") {
-                  document.getElementById("ve").textContent = "0";
+                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  $("#ve").val("0");
+                  $("#coti2").val("Cotizar");
                }
                if (data == "error") {
-                  document.getElementById("ve").textContent = "0";
+                  alert("Convenio No Existe");
+                  $("#ve").val("0");
+                  $("#coti2").val("Cotizar");
                }
             });
 
@@ -858,17 +874,22 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             }, function(data) {
                if (data > 0) {
                   alert("Convenio Vigente, Visitas Disponibles: " + data);
-                  document.getElementById("vs").textContent = data;
+                  $("#vs").val(data);
+                  $("#coti3").val("No Aplica");
                }
                if (data <= 0) {
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
-                  document.getElementById("vs").textContent = data;
+                  $("#coti3").val("Cotizar");
                }
                if (data == "cotizar") {
-                  document.getElementById("vs").textContent = "0";
+                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  $("#vs").val("0");
+                  $("#coti3").val("Cotizar");
                }
                if (data == "error") {
-                  document.getElementById("vs").textContent = "0";
+                  alert("Convenio No Existe");
+                  $("#vs").val("0");
+                  $("#coti3").val("Cotizar");
                }
             });
 
@@ -879,18 +900,27 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
             }, function(data) {
                if (data > 0) {
                   alert("Convenio Vigente, Visitas Disponibles: " + data);
-                  document.getElementById("vt").textContent = data;
+                  $("#vt").val(data);
+                  $("#coti4").val("No Aplica");
+
                }
                if (data <= 0) {
                   alert("Convenio Vigente, Cotizar Visitas: " + data);
-                  document.getElementById("vt").textContent = data;
+                  $("#vt").val(data);
+                  $("#coti4").val("Cotizar");
+
                }
                if (data == "cotizar") {
                   alert("Convenio No Encontrado, Requiere Cotizar");
-                  document.getElementById("vt").textContent = "0";
+                  $("#vt").val("0");
+                  $("#coti4").val("Cotizar");
+
                }
                if (data == "error") {
-                  document.getElementById("vt").textContent = "0";
+                  alert("Convenio No Existe");
+                  $("#vt").val("0");
+                  $("#coti4").val("Cotizar");
+
                }
             });
 

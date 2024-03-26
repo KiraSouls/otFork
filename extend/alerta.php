@@ -112,6 +112,9 @@
     case 'in':
       $pagina = "users.php";
       break;
+    case 'techin':
+      $pagina = "index-techs.php";
+      break;
     case 'tech':
       $pagina = "tech.php";
       break;

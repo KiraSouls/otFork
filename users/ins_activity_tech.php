@@ -6,7 +6,7 @@ include '../conn/connn.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $id = $con->real_escape_string(htmlentities($_POST['id']));
-  $activity_name = $con->real_escape_string(htmlentities($_POST['name']));
+  $activity_name = $con->real_escape_string(htmlentities($_POST['activity_name']));
   $hours  = $con->real_escape_string(htmlentities($_POST['hours']));
   $created_at = date("Y-m-d H:i:s");
 
@@ -16,9 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($ins) {
     $up = $con->query("UPDATE ots SET status='pendiente'  WHERE id = '$id' ");
-    header('location:../extend/alerta.php?msj=La actividad se ingreso con exito, la orden se encuentra en estado PENDIENTE&c=home&p=cashier&t=success');
+
+    header('location:../extend/alerta.php?msj=La actividad se ingreso con exito, la orden se encuentra en estado PENDIENTE&c=us&p=cashier&t=success');
   } else {
-    header('location:../extend/alerta.php?msj=No se pudo ingresar la actividad&c=home&p=cashier&t=error');
+    header('location:../extend/alerta.php?msj=No se pudo ingresar la actividad&c=us&p=cashier&t=error');
   }
   $con->close();
 } else {

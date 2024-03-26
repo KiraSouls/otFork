@@ -59,7 +59,7 @@ if ($_SESSION['email'] == null && $_SESSION['password'] == null) {
     <?php  } ?>
     </div>
   </li>
-  <li><a class="menu_active" id="ordenes" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;margin-top: 0px;border-left: 4px solid #0288d1;" href="tech.php"><i style="color: white;" class="material-icons">assignment</i>Mis Ordenes</a></li>
+  <li><a class="menu_active" id="ordenes" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;margin-top: 0px;border-left: 4px solid #0288d1;" href="../users/tech.php"><i style="color: white;" class="material-icons">assignment</i>Mis Ordenes</a></li>
   <li><a id="repuestos" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href=""><i style="color: white;" class="material-icons">build</i>Repuestos</a></li>
   <li><a id="" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../reclamo/agendamiento_tech.php"><i style="color: white;" class="material-icons">event</i>Agendamiento</a></li>
   <li><a id="" style="font-weight: 400;letter-spacing: 1px; color: white; font-size: 16px;" href="../login/salir.php"><i style="color: white;" class="material-icons">power_settings_new</i>Salir</a></li>

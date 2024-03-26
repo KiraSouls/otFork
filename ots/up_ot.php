@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $priority = $con->real_escape_string(htmlentities($_POST['priority']));
     $status = $_POST['status'];
     $tipo_visitas = $_POST['typev'];
+    $coti = $_POST['coti'];
     $number = $_POST['number_ot'];
 
     $detalle = $con->real_escape_string(htmlentities($_POST['deta']));
@@ -55,12 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $eli_tasks_equipment = $con->query("DELETE  FROM tasks_equipments WHERE number_ot='$number' ");
     $eli_participants = $con->query("DELETE  FROM participants WHERE ot_number='$number' ");
     foreach ($task as $val) {
-        //$ins3 = $con->query("INSERT tasks_equipments VALUES('','$val','','$number','1','','0')");
         $ins3 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$val','2','$number','1','2','0')");
     }
     $up1 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment' WHERE number_ot='$number' AND task_set=1 ");
     foreach ($participants as $valor) {
-        //$ins2 = $con->query("INSERT participants VALUES('','$valor','$description','$number')");
         $ins2 = $con->query("INSERT INTO participants (participant_name, description, ot_number) VALUES ('$valor','$description','$number')");
         $sel3 = $con->query("SELECT email FROM techs WHERE name='$valor'");
         while ($k = $sel3->fetch_assoc()) {
@@ -367,7 +366,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             </style>
         </head>
-
         <body>
             <div class="container">
                 <div style="text-align: center;">
@@ -628,37 +626,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     foreach ($task2 as $vale) {
-        //$ins4 = $con->query("INSERT tasks_equipments VALUES('','$vale','','$number','2','','0')");
         $ins4 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$vale','','$number','2','','0')");
     }
 
     $up4 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment2' WHERE number_ot='$number' AND task_set=2 ");
     foreach ($task3 as $vali) {
-        //$ins5 = $con->query("INSERT tasks_equipments VALUES('','$vali','','$number','3','','0')");
         $ins5 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$vali','','$number','3','','0')");
     }
 
     $up5 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment3' WHERE number_ot='$number' AND task_set=3 ");
     foreach ($task4 as $va) {
-        //$ins6 = $con->query("INSERT tasks_equipments VALUES('','$va','','$number','4','','0')");
         $ins6 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$va','','$number','4','','0')");
     }
 
     $up6 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment4' WHERE number_ot='$number' AND task_set=4 ");
     foreach ($task5 as $v) {
-        //$ins7 = $con->query("INSERT tasks_equipments VALUES('','$v','','$number','5','','0')");
         $ins7 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$v','','$number','5','','0')");
     }
 
     $up7 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment5' WHERE number_ot='$number' AND task_set=5 ");
     foreach ($task6 as $valuex) {
-        //$ins8 = $con->query("INSERT tasks_equipments VALUES('','$valuex','','$number','6','','0')");
         $ins8 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$valuex','','$number','6','','0')");
     }
 
     $up8 = $con->query("UPDATE tasks_equipments SET id_equipment='$equipment6' WHERE number_ot='$number' AND task_set=6 ");
     foreach ($task6 as $vol) {
-        //$ins9 = $con->query("INSERT tasks_equipments VALUES('','$vol','','$number','7','','0')");
         $ins9 = $con->query("INSERT INTO tasks_equipments (id_tasks, id_equipment, number_ot, task_set, comment, status) VALUES ('$vol','','$number','7','','0')");
     }
 
@@ -666,7 +658,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Metodo Update OT
     $up = $con->query("UPDATE ots SET id_client='$client', id_branch='$branch', id_contact='$contact', hours='$hours', type='$type'
-    , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status', tipo_visitas='$tipo_visitas',
+    , description='$description', id_service='$service', leader='$leader', priority='$priority', status='$status', tipo_visitas='$tipo_visitas', cotizacion='$coti',
     detalle='$detalle' , accesorios= '$accesorios', rayones='$rayones', rupturas='$rupturas', tornillos='$tornillos', gomas='$gomas', estado='$estado'
      , observaciones='$observaciones', cargador='$cargador', cable='$cable', adaptador='$adaptador', bateria='$bateria', pantalla='$pantalla', teclado='$teclado'
      , drum='$drum', toner='$toner'

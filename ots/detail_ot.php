@@ -21,8 +21,7 @@ while ($f = $sel->fetch_assoc()) {
   $number_ot = $f['number'];
   $comment = $f['comment'];
 
-  // $valor = strtotime($created_at);
-  // $contador = idate('m', $valor) + 1;
+
 
   $detalle = $f['detalle'];
   $accesorios = $f['accesorios'];
@@ -127,40 +126,6 @@ while ($p = $sel_location->fetch_assoc()) {
             $sel2 = $con->query("SELECT * FROM services WHERE id='$id_service'");
             while ($f = $sel2->fetch_assoc()) {  ?>
               <input disabled type="text" name="name_client" value="<?php echo $f['service_name'] ?>" required>
-
-              <!-- <?php  } ?>
-
-            <label for="hour_price">Fecha:</label>
-            <?php
-            $sel2 = $con->query("SELECT * FROM ots WHERE id='$id'");
-            while ($f = $sel2->fetch_assoc()) {
-            ?>
-              <input disabled type="text" value="<?php echo $f['created_at'] = date("m");
-                                                  ?>" required>
- -->
-
-              <!-- Periodo;
-
-<label for="periodos">Periodo:</label>
-<select class="form-control" style="height: 40px;padding-left: 5px;" name="periodo" id="periodo" required>
-     <option value="">Seleccione un Periodo</option>
-     <option value="1">Enero</option>
-     <option value="2">Febrero</option>
-     <option value="3">Marzo</option>
-     <option value="4">Abril</option>
-     <option value="5">Mayo</option>
-     <option value="6">Junio</option>
-     <option value="7">Julio</option>
-     <option value="8">Agosto</option>
-     <option value="9">Septiembre</option>
-     <option value="10">Octubre</option>
-     <option value="11">Noviembre</option>
-     <option value="12">Diciembre</option>
-</select> -->
-              <!-- <label for="hour_price"><?php echo $contador
-                                            ?></label> -->
-
-
             <?php  } ?>
 
             <label for="hour_price">¿El Equipo Posee Detalles?</label>
@@ -385,7 +350,7 @@ while ($p = $sel_location->fetch_assoc()) {
                       ?>
                     </label>
                   </td>
-                  <td><?php echo $f['tiempo']; ?></td>
+                  <td><?php echo $f['tiempo']; ?> Min</td>
                 </tr>
               <?php $i++;
               } ?>
@@ -395,7 +360,7 @@ while ($p = $sel_location->fetch_assoc()) {
 
             <label for="hour_price">Comentario del técnico</label>
             <?php
-            $sel2 = $con->query("SELECT DISTINCT comment FROM  tasks_equipments WHERE number_ot='$number_ot'");
+            $sel2 = $con->query("SELECT DISTINCT comment FROM ots WHERE number='$number_ot'");
             while ($f = $sel2->fetch_assoc()) {
             ?>
               <textarea style="height:150px;" name="" id="" cols="60" rows="90" disabled><?php echo $comment ?></textarea>
