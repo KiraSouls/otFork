@@ -140,7 +140,7 @@
       $pagina = "update_tech.php";
       break;
     case 'home':
-      $pagina = "index0.php";
+      $pagina = "index.php";
       break;
     case 'club':
       $pagina = "perfil.php";

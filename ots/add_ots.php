@@ -819,24 +819,20 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                id_service: id_service
             }, function(data) {
                if (data > 0) {
-                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  alert("Convenio Vigente, Visitas Presenciales Disponibles: " + data);
                   $("#vp").val(data);
-                  $("#coti1").val("No Aplica");
                }
                if (data <= 0) {
-                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  alert("Convenio Vigente, Cotizar Visitas Presenciales: " + data);
                   $("#vp").val(data);
-                  $("#coti1").val("Cotizar");
                }
                if (data == "cotizar") {
-                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  alert("Convenio de Visitas Presenciales No Encontrado, Requiere Cotizar");
                   $("#vp").val("0");
-                  $("#coti1").val("Cotizar");
                }
                if (data == "error") {
-                  alert("Convenio No Existe");
+                  alert("Convenio de Visitas Presenciales No Existe");
                   $("#vp").val("0");
-                  $("#coti1").val("Cotizar");
                }
             });
 
@@ -846,24 +842,20 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                id_service: id_service
             }, function(data) {
                if (data > 0) {
-                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  alert("Convenio Vigente, Visita de Emergencia Disponibles: " + data);
                   $("#ve").val(data);
-                  $("#coti2").val("No Aplica");
                }
                if (data <= 0) {
-                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  alert("Convenio Vigente, Cotizar Visitas de Emergencia: " + data);
                   $("#ve").val(data);
-                  $("#coti2").val("Cotizar");
                }
                if (data == "cotizar") {
-                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  alert("Convenio de Visitas de Emergencia No Encontrado, Requiere Cotizar");
                   $("#ve").val("0");
-                  $("#coti2").val("Cotizar");
                }
                if (data == "error") {
-                  alert("Convenio No Existe");
+                  alert("Convenio de Visitas de Emergencia No Existe");
                   $("#ve").val("0");
-                  $("#coti2").val("Cotizar");
                }
             });
 
@@ -873,23 +865,20 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                id_service: id_service
             }, function(data) {
                if (data > 0) {
-                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  alert("Convenio Vigente, Soporte Remoto Disponible: " + data);
                   $("#vs").val(data);
-                  $("#coti3").val("No Aplica");
                }
                if (data <= 0) {
-                  alert("Convenio Vigente, Cotizar Visitas: " + data);
-                  $("#coti3").val("Cotizar");
+                  alert("Convenio Vigente, Cotizar Soporte Remoto: " + data);
+                  $("#vs").val(data);
                }
                if (data == "cotizar") {
-                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  alert("Convenio de Soporte Remoto No Encontrado, Requiere Cotizar");
                   $("#vs").val("0");
-                  $("#coti3").val("Cotizar");
                }
                if (data == "error") {
-                  alert("Convenio No Existe");
+                  alert("Convenio de Soporte Remoto No Existe");
                   $("#vs").val("0");
-                  $("#coti3").val("Cotizar");
                }
             });
 
@@ -899,28 +888,20 @@ $number = $con->real_escape_string(htmlentities($_GET['number']));
                id_service: id_service
             }, function(data) {
                if (data > 0) {
-                  alert("Convenio Vigente, Visitas Disponibles: " + data);
+                  alert("Convenio Vigente, Horas Tecnicas Disponibles: " + data);
                   $("#vt").val(data);
-                  $("#coti4").val("No Aplica");
-
                }
                if (data <= 0) {
-                  alert("Convenio Vigente, Cotizar Visitas: " + data);
+                  alert("Convenio Vigente, Cotizar Horas Tecnicas: " + data);
                   $("#vt").val(data);
-                  $("#coti4").val("Cotizar");
-
                }
                if (data == "cotizar") {
-                  alert("Convenio No Encontrado, Requiere Cotizar");
+                  alert("Convenio de Horas Tecnicas No Encontrado, Requiere Cotizar");
                   $("#vt").val("0");
-                  $("#coti4").val("Cotizar");
-
                }
                if (data == "error") {
-                  alert("Convenio No Existe");
+                  alert("Convenio de Horas Tecnicas No Existe");
                   $("#vt").val("0");
-                  $("#coti4").val("Cotizar");
-
                }
             });
 

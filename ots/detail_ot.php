@@ -356,8 +356,6 @@ while ($p = $sel_location->fetch_assoc()) {
               } ?>
             </table>
 
-
-
             <label for="hour_price">Comentario del técnico</label>
             <?php
             $sel2 = $con->query("SELECT DISTINCT comment FROM ots WHERE number='$number_ot'");
@@ -378,8 +376,6 @@ while ($p = $sel_location->fetch_assoc()) {
 <?php $sel = $con->query("SELECT * FROM advances WHERE ot_number='$number_ot'");
 $row = mysqli_num_rows($sel);
 ?>
-
-
 
 <div class="row">
   <div class="col s12">

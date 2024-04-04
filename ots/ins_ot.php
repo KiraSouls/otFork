@@ -30,23 +30,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = "iniciada";
     $number = $number + 1;
 
-    $coti1 = $_POST['coti1'];
-    $coti2 = $_POST['coti2'];
-    $coti3 = $_POST['coti3'];
-    $coti4 = $_POST['coti4'];
 
-    $visitas_presenciales = $_POST['vp'];
-    $visitas_emergencia = $_POST['ve'];
-    $soporte_remoto = $_POST['vs'];
-    $visitas_tecnicas = $_POST['vt'];
 
     $cotizar = "";
 
-    if ($coti1 == "Cotizar" || $coti2 == "Cotizar" || $coti3 == "Cotizar" || $coti4 == "Cotizar") {
+    if ($tipo_visita == "Presencial") {
+        $visita = $_POST['vp'];
+        if ($visita > 0) {
+            $cotizar = "No Aplica";
+        } else {
+            $cotizar = "Cotizar";
+        }
+    }
+    if ($tipo_visita == "Emergencia") {
+        $visita = $_POST['ve'];
+        if ($visita > 0) {
+            $cotizar = "No Aplica";
+        } else {
+            $cotizar = "Cotizar";
+        }
+    }
+    if ($tipo_visita == "Soporte Remoto") {
+        $visita = $_POST['vs'];
+        if ($visita > 0) {
+            $cotizar = "No Aplica";
+        } else {
+            $cotizar = "Cotizar";
+        }
+    }
+    if ($tipo_visita == "Horas Tecnicas") {
+        $visita = $_POST['vt'];
+        if ($visita > 0) {
+            $cotizar = "No Aplica";
+        } else {
+            $cotizar = "Cotizar";
+        }
+    } else {
+    }
+
+    /* if ($coti1 == "Cotizar" || $coti2 == "Cotizar" || $coti3 == "Cotizar" || $coti4 == "Cotizar") {
         $cotizar = "Cotizar";
     } else {
         $cotizar = "No Aplica";
-    }
+    } */
 
 
 
@@ -150,11 +176,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $tableRows .= '<td>' . $participant . '</td>';
                     $tableRows .= '</tr>';
                 }
-                //        $to_copy = 'rmoya@scinformatica.cl ,  scinformatica@scinformatica.cl'; // lista de emails que recibirán el comprobante
+                //                $to_copy = 'desarrollo1@scinformatica.cl'; // lista de emails que recibirán el comprobante
 
-
-                $to_copy = 'desarrollo1@scinformatica.cl'; // lista de emails que recibirán el comprobante
-                $subject_copy = 'Aviso Cotizar Orden: ' . $number;
+                $to_copy = 'rmoya@scinformatica.cl , lmoya@scinformatica.cl , finanzas@scinformatica.cl , ventas@scinformatica.cl , informatica@scinformatica.cl  , scinformatica@scinformatica.cl'; // lista de emails que recibirán el comprobante
+                $subject_copy = 'Aviso, Cotizar Orden: ' . $number;
                 $headers_copy = "From: SC Informatica <proyectos@scinformatica.cl>\r\n";
                 $headers_copy .= "Reply-To: proyectos@scinformatica.cl\r\n";
                 $headers_copy .= "MIME-Version: 1.0\r\n";

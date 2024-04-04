@@ -17,7 +17,7 @@ while ($f = $sel->fetch_assoc()) {
     $id_service = $f['id_service'];
     $leader = $f['leader'];
     $description = $f['description'];
-    $id_task = $f['id_task'];
+    // $id_task = $f['id_task'];
     $number_ot = $f['number'];
     $comment = $f['comment'];
     $created_at = $f['created_at'];
@@ -105,13 +105,6 @@ while ($p = $sel_location->fetch_assoc()) {
 
                         <?php  } ?>
 
-                        <label for="hour_price">Tarea</label>
-                        <?php
-                        $sel2 = $con->query("SELECT * FROM tasks WHERE id='$id_task'");
-                        while ($f = $sel2->fetch_assoc()) {  ?>
-                            <input disabled type="text" name="name_client" value="<?php echo $f['name'] ?>" required>
-
-                        <?php  } ?>
 
                         <label for="hour_price">Prioridad</label>
                         <?php
